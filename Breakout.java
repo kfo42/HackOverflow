@@ -18,14 +18,14 @@ import java.awt.event.*;
 public class Breakout extends GraphicsProgram {
 
 /** Width and height of application window in pixels.  IMPORTANT NOTE:
-  * ON SOME PLATFORMS THESE CONSTANTS MAY **NOT** ACTUALLT BE THE DIMENSIONS
+  * ON SOME PLATFORMS THESE CONSTANTS MAY **NOT** ACTUALLY BE THE DIMENSIONS
   * OF THE GRAPHICS CANVAS.  Use getWidth() and getHeight() to get the 
   * dimensions of the graphics canvas. */
 	public static final int APPLICATION_WIDTH = 400;
 	public static final int APPLICATION_HEIGHT = 600;
 
 /** Dimensions of game board.  IMPORTANT NOTE: ON SOME PLATFORMS THESE 
-  * CONSTANTS MAY **NOT** ACTUALLT BE THE DIMENSIONS OF THE GRAPHICS
+  * CONSTANTS MAY **NOT** ACTUALLY BE THE DIMENSIONS OF THE GRAPHICS
   * CANVAS.  Use getWidth() and getHeight() to get the dimensions of
   * the graphics canvas. */
 	private static final int WIDTH = APPLICATION_WIDTH;
