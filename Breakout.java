@@ -77,7 +77,6 @@ public class Breakout extends GraphicsProgram {
 			int y = e.getY();
 			add (paddle);
 			paddle.setLocation(x, y);
-			paddle.setVisible(false);
 
 			
 		}
