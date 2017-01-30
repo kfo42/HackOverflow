@@ -81,7 +81,6 @@ public class Breakout extends GraphicsProgram {
 		paddle.setFillColor(Color.BLACK);
 		paddle.setVisible(true);
 		paddle.setLocation(x, y);
-		paddle.setVisible(false);
 	}
 
 
