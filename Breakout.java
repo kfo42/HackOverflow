@@ -66,6 +66,23 @@ public class Breakout extends GraphicsProgram {
 /* Method: run() */
 /** Runs the Breakout program. */
 	public void run() {
+			GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
+			square = makeSquare();
+			addSquareToCenter();
+			addMouseListeners();
+
+		/**
+		 * Method: Mouse Moved
+		 * -------------------
+		 * This method is called anytime the mouse moves in the
+		 * program screen.
+		 */
+		public void mouseMoved(MouseEvent e) {
+			int x = e.getX() - SQUARE_SIZE/2;
+			int y = e.getY() - SQUARE_SIZE/2;
+			square.setLocation(x, y);
+		}
+		
 		/* You fill this in, along with any subsidiary methods */
 	}
 
