@@ -68,12 +68,12 @@ public class Breakout extends GraphicsProgram {
 	public void run() {
 			setUpBricks();
 			addMouseListeners();
-			GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
-			mouseMoved(null, paddle);
+			
 
 
 	}
-		public void mouseMoved(MouseEvent e, GRect paddle) {
+		public void mouseMoved(MouseEvent e) {
+			GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
 			paddle.setVisible(true);
 			int x = e.getX();
 			int y = e.getY();
