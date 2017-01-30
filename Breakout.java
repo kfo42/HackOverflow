@@ -67,13 +67,28 @@ public class Breakout extends GraphicsProgram {
 	/** Runs the Breakout program. */
 	GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
 
+	private double vx = 0;
+	private double vy = 0;
+	private RandomGenerator rgen = RandomGenerator.getInstance();
 
 	public void run() {
 		addMouseListeners();
 		paddle.setVisible(false);
 		setUpBricks();
 		waitForClick();
-		
+		GOval ball= makeBall();
+		if(hitLeftWall(ball) || hitRightWall(ball)) {
+			vx = rgen.nextDouble(1.0, 3.0);
+			if (rgen.nextBoolean(0.5)) vx = -vx;		
+		}
+		if(hitTopWall(ball) || hitBottomWall(ball)) {
+			vy = -vy;
+		}
+
+		// update visualization
+		ball.move(vx, vy);
+		double x =ball.getX();
+		double y = ball.getY();
 
 
 	}
@@ -117,7 +132,55 @@ public class Breakout extends GraphicsProgram {
 			y_brick = y_brick+BRICK_HEIGHT+BRICK_SEP;
 		}
 	}
+	private boolean hitBottomWall(GOval ball) {
+		return ball.getY() > getHeight() - ball.getHeight();
+	}
+
+	/**
+	 * Method: Hit Top Wall
+	 * -----------------------
+	 * Returns whether or not the given ball should bounce off
+	 * of the top wall of the window.
+	 */
+	private boolean hitTopWall(GOval ball) {
+		return ball.getY() <= 0;
+	}
+
+	/**
+	 * Method: Hit Right Wall
+	 * -----------------------
+	 * Returns whether or not the given ball should bounce off
+	 * of the right wall of the window.
+	 */
+	private boolean hitRightWall(GOval ball) {
+		return ball.getX() >= getWidth() - ball.getWidth();
+	}
+
+	/**
+	 * Method: Hit Left Wall
+	 * -----------------------
+	 * Returns whether or not the given ball should bounce off
+	 * of the left wall of the window.
+	 */
+	private boolean hitLeftWall(GOval ball) {
+		return ball.getX() <= 0;
+	}
+
+	/**
+	 * Method: Make Ball
+	 * -----------------------
+	 * Creates a ball, adds it to the screen, and returns it so
+	 * that the ball can be used for animation.
+	 */
+	public GOval makeBall() {
+		double size = BALL_RADIUS * 2;
+		GOval ball = new GOval(size, size);
+		ball.setFilled(true);
+		ball.setColor(Color.BLACK);
+		return ball;
+	}
+
 
 	/* You fill this in, along with any subsidiary methods */
-}
 
+}
