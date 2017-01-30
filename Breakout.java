@@ -80,6 +80,7 @@ public class Breakout extends GraphicsProgram {
 		add (ball, APPLICATION_WIDTH/2, APPLICATION_HEIGHT/2);
 		while(true){
 		vx = rgen.nextDouble(1.0, 3.0);
+		
 		if (rgen.nextBoolean(0.5)) vx = -vx;	
 		if(hitLeftWall(ball) || hitRightWall(ball)) {
 			vx=-vx;
@@ -184,6 +185,6 @@ public class Breakout extends GraphicsProgram {
 	}
 
 
-	/* You fill this in, along with any subsidiary methods */
+	private GObject getCollidingObject(){}
 
 }
