@@ -79,21 +79,25 @@ public class Breakout extends GraphicsProgram {
 		GOval ball= makeBall();
 		add (ball, APPLICATION_WIDTH/2, APPLICATION_HEIGHT/2);
 		while(true){
-		vx = rgen.nextDouble(1.0, 3.0);
-		
-		if (rgen.nextBoolean(0.5)) vx = -vx;	
-		if(hitLeftWall(ball) || hitRightWall(ball)) {
-			vx=-vx;
-		}
-		if(hitTopWall(ball) || hitBottomWall(ball)) {
-			vy = -vy;
+			vx = rgen.nextDouble(1.0, 3.0);
+
+			if (rgen.nextBoolean(0.5)) vx = -vx;	
+			if(hitLeftWall(ball) || hitRightWall(ball)) {
+				vx=-vx;
+			}
+			if(hitTopWall(ball) || hitBottomWall(ball)) {
+				vy = -vy;
+			}
+
+			// update visualization
+			ball.move(vx, vy);
+			double x = ball.getX();
+			double y = ball.getY();
+			GObject collider = getCollidingObject(x,y);
+
+
 		}
 
-		// update visualization
-		ball.move(vx, vy);
-		double x =ball.getX();
-		double y = ball.getY();
-		}
 
 	}
 	public void mouseMoved(MouseEvent e) {
@@ -185,6 +189,23 @@ public class Breakout extends GraphicsProgram {
 	}
 
 
-	private GObject getCollidingObject(){}
+
+	private GObject getCollidingObject(double x, double y){
+		if (getElementAt (x,y) !=null){
+			GObject collider = getElementAt (x,y);
+			return collider;
+		}else if (getElementAt (x+2*BALL_RADIUS,y) !=null){
+			GObject collider = getElementAt (x+2*BALL_RADIUS,y);
+			return collider;
+		}else if (getElementAt (x,y+2*BALL_RADIUS) !=null){
+			GObject collider = getElementAt (x,y+2*BALL_RADIUS);
+			return collider;
+		}else if (getElementAt (x+2*BALL_RADIUS,y+2*BALL_RADIUS) !=null){
+			GObject collider = getElementAt (x+2*BALL_RADIUS,y+2*BALL_RADIUS);
+			return collider;
+		}else{
+			return null;
+		}
+	}
 
 }
