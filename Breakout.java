@@ -98,13 +98,13 @@ public class Breakout extends GraphicsProgram {
 		double x_brick = 0;
 		double y_brick = 0;
 
-		while (brickCols != 0){
-			while (brickRows != 0) {
+		while (brickRows != 0){
+			while (brickCols != 0) {
 				x_brick = midpoint-(width*(brickCols/2));
-				while (brickRows > 0){
+				while (brickCols > 0){
 					GRect brick = new GRect(BRICK_WIDTH, BRICK_HEIGHT);
 					add (brick, x_brick, y_brick);
-					brickRows = brickRows-1 ;	
+					brickCols = brickCols-1 ;	
 					//The y-coordinate does not change, but the x-coordinate
 					//increases by one brick-width for each counted brick.
 					x_brick = x_brick + width+BRICK_SEP;
