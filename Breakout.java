@@ -125,8 +125,7 @@ public class Breakout extends GraphicsProgram {
 		}
 		GLabel end = new GLabel ("GAME OVER");
 		end.setVisible(true);
-		add (end, (getHeight()-end.getAscent())/2, (getWidth()-
-				end.getWidth())/2);
+		add (end, 200,200);
 				
 
 	}
