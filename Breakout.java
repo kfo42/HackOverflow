@@ -66,10 +66,11 @@ public class Breakout extends GraphicsProgram {
 	/* Method: run() */
 	/** Runs the Breakout program. */
 	GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
-
-	private double vx = 0;
-	private double vy = 3;
 	private RandomGenerator rgen = RandomGenerator.getInstance();
+
+	private double vx = rgen.nextDouble(1.0, 3.0);
+
+	private double vy = 3;
 
 	public void run() {
 		addMouseListeners();
@@ -79,7 +80,6 @@ public class Breakout extends GraphicsProgram {
 		GOval ball= makeBall();
 		add (ball, APPLICATION_WIDTH/2, APPLICATION_HEIGHT/2);
 		while(true){
-			vx = rgen.nextDouble(1.0, 3.0);
 
 			if (rgen.nextBoolean(0.5)) vx = -vx;	
 			if(hitLeftWall(ball) || hitRightWall(ball)) {
