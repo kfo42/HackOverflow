@@ -81,4 +81,3 @@ public class Breakout extends GraphicsProgram {
 		/* You fill this in, along with any subsidiary methods */
 	}
 
-}
