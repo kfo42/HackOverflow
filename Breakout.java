@@ -79,6 +79,8 @@ public class Breakout extends GraphicsProgram {
 	private int lives = 3;
 
 	public void run() {
+		AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
+
 		addMouseListeners();
 		//Prevents the paddle from leaving a "trail"
 		paddle.setVisible(false);
@@ -101,12 +103,18 @@ public class Breakout extends GraphicsProgram {
 			int bricksRemaining = NBRICKS_PER_ROW*NBRICK_ROWS;
 			if(hitLeftWall(ball) || hitRightWall(ball)) {
 				vx=-vx;
+				bounceClip.play();
+
 			}
 			if(hitTopWall(ball) || hitBottomWall(ball)) {
 				vy = -vy;
+				bounceClip.play();
+
 			}
 			if(hitBottomWall(ball)){
 				lives+=-1;
+				bounceClip.play();
+
 			}
 
 			// update visualization
@@ -117,8 +125,12 @@ public class Breakout extends GraphicsProgram {
 			GObject collider = getCollidingObject(x,y);
 			if (collider ==paddle){
 				vy = -vy;
+				bounceClip.play();
+
 			}else if (collider != null){
 				vy=-vy;
+				bounceClip.play();
+
 				remove(collider);
 				bricksRemaining +=-1;
 			}
