@@ -98,7 +98,7 @@ public class Breakout extends GraphicsProgram {
 			}	
 		
 		while(lives>0){
-
+			int bricksRemaining = NBRICKS_PER_ROW*NBRICK_ROWS;
 			if(hitLeftWall(ball) || hitRightWall(ball)) {
 				vx=-vx;
 			}
@@ -120,14 +120,17 @@ public class Breakout extends GraphicsProgram {
 			}else if (collider != null){
 				vy=-vy;
 				remove(collider);
+				bricksRemaining +=-1;
 			}
 
 		}
 		GLabel end = new GLabel ("GAME OVER");
 		end.setVisible(true);
 		end.setFont("Courier New-Bold-40");
-
-		add (end, getWidth()/2+end.getWidth()/2, getHeight()/2-end.getAscent()/2);
+		add (end, getWidth()/2, getHeight()/2);
+		
+			
+		}
 				
 
 	}
@@ -142,8 +145,6 @@ public class Breakout extends GraphicsProgram {
 		add (paddle);
 
 	}
-
-
 
 
 	private void setUpBricks(){
