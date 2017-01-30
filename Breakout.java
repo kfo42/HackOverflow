@@ -66,6 +66,8 @@ public class Breakout extends GraphicsProgram {
 	/* Method: run() */
 	/** Runs the Breakout program. */
 	GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
+	GRect brick = new GRect(BRICK_WIDTH, BRICK_HEIGHT);
+
 
 	public void run() {
 		addMouseListeners();
@@ -101,7 +103,6 @@ public class Breakout extends GraphicsProgram {
 			while (brickRows != 0) {
 				x_brick = midpoint-(width*(brickCols/2));
 				while (brickRows > 0){
-					GRect brick = new GRect(BRICK_WIDTH, BRICK_HEIGHT);
 					add (brick, x_brick, y_brick);
 					brickRows = brickRows-1 ;	
 					//The y-coordinate does not change, but the x-coordinate
