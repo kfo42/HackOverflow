@@ -123,7 +123,11 @@ public class Breakout extends GraphicsProgram {
 			}
 
 		}
-
+		GLabel end = new GLabel ("GAME OVER");
+		end.setFont("Courier New-Bold-90");
+		add (end, (getHeight()-end.getAscent())/2, (getWidth()-
+				end.getWidth())/2);
+				
 
 	}
 	
