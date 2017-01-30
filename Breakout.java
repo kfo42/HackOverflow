@@ -96,7 +96,7 @@ public class Breakout extends GraphicsProgram {
 		double midpoint = (getWidth())/2;
 		double width = BRICK_WIDTH;
 		double x_brick = 0;
-		double y_brick = 0;
+		double y_brick = BRICK_Y_OFFSET;
 
 		while (brickRows != 0){
 			while (brickCols != 0) {
@@ -112,7 +112,7 @@ public class Breakout extends GraphicsProgram {
 			}
 			brickCols = NBRICKS_PER_ROW;
 			brickRows += -1;
-			y_brick = y_brick+BRICK_Y_OFFSET;
+			y_brick = y_brick+BRICK_SEP;
 		}
 	}
 
