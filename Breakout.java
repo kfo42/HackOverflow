@@ -66,6 +66,7 @@ public class Breakout extends GraphicsProgram {
 /* Method: run() */
 /** Runs the Breakout program. */
 	public void run() {
+			setUpBricks();
 			addMouseListeners();
 			GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
 			mouseMoved(paddle);
@@ -81,6 +82,32 @@ public class Breakout extends GraphicsProgram {
 
 			
 		}
+		private void setUpBricks(){
+		double brickCols = NBRICKS_PER_ROW;
+		//Total number of bricks in the current row.
+		double brickRows = NBRICK_ROWS;
+		double midpoint = (getWidth())/2;
+		double width = BRICK_WIDTH;
+		double height = BRICK_HEIGHT;
+		double x_brick = 0;
+		double y_brick = getHeight()-BRICK_HEIGHT;
+		
+		while (brickCols != 0){
+			while (brickRows != 0) {
+				x_brick = midpoint-(width*(brickCols/2));
+				while (brickRows > 0){
+					GRect brick = new GRect(BRICK_WIDTH, BRICK_HEIGHT);
+					add (brick, x_brick, y_brick);
+					brickRows = brickRows-1 ;	
+					//The y-coordinate does not change, but the x-coordinate
+					//increases by one brick-width for each counted brick.
+					x_brick = x_brick + width;
+				}
+			}
+			brickRows -=1;
+			y_brick = y_brick-BRICK_HEIGHT-BRICK_Y_OFFSET;
+		}
+	}
 		
 		/* You fill this in, along with any subsidiary methods */
 	}
