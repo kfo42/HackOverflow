@@ -127,7 +127,7 @@ public class Breakout extends GraphicsProgram {
 		end.setVisible(true);
 		end.setFont("Courier New-Bold-40");
 
-		add (end, getWidth()/2+end.getWidth()/2, getHeight()/2-end.getAscent()/2, );
+		add (end, getWidth()/2+end.getWidth()/2, getHeight()/2-end.getAscent()/2);
 				
 
 	}
