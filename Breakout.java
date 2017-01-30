@@ -66,7 +66,6 @@ public class Breakout extends GraphicsProgram {
 	/* Method: run() */
 	/** Runs the Breakout program. */
 	GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
-	GRect brick = new GRect(BRICK_WIDTH, BRICK_HEIGHT);
 
 
 	public void run() {
@@ -98,6 +97,7 @@ public class Breakout extends GraphicsProgram {
 		double width = BRICK_WIDTH;
 		double x_brick = 0;
 		double y_brick = 0;
+		GRect brick = new GRect(BRICK_WIDTH, BRICK_HEIGHT);
 
 		while (brickCols != 0){
 			while (brickRows != 0) {
