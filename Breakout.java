@@ -66,12 +66,13 @@ public class Breakout extends GraphicsProgram {
 /* Method: run() */
 /** Runs the Breakout program. */
 	public void run() {
-			GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
 			addMouseListeners();
 			
 
 	}
 		public void mouseMoved(MouseEvent e) {
+			GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
+			paddle.setFilled(true);
 			int x = e.getX();
 			int y = e.getY();
 			add(paddle, x, y);
