@@ -76,6 +76,7 @@ public class Breakout extends GraphicsProgram {
 
 	private double vx = 0;
 	private double vy = 3;
+	private int lives = 3;
 
 	public void run() {
 		addMouseListeners();
@@ -92,15 +93,20 @@ public class Breakout extends GraphicsProgram {
 		
 		//Initializes the horizontal speed of the ball
 		vx=rgen.nextDouble(1.0, 3.0);
-		if (rgen.nextBoolean(0.5)) vx = -vx;	
+		if (rgen.nextBoolean(0.5)) {
+			vx = -vx;
+			}	
 		
-		while(true){
+		while(lives>0){
 
 			if(hitLeftWall(ball) || hitRightWall(ball)) {
 				vx=-vx;
 			}
 			if(hitTopWall(ball) || hitBottomWall(ball)) {
 				vy = -vy;
+			}
+			if(hitBottomWall(ball)){
+				lives+=-1;
 			}
 
 			// update visualization
