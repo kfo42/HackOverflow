@@ -67,6 +67,9 @@ public class Breakout extends GraphicsProgram {
 	/** Runs the Breakout program. */
 	GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
 	private RandomGenerator rgen = RandomGenerator.getInstance();
+	private Color[] color = {Color.RED, Color.RED, Color.ORANGE, Color.ORANGE,
+							Color.YELLOW, Color.YELLOW, Color.GREEN, Color.GREEN,
+							Color.CYAN, Color.CYAN};
 
 	private double vx = 0;
 	private double vy = 3;
@@ -130,20 +133,23 @@ public class Breakout extends GraphicsProgram {
 		double y_brick = BRICK_Y_OFFSET;
 
 		while (brickRows != 0){
+			int i=0;
 			while (brickCols != 0) {
 				x_brick = midpoint-(width*(brickCols/2));
 				while (brickCols > 0){
 					GRect brick = new GRect(BRICK_WIDTH, BRICK_HEIGHT);
+					brick.setFilled(true);
+					brick.setFillColor(color[i]);
+					brick.setColor(color[i]);
 					add (brick, x_brick, y_brick);
 					brickCols = brickCols-1 ;	
-					//The y-coordinate does not change, but the x-coordinate
-					//increases by one brick-width for each counted brick.
 					x_brick = x_brick + width+BRICK_SEP;
 				}
 			}
 			brickCols = NBRICKS_PER_ROW;
 			brickRows += -1;
 			y_brick = y_brick+BRICK_HEIGHT+BRICK_SEP;
+			i++;
 		}
 	}
 	private boolean hitBottomWall(GOval ball) {
