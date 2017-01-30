@@ -68,7 +68,7 @@ public class Breakout extends GraphicsProgram {
 	GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 
-	private double vx = rgen.nextDouble(1.0, 3.0);
+	private static final double vx = rgen.nextDouble(1.0, 3.0);
 
 	private double vy = 3;
 
