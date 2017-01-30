@@ -78,7 +78,7 @@ public class Breakout extends GraphicsProgram {
 		waitForClick();
 		GOval ball= makeBall();
 		add (ball, APPLICATION_WIDTH/2, APPLICATION_HEIGHT/2);
-		ball.move(vx, vy);
+		while(true){
 		vx = rgen.nextDouble(1.0, 3.0);
 		if (rgen.nextBoolean(0.5)) vx = -vx;	
 		if(hitLeftWall(ball) || hitRightWall(ball)) {
@@ -89,9 +89,10 @@ public class Breakout extends GraphicsProgram {
 		}
 
 		// update visualization
+		ball.move(vx, vy);
 		double x =ball.getX();
 		double y = ball.getY();
-
+		}
 
 	}
 	public void mouseMoved(MouseEvent e) {
