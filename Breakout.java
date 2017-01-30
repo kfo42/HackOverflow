@@ -110,8 +110,8 @@ public class Breakout extends GraphicsProgram {
 					x_brick = x_brick + width+BRICK_SEP;
 				}
 			}
-			brickRows -=1;
-			y_brick = y_brick-BRICK_HEIGHT-BRICK_Y_OFFSET;
+			brickRows = brickRows-1;
+			y_brick = y_brick+BRICK_HEIGHT+BRICK_Y_OFFSET;
 		}
 	}
 
