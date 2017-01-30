@@ -97,10 +97,10 @@ public class Breakout extends GraphicsProgram {
 		double width = BRICK_WIDTH;
 		double x_brick = 0;
 		double y_brick = 0;
-		GRect brick = new GRect(BRICK_WIDTH, BRICK_HEIGHT);
 
 		while (brickCols != 0){
 			while (brickRows != 0) {
+				GRect brick = new GRect(BRICK_WIDTH, BRICK_HEIGHT);
 				x_brick = midpoint-(width*(brickCols/2));
 				while (brickRows > 0){
 					add (brick, x_brick, y_brick);
