@@ -100,9 +100,9 @@ public class Breakout extends GraphicsProgram {
 
 		while (brickCols != 0){
 			while (brickRows != 0) {
-				GRect brick = new GRect(BRICK_WIDTH, BRICK_HEIGHT);
 				x_brick = midpoint-(width*(brickCols/2));
 				while (brickRows > 0){
+					GRect brick = new GRect(BRICK_WIDTH, BRICK_HEIGHT);
 					add (brick, x_brick, y_brick);
 					brickRows = brickRows-1 ;	
 					//The y-coordinate does not change, but the x-coordinate
