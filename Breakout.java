@@ -75,7 +75,7 @@ public class Breakout extends GraphicsProgram {
 			paddle.setFilled(true);
 			int x = e.getX();
 			int y = e.getY();
-			add(paddle, x, y);
+			paddle.setLocation(x, y);
 		}
 		
 		/* You fill this in, along with any subsidiary methods */
