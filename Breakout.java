@@ -68,7 +68,7 @@ public class Breakout extends GraphicsProgram {
 	GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 
-	private static final double vx = rgen.nextDouble(1.0, 3.0);
+	private double vx = 0
 
 	private double vy = 3;
 
@@ -79,9 +79,10 @@ public class Breakout extends GraphicsProgram {
 		waitForClick();
 		GOval ball= makeBall();
 		add (ball, APPLICATION_WIDTH/2, APPLICATION_HEIGHT/2);
+		vx=rgen.nextDouble(1.0, 3.0);
+		if (rgen.nextBoolean(0.5)) vx = -vx;	
 		while(true){
 
-			if (rgen.nextBoolean(0.5)) vx = -vx;	
 			if(hitLeftWall(ball) || hitRightWall(ball)) {
 				vx=-vx;
 			}
