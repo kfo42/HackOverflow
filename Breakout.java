@@ -69,7 +69,7 @@ public class Breakout extends GraphicsProgram {
 			setUpBricks();
 			addMouseListeners();
 			GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
-			mouseMoved(paddle);
+			mouseMoved(null, paddle);
 
 
 	}
@@ -88,7 +88,6 @@ public class Breakout extends GraphicsProgram {
 		double brickRows = NBRICK_ROWS;
 		double midpoint = (getWidth())/2;
 		double width = BRICK_WIDTH;
-		double height = BRICK_HEIGHT;
 		double x_brick = 0;
 		double y_brick = getHeight()-BRICK_HEIGHT;
 		
