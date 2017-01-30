@@ -89,7 +89,7 @@ public class Breakout extends GraphicsProgram {
 		double midpoint = (getWidth())/2;
 		double width = BRICK_WIDTH;
 		double x_brick = 0;
-		double y_brick = getHeight()-BRICK_HEIGHT;
+		double y_brick = 0;
 		
 		while (brickCols != 0){
 			while (brickRows != 0) {
@@ -100,7 +100,7 @@ public class Breakout extends GraphicsProgram {
 					brickRows = brickRows-1 ;	
 					//The y-coordinate does not change, but the x-coordinate
 					//increases by one brick-width for each counted brick.
-					x_brick = x_brick + width;
+					x_brick = x_brick + width+BRICK_SEP;
 				}
 			}
 			brickRows -=1;
