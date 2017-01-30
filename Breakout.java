@@ -79,13 +79,21 @@ public class Breakout extends GraphicsProgram {
 
 	public void run() {
 		addMouseListeners();
+		//Prevents the paddle from leaving a "trail"
 		paddle.setVisible(false);
+		
+		//Creates all rows of bricks
 		setUpBricks();
+		
 		waitForClick();
+		//Initializes the ball
 		GOval ball= makeBall();
 		add (ball, APPLICATION_WIDTH/2, APPLICATION_HEIGHT/2);
+		
+		//Initializes the horizontal speed of the ball
 		vx=rgen.nextDouble(1.0, 3.0);
 		if (rgen.nextBoolean(0.5)) vx = -vx;	
+		
 		while(true){
 
 			if(hitLeftWall(ball) || hitRightWall(ball)) {
@@ -112,6 +120,7 @@ public class Breakout extends GraphicsProgram {
 
 
 	}
+	
 	public void mouseMoved(MouseEvent e) {
 		int x = e.getX();
 		int y = getHeight()-PADDLE_Y_OFFSET;
