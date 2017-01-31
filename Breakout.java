@@ -119,7 +119,7 @@ public class Breakout extends GraphicsProgram {
 
 			// update visualization
 			ball.move(vx, vy);
-			pause(6);
+			pause(5);
 			double x = ball.getX();
 			double y = ball.getY();
 			GObject collider = getCollidingObject(x,y);
