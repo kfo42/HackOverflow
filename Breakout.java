@@ -76,7 +76,7 @@ public class Breakout extends GraphicsProgram {
 
 	private double vx = 0;
 	private double vy = 3;
-	private int lives = 3;
+	private int lives = 5;
 
 	public void run() {
 		AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
