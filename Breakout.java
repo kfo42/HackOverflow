@@ -114,6 +114,12 @@ public class Breakout extends GraphicsProgram {
 			if(hitBottomWall(ball)){
 				lives+=-1;
 				bounceClip.play();
+				GLabel tryAgain = new GLabel ("TRY AGAIN");
+				tryAgain.setVisible(true);
+				tryAgain.setFont("Courier New-Bold-40");
+				add (tryAgain, getWidth()/2-tryAgain.getWidth()/2, getHeight()/2);
+
+				
 
 			}
 
