@@ -63,16 +63,16 @@ public class Breakout extends GraphicsProgram {
 	/** Number of turns */
 	private static final int NTURNS = 3;
 
-	
+
 	/* Method: run() */
 	/** Runs the Breakout program. */
 	GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 	private Color[] color = {Color.RED, Color.RED, 
-							Color.ORANGE, Color.ORANGE,
-							Color.YELLOW, Color.YELLOW, 
-							Color.GREEN, Color.GREEN,
-							Color.CYAN, Color.CYAN};
+			Color.ORANGE, Color.ORANGE,
+			Color.YELLOW, Color.YELLOW, 
+			Color.GREEN, Color.GREEN,
+			Color.CYAN, Color.CYAN};
 
 	private double vx = 0;
 	private double vy = 3;
@@ -84,21 +84,21 @@ public class Breakout extends GraphicsProgram {
 		addMouseListeners();
 		//Prevents the paddle from leaving a "trail"
 		paddle.setVisible(false);
-		
+
 		//Creates all rows of bricks
 		setUpBricks();
-		
+
 		waitForClick();
 		//Initializes the ball
 		GOval ball= makeBall();
 		add (ball, APPLICATION_WIDTH/2, APPLICATION_HEIGHT/2);
-		
+
 		//Initializes the horizontal speed of the ball
 		vx=rgen.nextDouble(1.0, 3.0);
 		if (rgen.nextBoolean(0.5)) {
 			vx = -vx;
-			}	
-		
+		}	
+
 		while(lives>0){
 			int bricksRemaining = NBRICKS_PER_ROW*NBRICK_ROWS;
 			if(hitLeftWall(ball) || hitRightWall(ball)) {
@@ -115,12 +115,14 @@ public class Breakout extends GraphicsProgram {
 				lives+=-1;
 				bounceClip.play();
 				if (lives>0){
-				GLabel tryAgain = new GLabel ("TRY AGAIN");
-				tryAgain.setVisible(true);
-				tryAgain.setFont("Courier New-Bold-40");
-				add (tryAgain, getWidth()/2-tryAgain.getWidth()/2, getHeight()/2);
-			}
-				
+					GLabel tryAgain = new GLabel ("TRY AGAIN");
+					tryAgain.setVisible(true);
+					tryAgain.setFont("Courier New-Bold-40");
+					add (tryAgain, getWidth()/2-tryAgain.getWidth()/2, getHeight()/2);
+					pause(2);
+					remove(tryAgain);
+				}
+
 
 			}
 
@@ -147,13 +149,13 @@ public class Breakout extends GraphicsProgram {
 		end.setVisible(true);
 		end.setFont("Courier New-Bold-40");
 		add (end, getWidth()/2-end.getWidth()/2, getHeight()/2);
-		
-			
-		}
-				
 
-	
-	
+
+	}
+
+
+
+
 	public void mouseMoved(MouseEvent e) {
 		int x = e.getX();
 		int y = getHeight()-PADDLE_Y_OFFSET;
