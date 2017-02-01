@@ -180,7 +180,7 @@ public class Breakout extends GraphicsProgram {
 
 		while (brickRows != 0){
 			while (brickCols != 0) {
-				x_brick = midpoint-((width)*(brickCols/2)+(BRICK_SEP)*(brickCols/2-0.8));
+				x_brick = midpoint-((width)*(brickCols/2)+(BRICK_SEP)*(brickCols/2-0.85));
 				while (brickCols > 0){
 					GRect brick = new GRect(BRICK_WIDTH, BRICK_HEIGHT);
 					brick.setFilled(true);
