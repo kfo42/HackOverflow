@@ -119,7 +119,7 @@ public class Breakout extends GraphicsProgram {
 					tryAgain.setVisible(true);
 					tryAgain.setFont("Courier New-Bold-40");
 					add (tryAgain, getWidth()/2-tryAgain.getWidth()/2, getHeight()/2);
-					pause(1000);
+					pause(100);
 					remove(tryAgain);
 				}
 
