@@ -111,7 +111,7 @@ public class Breakout extends GraphicsProgram {
 				bounceClip.play();
 
 			}
-			if(hitBottomWall(ball)){
+			if(hitBottomWall(ball)&& lives>1){
 				lives+=-1;
 				bounceClip.play();
 				GLabel tryAgain = new GLabel ("TRY AGAIN");
