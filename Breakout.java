@@ -91,7 +91,7 @@ public class Breakout extends GraphicsProgram {
 		waitForClick();
 		//Initializes the ball
 		GOval ball= makeBall();
-		add (ball, APPLICATION_WIDTH/2, APPLICATION_HEIGHT/2);
+		add (ball, getWidth()/2, getHeight()/2);
 
 		//Initializes the horizontal speed of the ball
 		vx=rgen.nextDouble(1.0, 3.0);
@@ -180,7 +180,7 @@ public class Breakout extends GraphicsProgram {
 
 		while (brickRows != 0){
 			while (brickCols != 0) {
-				x_brick = midpoint-(width*(brickCols/2));
+				x_brick = midpoint-(width*(brickCols/2-1));
 				while (brickCols > 0){
 					GRect brick = new GRect(BRICK_WIDTH, BRICK_HEIGHT);
 					brick.setFilled(true);
