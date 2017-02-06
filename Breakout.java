@@ -108,9 +108,7 @@ public class Breakout extends GraphicsProgram {
 			}	
 
 			while(lives>0){
-				BALL_RADIUS-=1;
 
-				ball.setSize(BALL_RADIUS*2, BALL_RADIUS*2);
 				GLabel points = new GLabel("Score: "+bricksHit);
 
 				add (points, 20, PADDLE_Y_OFFSET/3);
@@ -128,7 +126,9 @@ public class Breakout extends GraphicsProgram {
 					bounceClip.play();
 					if(hitBottomWall(ball)){
 						if (lives>0){
+							BALL_RADIUS-=rgen.nextDouble(1.0, 3.0);
 
+							ball.setSize(BALL_RADIUS*2, BALL_RADIUS*2);
 							GLabel tryAgain = new GLabel ("TRY AGAIN");
 							tryAgain.setVisible(true);
 							tryAgain.setFont("Courier New-Bold-40");
