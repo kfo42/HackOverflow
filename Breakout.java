@@ -126,22 +126,23 @@ public class Breakout extends GraphicsProgram {
 					bounceClip.play();
 					if(hitBottomWall(ball)){
 						if (lives>0){
-						
-								BALL_RADIUS-=rgen.nextDouble(-1.0, 3.0);
-;
-							
+							//Randomizes the reduction in the size of the ball's radius,
+							//which increases difficulty with each life lost.
+							BALL_RADIUS-=rgen.nextDouble(1.0, 3.0);
 							ball.setSize(BALL_RADIUS*2, BALL_RADIUS*2);
+							//Displays a "TRY AGAIN" message after losing a life.
 							GLabel tryAgain = new GLabel ("TRY AGAIN");
 							tryAgain.setVisible(true);
 							tryAgain.setFont("Courier New-Bold-40");
 							add (tryAgain, getWidth()/2-tryAgain.getWidth()/2, getHeight()/2);
+							//Pauses between lives.
 							pause(500);
 							remove(tryAgain);
 							lives-=1;
 						}
 
 					}
-				
+
 				}
 
 
@@ -244,6 +245,8 @@ public class Breakout extends GraphicsProgram {
 			i++;
 		}
 	}
+	
+	//Determines whether the ball should bounce off of each wall.
 	private boolean hitBottomWall(GOval ball) {
 		return ball.getY() > getHeight() - ball.getHeight();
 	}
@@ -255,7 +258,6 @@ public class Breakout extends GraphicsProgram {
 	private boolean hitRightWall(GOval ball) {
 		return ball.getX() >= getWidth() - ball.getWidth();
 	}
-
 
 	private boolean hitLeftWall(GOval ball) {
 		return ball.getX() <= 0;
