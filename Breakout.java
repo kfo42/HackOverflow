@@ -410,11 +410,11 @@ public class Breakout extends GraphicsProgram {
 		
 		GLabel coinLabel1 = new GLabel ("3 Lives");
 		coinLabel1.setFont("Courier New-Bold-20");
-		add (coinLabel1, getWidth()/3-coinSlot1.getWidth()/2, 380);
+		add (coinLabel1, getWidth()/3-coinSlot1.getWidth(), 380);
 		
 		GLabel coinLabel2 = new GLabel ("6 Lives");
 		coinLabel2.setFont("Courier New-Bold-20");
-		add (coinLabel2, 2*getWidth()/3-coinSlot1.getWidth()/2, 380);
+		add (coinLabel2, 2*getWidth()/3-coinSlot1.getWidth(), 380);
 		
 		coin.setFillColor(Color.YELLOW);
 		coin.setFilled(true);
