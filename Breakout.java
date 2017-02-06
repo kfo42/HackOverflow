@@ -177,7 +177,8 @@ public class Breakout extends GraphicsProgram {
 				double x = ball.getX();
 				double y = ball.getY();
 
-				double paddleSpeed = prevX-x;
+				//Finds the magnitude of the paddle's current speed.
+				double paddleSpeed = Math.sqrt((prevX-x)*(prevX-x));
 
 				//Controls collisions between the ball, the paddle,
 				//and the bricks.
