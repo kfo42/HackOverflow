@@ -109,11 +109,12 @@ public class Breakout extends GraphicsProgram {
 		//allows for the game to restart when the player loses.
 		while(true){
 			//Produces a title sequence for Breakout.
+			addMouseListeners();
+
 			prepSequence();
 			//The sound of the ball's bounce.
 			AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
 
-			addMouseListeners();
 
 			//Creates all rows of bricks simultaneously
 			setUpBricks();
