@@ -172,17 +172,21 @@ public class Breakout extends GraphicsProgram {
 
 				}
 
-				double prevX=ball.getX();
-				double prevY=ball.getY();
+				double prevPadX=paddle.getX();
 				// Updates the position of the ball.
 				ball.move(vx, vy);
 				pause(5);
+				
+				//Finds the location of the paddle.
+				double newPadX=paddle.getX();
+				
+				//Finds the location of the ball.
 				double x = ball.getX();
 				double y = ball.getY();
 
 
 				//Finds the magnitude of the paddle's current speed.
-				double paddleSpeed = Math.sqrt((prevX-x)*(prevX-x));
+				double paddleSpeed = Math.sqrt((prevPadX-newPadX)*(prevPadX-newPadX));
 				GLabel speed = new GLabel("PaddleSpeed: "+paddleSpeed);
 				add (speed, 20, 80);
 
