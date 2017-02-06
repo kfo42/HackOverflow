@@ -383,6 +383,7 @@ public class Breakout extends GraphicsProgram {
 		start.setFont("Courier New-Bold-60");
 		start.setColor(Color.BLUE);
 		add (start, getWidth()/2-start.getWidth()/2, getHeight()/2-50);
+		
 		GLabel reminder = new GLabel ("Click anywhere to begin");
 		reminder.setFont("Courier New-Bold-20");
 		add (reminder, getWidth()/2-reminder.getWidth()/2, getHeight()/2+50);
@@ -390,16 +391,19 @@ public class Breakout extends GraphicsProgram {
 		remove(start);
 		remove(reminder);
 		pause(800);
+		
 		GLabel ready = new GLabel ("READY...");
 		ready.setFont("Courier New-Bold-60");
 		add (ready, getWidth()/2-ready.getWidth()/2, getHeight()/2+50);
 		pause(800);
 		remove(ready);
+		
 		GLabel set = new GLabel ("SET...");
 		set.setFont("Courier New-Bold-60");
 		add (set, getWidth()/2-set.getWidth()/2, getHeight()/2+50);
 		pause(600);
 		remove(set);
+		
 		GLabel go = new GLabel ("GO!");
 		go.setFont("Courier New-Bold-60");
 		add (go, getWidth()/2-go.getWidth()/2, getHeight()/2+50);
