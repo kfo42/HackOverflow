@@ -112,6 +112,7 @@ public class Breakout extends GraphicsProgram {
 			addMouseListeners();
 
 			prepSequence();
+			remove(coin);
 			//The sound of the ball's bounce.
 			AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
 
