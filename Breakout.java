@@ -204,7 +204,7 @@ public class Breakout extends GraphicsProgram {
 
 					//The ball's motion also reverses in the x-direction if 
 					//the ball collides with the side of the paddle.
-					if (paddle.getY()<(ball.getY()+PADDLE_HEIGHT){
+					if (paddle.getY()<(ball.getY()+PADDLE_HEIGHT)){
 						if (paddleSpeed<1) {
 							vx = paddleSpeed-vx;
 						}else{
