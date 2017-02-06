@@ -195,9 +195,12 @@ public class Breakout extends GraphicsProgram {
 
 					//The ball's motion also reverses in the x-direction if 
 					//the ball collides with the side of the paddle.
-					if (collider.getY()<(ball.getY()+2*ballRadius)){
-						vx=-vx;
-					}
+					if (collider.getY()<(ball.getY())){
+						if (rgen.nextBoolean(0.5)) {
+							vx = -(paddleSpeed/10)-vx;
+						}else{
+							vx =(paddleSpeed/10)-vx;
+						}
 					bounceClip.play();
 				}else if (collider == livesLeft || collider == points ){
 					//Nothing occurs if the ball hits the text.
