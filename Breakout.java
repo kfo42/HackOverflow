@@ -393,7 +393,7 @@ public class Breakout extends GraphicsProgram {
 	}
 
 	//Creates the title sequence for Breakout.
-	private int prepSequence(lives){
+	private int prepSequence(int lives){
 		paddle.setVisible(false);
 
 		GLabel start = new GLabel ("BREAKOUT!");
