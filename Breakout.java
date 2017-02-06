@@ -71,7 +71,6 @@ public class Breakout extends GraphicsProgram {
 			Color.ORANGE, Color.ORANGE,
 			Color.YELLOW, Color.YELLOW, 
 			Color.GREEN, Color.GREEN,
-			Color.CYAN, Color.CYAN};
 
 	private double vx = 0;
 	private double vy = 2;
@@ -148,7 +147,7 @@ public class Breakout extends GraphicsProgram {
 
 				// Updates the position of the ball.
 				ball.move(vx, vy);
-				pause(4);
+				pause(8);
 				double x = ball.getX();
 				double y = ball.getY();
 				
