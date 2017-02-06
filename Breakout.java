@@ -33,7 +33,7 @@ public class Breakout extends GraphicsProgram {
 
 	/** Dimensions of the paddle */
 	private static final int PADDLE_WIDTH = 60;
-	private static final int PADDLE_HEIGHT = 30;
+	private static final int PADDLE_HEIGHT = 10;
 
 	/** Offset of the paddle up from the bottom */
 	private static final int PADDLE_Y_OFFSET = 30;
@@ -345,7 +345,7 @@ public class Breakout extends GraphicsProgram {
 		end.setVisible(true);
 		end.setFont("Courier New-Bold-40");
 		add (end, getWidth()/2-end.getWidth()/2, getHeight()/2);
-		GLabel total = new GLabel ("Total Points: " + (100-bricksHit));
+		GLabel total = new GLabel ("Total Points: " + (100-bricksHit)+" / 620");
 		total.setFont("Courier New-Bold-40");
 		add (total, getWidth()/2-total.getWidth()/2, getHeight()/2+200);
 		pause(800);
