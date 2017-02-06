@@ -196,7 +196,7 @@ public class Breakout extends GraphicsProgram {
 		}
 	}
 	//Determines how many points are awarded for each brick color.
-	public int colorPoints(GObject collider, double bricksHit){
+	public double colorPoints(GObject collider, double bricksHit){
 		if (collider.getColor() == Color.CYAN){
 			bricksHit+=1;
 		}
