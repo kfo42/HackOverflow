@@ -105,7 +105,7 @@ public class Breakout extends GraphicsProgram {
 		while(lives>0){
 			GLabel points = new GLabel("Score: "+bricksHit);
 
-			add (points, 20, getHeight()-PADDLE_Y_OFFSET/3);
+			add (points, 20, PADDLE_Y_OFFSET/3);
 
 			if(hitLeftWall(ball) || hitRightWall(ball)) {
 				vx=-vx;
