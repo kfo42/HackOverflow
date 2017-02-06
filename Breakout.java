@@ -241,7 +241,7 @@ public class Breakout extends GraphicsProgram {
 			paddle.setVisible(false);
 			}
 		}
-	}
+	
 	//Determines how many points are awarded for each brick color.
 	public double colorPoints(GObject collider, double bricksHit){
 		if (collider.getColor() == Color.CYAN){
