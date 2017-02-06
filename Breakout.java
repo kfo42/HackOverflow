@@ -204,8 +204,9 @@ public class Breakout extends GraphicsProgram {
 			brickRows += -1;
 			y_brick = y_brick+BRICK_HEIGHT+BRICK_SEP;
 			i++;
-			return brick;
 		}
+		return brick;
+
 	}
 	private boolean hitBottomWall(GOval ball) {
 		return ball.getY() > getHeight() - ball.getHeight();
