@@ -176,7 +176,7 @@ public class Breakout extends GraphicsProgram {
 			}
 			//Displays the win/loss and final points to the player.
 			endSequence(bricksHit);
-			
+
 			//Clears the game for the next round (of 3 lives).
 			removeAll();
 			lives=3;
@@ -185,7 +185,7 @@ public class Breakout extends GraphicsProgram {
 
 		}
 	}
-//Determines how many points are awarded for each brick color.
+	//Determines how many points are awarded for each brick color.
 	public int colorPoints(GObject collider, int bricksHit){
 		if (collider.getColor() == Color.CYAN){
 			bricksHit+=1;
@@ -205,8 +205,8 @@ public class Breakout extends GraphicsProgram {
 		return bricksHit;
 
 	}
-	
-//Creates the MouseEvent for moving the paddle.
+
+	//Creates the MouseEvent for moving the paddle.
 	public void mouseMoved(MouseEvent e) {
 		int x = e.getX();
 		int y = getHeight()-PADDLE_Y_OFFSET;
@@ -218,7 +218,7 @@ public class Breakout extends GraphicsProgram {
 
 	}
 
-//Creates the layout of colorful bricks.
+	//Creates the layout of colorful bricks.
 	private void setUpBricks(){
 		double brickCols = NBRICKS_PER_ROW;
 		//Total number of bricks in the current row.
@@ -250,7 +250,7 @@ public class Breakout extends GraphicsProgram {
 			i++;
 		}
 	}
-	
+
 	//Determines whether the ball should bounce off of each wall.
 	private boolean hitBottomWall(GOval ball) {
 		return ball.getY() > getHeight() - ball.getHeight();
@@ -277,7 +277,8 @@ public class Breakout extends GraphicsProgram {
 	}
 
 
-
+//Determines whether the ball collides with another object
+//at any of its four "corners."
 	private GObject getCollidingObject(double x, double y){
 		if (getElementAt (x,y) !=null){
 			GObject collider = getElementAt (x,y);
@@ -295,7 +296,8 @@ public class Breakout extends GraphicsProgram {
 			return null;
 		}
 	}
-
+	
+	//Creates the title sequence for Breakout.
 	private void prepSequence(){
 		GLabel start = new GLabel ("BREAKOUT!");
 		start.setVisible(true);
@@ -337,6 +339,9 @@ public class Breakout extends GraphicsProgram {
 		add (total, getWidth()/2-total.getWidth()/2, getHeight()/2+200);
 		pause(800);
 		remove(total);
+		
+	//The game is won only if all bricks are cleared, which amounts to
+	//620 total points.
 		if (bricksHit==620){
 			GLabel win = new GLabel ("YOU WON!");
 			win.setVisible(true);
