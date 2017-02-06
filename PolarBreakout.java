@@ -149,7 +149,7 @@ public class PolarBreakout extends GraphicsProgram {
 
 
 				// Updates the position of the ball.
-				ball.movePolar(vx, vy);
+				ball.movePolar(vx, 20*vy);
 				pause(8);
 				double x = ball.getX();
 				double y = ball.getY();
