@@ -103,13 +103,11 @@ public class BreakoutOriginal extends GraphicsProgram {
 			GOval ball= makeBall();
 			add (ball, getWidth()/2, getHeight()/2);
 
-
 			//Initializes the (random) horizontal speed of the ball
 			vx=rgen.nextDouble(1.0, 3.0);
 			if (rgen.nextBoolean(0.5)) {
 				vx = -vx;
 			}	
-
 
 			while(lives>0){
 				//Allows the ball to reverse direction (vertically)
@@ -123,20 +121,8 @@ public class BreakoutOriginal extends GraphicsProgram {
 					if(hitBottomWall(ball)){
 
 						if (lives>0){
-							//Randomizes the reduction in the size of the ball's radius,
-							//which increases difficulty with each life lost.
-							ballRadius-=rgen.nextDouble(1.0, 3.0);
-							ball.setSize(ballRadius*2, ballRadius*2);
-
-							//Displays a "TRY AGAIN" message after losing a life.
-							GLabel tryAgain = new GLabel ("TRY AGAIN");
-							tryAgain.setVisible(true);
-							tryAgain.setFont("Courier New-Bold-40");
-							add (tryAgain, getWidth()/2-tryAgain.getWidth()/2, getHeight()/2);
-
 							//Pauses between lives.
 							pause(500);
-							remove(tryAgain);
 							lives-=1;
 						}
 
@@ -172,62 +158,29 @@ public class BreakoutOriginal extends GraphicsProgram {
 						vy = paddleSpeed*2-vy;
 					}else{
 						vy =-paddleSpeed/20-vy;
-
 					}
 
 					//The ball's motion also reverses in the x-direction if 
 					//the ball collides with the side of the paddle.
 					if (paddle.getY()<(ball.getY()+PADDLE_HEIGHT/2)){
-						if (paddleSpeed<2) {
-							vx = paddleSpeed*2-vx;
-						}else{
-							vx =-paddleSpeed/20-vx;
+						vx=-vx;
 						}
-						bounceClip.play();
-					}
-				}else if (collider == livesLeft || collider == points ){
-					//Nothing occurs if the ball hits the text.
-
-				}else if (collider ==powerUp){
-					//The powerup is awarded.
-					lives=powerUpAwarded(lives, powerUp);
+					
 
 				}else if (collider !=null ){
 
 					if (collider != paddle){
 						remove(collider);
 						vy=-vy;
-						bounceClip.play();
-						//Updates the number of points depending on
-						//the color of brick hit.
-						bricksHit=colorPoints(collider, bricksHit);
-
-						//Creates the size variances based on brick color.
-						if (collider.getColor()==Color.YELLOW){
-							ballRadius+=2;
-							ball.setSize(ballRadius*2, ballRadius*2);
-
-						}
-						if (collider.getColor()==Color.ORANGE){
-							ballRadius-=2;
-							ball.setSize(ballRadius*2, ballRadius*2);
-
-						}
 					}					
 				}
-				//Clears the number of points and lives so that they can be updated.
-				remove(points);
-				remove(livesLeft);
-				ball.setFilled(true);
 
+				//Ends the game if all bricks have been hit.
 				if (bricksHit==620){
 					lives=0;
 				}
-
-
 			}
-			//Displays the win/loss and final points to the player.
-			endSequence(bricksHit);
+
 
 			//Clears the game for the next round (of 3 lives).
 			removeAll();
@@ -239,36 +192,7 @@ public class BreakoutOriginal extends GraphicsProgram {
 		}
 	}
 
-	public int powerUpAwarded(int lives, GOval powerUp){
-		lives+=1;
-		remove(powerUp);
-		GLabel extraLife = new GLabel ("EXTRA LIFE!");
-		extraLife.setVisible(true);
-		extraLife.setFont("Courier New-Bold-40");
-		add (extraLife, getWidth()/2-extraLife.getWidth()/2, getHeight()/2);
-		return lives;
-	}
 
-	//Determines how many points are awarded for each brick color.
-	public double colorPoints(GObject collider, double bricksHit){
-		if (collider.getColor() == Color.CYAN){
-			bricksHit+=1;
-		}
-		if (collider.getColor() == Color.GREEN){
-			bricksHit+=2;
-		}
-		if (collider.getColor() == Color.YELLOW){
-			bricksHit+=4;
-		}
-		if (collider.getColor() == Color.ORANGE){
-			bricksHit+=8;
-		}
-		if (collider.getColor() == Color.RED){
-			bricksHit+=16;
-		}
-		return bricksHit;
-
-	}
 
 	//Creates the MouseEvent for moving the paddle.
 	public void mouseMoved(MouseEvent e) {
