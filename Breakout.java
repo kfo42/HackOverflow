@@ -5,6 +5,14 @@
  * Section Leader: Armin Namavari
  * 
  * This file will eventually implement the game of Breakout.
+ * 
+ * Additions:
+ * ~Title sequence
+ * ~Collision sounds
+ * ~A powerup that adds an extra life
+ * ~Keeps score and displays the number of points and lives to the player.
+ * ~The ball randomly decreases in radius with each turn, increasing difficulty.
+ * ~At the end, displays win/loss and number of points attained.
  */
 
 import acm.graphics.*;
@@ -98,7 +106,7 @@ public class Breakout extends GraphicsProgram {
 
 			//Waits for the player to click before launching the ball.
 			waitForClick();
-			
+
 			//Initializes the ball
 			GOval ball= makeBall();
 			add (ball, getWidth()/2, getHeight()/2);
@@ -109,7 +117,7 @@ public class Breakout extends GraphicsProgram {
 			if (rgen.nextBoolean(0.5)) {
 				vx = -vx;
 			}	
-			
+
 			//Initializes the "extra life powerup" attained by
 			//hitting the lives counter.
 			GOval powerUp = new GOval (40, 10);
@@ -138,19 +146,19 @@ public class Breakout extends GraphicsProgram {
 					vy = -vy;
 					bounceClip.play();
 					if(hitBottomWall(ball)){
-						
+
 						if (lives>0){
 							//Randomizes the reduction in the size of the ball's radius,
 							//which increases difficulty with each life lost.
 							ballRadius-=rgen.nextDouble(1.0, 3.0);
 							ball.setSize(ballRadius*2, ballRadius*2);
-							
+
 							//Displays a "TRY AGAIN" message after losing a life.
 							GLabel tryAgain = new GLabel ("TRY AGAIN");
 							tryAgain.setVisible(true);
 							tryAgain.setFont("Courier New-Bold-40");
 							add (tryAgain, getWidth()/2-tryAgain.getWidth()/2, getHeight()/2);
-							
+
 							//Pauses between lives.
 							pause(500);
 							remove(tryAgain);
@@ -161,38 +169,44 @@ public class Breakout extends GraphicsProgram {
 
 				}
 
-
+				double prevX=ball.getX();
+				double prevY=ball.getY();
 				// Updates the position of the ball.
 				ball.move(vx, vy);
 				pause(5);
 				double x = ball.getX();
 				double y = ball.getY();
+				
+				double paddleSpeed = Math.sqrt((prevX-x)*(prevX-x)+(prevY-y)*(prevY-y));
 
 				//Controls collisions between the ball, the paddle,
 				//and the bricks.
 				GObject collider = getCollidingObject(x,y);
 				if (collider ==paddle){
-					vy = -vy;
-
+					vy = -paddleSpeed*vy;
+					//The ball's motion also reverses in the x-direction if 
+					//the ball collides with the side of the paddle.
 					if (collider.getY()<(ball.getY()+2*ballRadius)){
 						vx=-vx;
 					}
 					bounceClip.play();
 				}else if (collider == livesLeft || collider == points ){
 					//Nothing occurs if the ball hits the text.
+
 				}else if (collider ==powerUp){
+					//The powerup is awarded.
 					lives+=1;
 					remove(powerUp);
 					GLabel extraLife = new GLabel ("EXTRA LIFE!");
 					extraLife.setVisible(true);
 					extraLife.setFont("Courier New-Bold-40");
 					add (extraLife, getWidth()/2-extraLife.getWidth()/2, getHeight()/2);
-					
+
 				}else if (collider !=null ){
 
 					if (collider != paddle){
 						remove(collider);
-						vy=-vy;
+						vy=-paddleSpeed*vy;
 						bounceClip.play();
 						//Updates the number of points depending on
 						//the color of brick hit.
