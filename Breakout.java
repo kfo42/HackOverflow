@@ -81,118 +81,122 @@ public class Breakout extends GraphicsProgram {
 
 
 	public void run() {
+		//Placing the entire game sequence within a while loop
+		//allows for the game to restart when the player loses.
+		while(true){
+			//Produces a title sequence for Breakout.
+			prepSequence();
+			//The sound of the ball's bounce.
+			AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
 
-while(true){
-		prepSequence();
+			addMouseListeners();
 
-		AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
+			//Creates all rows of bricks simultaneously
+			setUpBricks();
 
-		addMouseListeners();
-		//Creates all rows of bricks
-		setUpBricks();
+			//Waits for the player to click before launching the ball.
+			waitForClick();
+			//Initializes the ball
+			GOval ball= makeBall();
+			add (ball, getWidth()/2, getHeight()/2);
 
-		waitForClick();
-		//Initializes the ball
-		GOval ball= makeBall();
-		add (ball, getWidth()/2, getHeight()/2);
+			//Initializes the horizontal speed of the ball
+			vx=rgen.nextDouble(1.0, 3.0);
+			//Initializes the score
 
-		//Initializes the horizontal speed of the ball
-		vx=rgen.nextDouble(1.0, 3.0);
-		//Initializes the score
+			if (rgen.nextBoolean(0.5)) {
+				vx = -vx;
+			}	
 
-		if (rgen.nextBoolean(0.5)) {
-			vx = -vx;
-		}	
+			while(lives>0){
+				GLabel points = new GLabel("Score: "+bricksHit);
 
-		while(lives>0){
-			GLabel points = new GLabel("Score: "+bricksHit);
+				add (points, 20, PADDLE_Y_OFFSET/3);
+				GLabel livesLeft = new GLabel("Lives: "+lives);
 
-			add (points, 20, PADDLE_Y_OFFSET/3);
-			GLabel livesLeft = new GLabel("Lives: "+lives);
+				add (livesLeft, 200, PADDLE_Y_OFFSET/3);
 
-			add (livesLeft, 200, PADDLE_Y_OFFSET/3);
-
-			if(hitLeftWall(ball) || hitRightWall(ball)) {
-				vx=-vx;
-				bounceClip.play();
-
-			}
-			if(hitTopWall(ball) || hitBottomWall(ball)) {
-				vy = -vy;
-				bounceClip.play();
-
-			}
-			if(hitBottomWall(ball)){
-				lives+=-1;
-				bounceClip.play();
-				if (lives>0){
-					GLabel tryAgain = new GLabel ("TRY AGAIN");
-					tryAgain.setVisible(true);
-					tryAgain.setFont("Courier New-Bold-40");
-					add (tryAgain, getWidth()/2-tryAgain.getWidth()/2, getHeight()/2);
-					pause(500);
-					remove(tryAgain);
-				}
-
-
-			}
-
-			// update visualization
-			ball.move(vx, vy);
-			pause(4);
-			double x = ball.getX();
-			double y = ball.getY();
-			GObject collider = getCollidingObject(x,y);
-			if (collider ==paddle){
-				vy = -vy;
-				bounceClip.play();
-
-
-			}else if (collider !=null ){
-	
-				if (collider != paddle){
-					remove(collider);
-					vy=-vy;
+				if(hitLeftWall(ball) || hitRightWall(ball)) {
+					vx=-vx;
 					bounceClip.play();
-					bricksHit=colorPoints(collider, bricksHit);
-					if (collider.getY()!=ball.getY()-PADDLE_HEIGHT){
-						vx=-vx;
 
-					}
 				}
-				
+				if(hitTopWall(ball) || hitBottomWall(ball)) {
+					vy = -vy;
+					bounceClip.play();
+
+				}
+				if(hitBottomWall(ball)){
+					lives+=-1;
+					bounceClip.play();
+					if (lives>0){
+						GLabel tryAgain = new GLabel ("TRY AGAIN");
+						tryAgain.setVisible(true);
+						tryAgain.setFont("Courier New-Bold-40");
+						add (tryAgain, getWidth()/2-tryAgain.getWidth()/2, getHeight()/2);
+						pause(500);
+						remove(tryAgain);
+					}
+
+
+				}
+
+				// update visualization
+				ball.move(vx, vy);
+				pause(4);
+				double x = ball.getX();
+				double y = ball.getY();
+				GObject collider = getCollidingObject(x,y);
+				if (collider ==paddle){
+					vy = -vy;
+					bounceClip.play();
+
+
+				}else if (collider !=null ){
+
+					if (collider != paddle){
+						remove(collider);
+						vy=-vy;
+						bounceClip.play();
+						bricksHit=colorPoints(collider, bricksHit);
+						if (collider.getY()!=ball.getY()-PADDLE_HEIGHT){
+							vx=-vx;
+
+						}
+					}
+
+				}
+				remove(points);
+				remove(livesLeft);
 			}
-			remove(points);
-			remove(livesLeft);
+			endSequence(bricksHit);
+			removeAll();
+			lives=3;
+			bricksHit=0;
+			paddle.setVisible(false);
+
 		}
-		endSequence(bricksHit);
-		removeAll();
-		lives=3;
-		bricksHit=0;
-		paddle.setVisible(false);
-
-	}
 	}
 
-public int colorPoints(GObject collider, int bricksHit){
-	if (collider.getColor() == Color.CYAN){
-		bricksHit+=1;
-	}
-	if (collider.getColor() == Color.GREEN){
-		bricksHit+=2;
-	}
-	if (collider.getColor() == Color.YELLOW){
-		bricksHit+=4;
-	}
-	if (collider.getColor() == Color.ORANGE){
-		bricksHit+=8;
-	}
-	if (collider.getColor() == Color.RED){
-		bricksHit+=16;
-	}
-	return bricksHit;
+	public int colorPoints(GObject collider, int bricksHit){
+		if (collider.getColor() == Color.CYAN){
+			bricksHit+=1;
+		}
+		if (collider.getColor() == Color.GREEN){
+			bricksHit+=2;
+		}
+		if (collider.getColor() == Color.YELLOW){
+			bricksHit+=4;
+		}
+		if (collider.getColor() == Color.ORANGE){
+			bricksHit+=8;
+		}
+		if (collider.getColor() == Color.RED){
+			bricksHit+=16;
+		}
+		return bricksHit;
 
-}
+	}
 	public void mouseMoved(MouseEvent e) {
 		int x = e.getX();
 		int y = getHeight()-PADDLE_Y_OFFSET;
@@ -227,7 +231,7 @@ public int colorPoints(GObject collider, int bricksHit){
 					add (brick, x_brick, y_brick);
 					brickCols = brickCols-1 ;	
 					x_brick = x_brick + width+BRICK_SEP;
-				
+
 				}
 			}
 			brickCols = NBRICKS_PER_ROW;
