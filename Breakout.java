@@ -441,11 +441,12 @@ public class Breakout extends GraphicsProgram {
 		}
 		if (coinInsert ==coinSlot1){
 			remove(coin);
-
+			coinSlot1.setFillColor(Color.PINK);
 			lives = 6;
 			ballRadius = 15;
 		}
 		if (coinInsert == coinSlot2){
+			coinSlot1.setFillColor(Color.CYAN);
 			remove(coin);
 			lives = 3;
 		}
