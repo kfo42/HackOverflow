@@ -187,8 +187,6 @@ public class Breakout extends GraphicsProgram {
 
 				//Finds the magnitude of the paddle's current speed.
 				double paddleSpeed = Math.sqrt((prevPadX-newPadX)*(prevPadX-newPadX));
-				GLabel speed = new GLabel("PaddleSpeed: "+paddleSpeed);
-				add (speed, 20, 80);
 
 				//Controls collisions between the ball, the paddle,
 				//and the bricks.
@@ -232,7 +230,6 @@ public class Breakout extends GraphicsProgram {
 				//Clears the number of points and lives so that they can be updated.
 				remove(points);
 				remove(livesLeft);
-				remove(speed);
 
 			}
 			//Displays the win/loss and final points to the player.
