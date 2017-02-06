@@ -260,7 +260,7 @@ public class Breakout extends GraphicsProgram {
 
 			//Clears the game for the next round (of 3 lives).
 			removeAll();
-			lives=3;
+			lives=0;
 			bricksHit=0;
 			ballRadius=10;
 			paddle.setVisible(false);
