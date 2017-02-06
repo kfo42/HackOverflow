@@ -102,8 +102,6 @@ public class Breakout extends GraphicsProgram {
 
 			//Initializes the horizontal speed of the ball
 			vx=rgen.nextDouble(1.0, 3.0);
-			//Initializes the score
-
 			if (rgen.nextBoolean(0.5)) {
 				vx = -vx;
 			}	
@@ -129,11 +127,11 @@ public class Breakout extends GraphicsProgram {
 				if(hitBottomWall(ball)){
 
 					bounceClip.play();
-					BALL_RADIUS-=1;
+					BALL_RADIUS+=1;
 					ball.setSize(BALL_RADIUS*2, BALL_RADIUS*2);
 					vy = -vy;
 
-					/*if (lives>0){
+					if (lives>0){
 
 						GLabel tryAgain = new GLabel ("TRY AGAIN");
 						tryAgain.setVisible(true);
@@ -143,7 +141,7 @@ public class Breakout extends GraphicsProgram {
 						remove(tryAgain);
 					}
 
-*/
+
 
 				}
 
