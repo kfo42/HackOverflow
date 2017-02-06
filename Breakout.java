@@ -155,8 +155,6 @@ public class Breakout extends GraphicsProgram {
 					BALL_RADIUS+=rgen.nextDouble(1.0, 3.0);
 					ball.setSize(BALL_RADIUS*2, BALL_RADIUS*2);
 
-
-
 				}else if (collider !=null ){
 
 					if (collider != paddle){
