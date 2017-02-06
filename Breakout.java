@@ -112,7 +112,7 @@ public class Breakout extends GraphicsProgram {
 			//Produces a title sequence for Breakout.
 			addMouseListeners();
 
-			prepSequence();
+			lives = prepSequence(lives);
 			paddle.setVisible(true);
 
 			//The sound of the ball's bounce.
@@ -393,7 +393,7 @@ public class Breakout extends GraphicsProgram {
 	}
 
 	//Creates the title sequence for Breakout.
-	private void prepSequence(){
+	private int prepSequence(lives){
 		paddle.setVisible(false);
 
 		GLabel start = new GLabel ("BREAKOUT!");
@@ -427,10 +427,10 @@ public class Breakout extends GraphicsProgram {
 		GObject coinInsert = getCollidingObject(coin.getX(),coin.getY());
 
 		if (coinInsert == coinSlot1){
-			lives = 6;
+			return lives = 6;
 		}
 		if (coinInsert == coinSlot2){
-			lives = 3;
+			return lives = 3;
 		}
 			pause(1000);
 
