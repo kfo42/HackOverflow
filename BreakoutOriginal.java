@@ -110,13 +110,6 @@ public class BreakoutOriginal extends GraphicsProgram {
 				vx = -vx;
 			}	
 
-			//Initializes the "extra life powerup" attained by
-			//hitting the lives counter.
-			GOval powerUp = new GOval (40, 10);
-			powerUp.setFilled(true);
-			powerUp.setColor(Color.YELLOW);
-			add (powerUp, 200, 10);
-			powerUp.sendToBack();
 
 			while(lives>0){
 
