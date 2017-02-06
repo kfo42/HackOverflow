@@ -140,6 +140,8 @@ public class Breakout extends GraphicsProgram {
 						pause(500);
 						remove(tryAgain);
 					}
+					vy = -vy;
+
 
 
 				}
