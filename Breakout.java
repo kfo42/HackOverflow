@@ -86,6 +86,7 @@ public class Breakout extends GraphicsProgram {
 	//Initializes the coin slots.
 	GRect coinSlot1 = new GRect(40, PADDLE_WIDTH+10);
 	GRect coinSlot2 = new GRect(40, PADDLE_WIDTH+10);
+	GObject coinInsert = new GRect(0,0);
 
 
 	//Initializes the random generator.
@@ -309,6 +310,8 @@ public class Breakout extends GraphicsProgram {
 		paddle.setLocation(x, y);
 		add (paddle);
 		coin.setLocation(x, yCoin);
+		coinInsert = getCollidingObject(coin.getX(),coin.getY());
+
 
 	}
 
@@ -423,9 +426,6 @@ public class Breakout extends GraphicsProgram {
 		coinSlot2.setFilled(true);
 		coinSlot2.setFillColor(Color.BLACK);
 		add(coin);
-		GObject coinInsert = getCollidingObject(coin.getX(),coin.getY());
-		while (coinInsert==null){
-		}
 		
 		if (coinInsert == coinSlot1){
 			 lives = 6;
