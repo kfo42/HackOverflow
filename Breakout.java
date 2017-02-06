@@ -198,7 +198,7 @@ public class Breakout extends GraphicsProgram {
 					if (paddleSpeed<1) {
 						vy = paddleSpeed-vy;
 					}else{
-						vy =-paddleSpeed-vy;
+						vy =-paddleSpeed/5-vy;
 
 					}
 
@@ -208,7 +208,7 @@ public class Breakout extends GraphicsProgram {
 						if (paddleSpeed<1) {
 							vx = paddleSpeed-vx;
 						}else{
-							vx =-paddleSpeed-vx;
+							vx =-paddleSpeed/5-vx;
 						}
 						bounceClip.play();
 					}
