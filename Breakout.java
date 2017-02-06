@@ -1,8 +1,8 @@
 /*
  * File: Breakout.java
  * -------------------
- * Name:
- * Section Leader:
+ * Name: Katie Fo
+ * Section Leader: Armin Namavari
  * 
  * This file will eventually implement the game of Breakout.
  */
@@ -75,7 +75,7 @@ public class Breakout extends GraphicsProgram {
 			Color.CYAN, Color.CYAN};
 
 	private double vx = 0;
-	private double vy = 3;
+	private double vy = 2;
 	private int lives = 3;
 
 	public void run() {
