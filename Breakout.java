@@ -125,7 +125,8 @@ public class Breakout extends GraphicsProgram {
 				GOval powerUp = new GOval (livesLeft.getWidth(),livesLeft.getHeight());
 				powerUp.setFilled(true);
 				powerUp.setColor(Color.YELLOW);
-				add (powerUp, 200, 0);
+				add (powerUp, 200, 10);
+				powerUp.sendToBack();
 
 				//Determines what the ball does upon hitting each wall.
 
@@ -161,7 +162,7 @@ public class Breakout extends GraphicsProgram {
 
 				// Updates the position of the ball.
 				ball.move(vx, vy);
-				pause(8);
+				pause(3);
 				double x = ball.getX();
 				double y = ball.getY();
 
