@@ -185,9 +185,8 @@ public class Breakout extends GraphicsProgram {
 				if (collider ==paddle){
 
 					//The change in speed depends on the speed of 
-					//the paddle, but whether this is an increase or 
-					//decrease is randomized.
-					if (rgen.nextBoolean(0.5)) {
+					//the paddle.
+					if (paddleSpeed<10) {
 						vy = -(paddleSpeed/10)-vy;
 					}else{
 						vy =(paddleSpeed/10)-vy;
