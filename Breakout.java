@@ -307,7 +307,6 @@ public class Breakout extends GraphicsProgram {
 		paddle.setLocation(x, y);
 		add (paddle);
 		coin.setLocation(x, yCoin);
-		add(coin);
 
 	}
 
@@ -407,6 +406,7 @@ public class Breakout extends GraphicsProgram {
 		coin.setFilled(true);
 		coinSlot.setFilled(true);
 		coinSlot.setFillColor(Color.BLACK);
+		add(coin);
 
 		waitForClick();
 		
