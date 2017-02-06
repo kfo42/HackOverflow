@@ -184,7 +184,7 @@ public class Breakout extends GraphicsProgram {
 				double paddleSpeed = Math.sqrt((prevX-x)*(prevX-x));
 				GLabel speed = new GLabel("PaddleSpeed: "+paddleSpeed);
 
-				add (speed, 20, 500);
+				add (speed, 20, 80);
 				//Controls collisions between the ball, the paddle,
 				//and the bricks.
 				GObject collider = getCollidingObject(x,y);
