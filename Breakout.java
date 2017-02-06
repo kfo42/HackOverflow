@@ -433,7 +433,7 @@ public class Breakout extends GraphicsProgram {
 		pause(500);
 		remove(go);
 		paddle.setVisible(true);
-		remove(coin);
+		coin.setVisible(false);
 
 	}
 
