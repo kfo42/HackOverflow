@@ -464,7 +464,7 @@ public class Breakout extends GraphicsProgram {
 		
 		remove(coin);
 		add(paddle);
-		return lives;
+		
 
 	}
 
