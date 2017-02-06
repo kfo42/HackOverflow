@@ -204,13 +204,8 @@ public class Breakout extends GraphicsProgram {
 
 				}else if (collider ==powerUp){
 					//The powerup is awarded.
-					lives+=1;
-					remove(powerUp);
-					GLabel extraLife = new GLabel ("EXTRA LIFE!");
-					extraLife.setVisible(true);
-					extraLife.setFont("Courier New-Bold-40");
-					add (extraLife, getWidth()/2-extraLife.getWidth()/2, getHeight()/2);
-
+					powerUpAwarded(lives, powerUp);
+				
 				}else if (collider !=null ){
 
 					if (collider != paddle){
@@ -239,6 +234,16 @@ public class Breakout extends GraphicsProgram {
 
 		}
 	}
+	
+	public int powerUpAwarded(int lives, GOval powerUp){
+	lives+=1;
+	remove(powerUp);
+	GLabel extraLife = new GLabel ("EXTRA LIFE!");
+	extraLife.setVisible(true);
+	extraLife.setFont("Courier New-Bold-40");
+	add (extraLife, getWidth()/2-extraLife.getWidth()/2, getHeight()/2);
+	}
+	
 	//Determines how many points are awarded for each brick color.
 	public double colorPoints(GObject collider, double bricksHit){
 		if (collider.getColor() == Color.CYAN){
