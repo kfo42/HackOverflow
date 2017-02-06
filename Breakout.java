@@ -125,15 +125,24 @@ public class Breakout extends GraphicsProgram {
 				if(hitTopWall(ball) || hitBottomWall(ball)) {
 					vy = -vy;
 					bounceClip.play();
+					if(hitBottomWall(ball)){
 
+						bounceClip.play();
+						vy = -vy;
+						if (lives>0){
+
+							GLabel tryAgain = new GLabel ("TRY AGAIN");
+							tryAgain.setVisible(true);
+							tryAgain.setFont("Courier New-Bold-40");
+							add (tryAgain, getWidth()/2-tryAgain.getWidth()/2, getHeight()/2);
+							pause(500);
+							remove(tryAgain);
+						}
+
+					}
+				
 				}
-				if(hitBottomWall(ball)){
 
-					bounceClip.play();
-					vy = -vy;
-
-
-				}
 
 				// update visualization
 				ball.move(vx, vy);
