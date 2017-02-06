@@ -145,8 +145,9 @@ public class Breakout extends GraphicsProgram {
 				bounceClip.play();
 
 				remove(collider);
-				bricksRemaining +=-1;
 				remove(points);
+
+				bricksRemaining +=-1;
 
 				
 			}
