@@ -94,13 +94,14 @@ public class Breakout extends GraphicsProgram {
 		vx=rgen.nextDouble(1.0, 3.0);
 		//Initializes the score
 		int bricksRemaining = NBRICKS_PER_ROW*NBRICK_ROWS;
-		GLabel points = new GLabel("Score"+bricksRemaining);
 
 		if (rgen.nextBoolean(0.5)) {
 			vx = -vx;
 		}	
 
 		while(lives>0){
+			GLabel points = new GLabel("Score"+bricksRemaining);
+
 			add (points, 20, getHeight()-PADDLE_Y_OFFSET/3);
 
 			if(hitLeftWall(ball) || hitRightWall(ball)) {
