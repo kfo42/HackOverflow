@@ -142,10 +142,10 @@ public class Breakout extends GraphicsProgram {
 
 				remove(collider);
 				bricksRemaining +=-1;
-				GLabel points = new GLabel("Score"+bricksRemaining);
-				add (points, 20, getHeight()-PADDLE_Y_OFFSET/3);
+				
 			}
-
+			GLabel points = new GLabel("Score"+bricksRemaining);
+			add (points, 20, getHeight()-PADDLE_Y_OFFSET/3);
 		}
 		GLabel end = new GLabel ("GAME OVER");
 		end.setVisible(true);
