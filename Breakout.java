@@ -427,6 +427,8 @@ public class Breakout extends GraphicsProgram {
 		coinSlot2.setFillColor(Color.BLACK);
 		add(coin);
 		
+		while (coinInsert == null){}
+		
 		if (coinInsert == coinSlot1){
 			 lives = 6;
 		}
