@@ -155,6 +155,10 @@ public class Breakout extends GraphicsProgram {
 					vy=-vy;
 					bounceClip.play();
 					bricksHit=colorPoints(collider, bricksHit);
+					if (collider.getY()!=ball.getY()-PADDLE_HEIGHT)){
+						vx=-vx;
+
+					}
 				}
 				
 			}
