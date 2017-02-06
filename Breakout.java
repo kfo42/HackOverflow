@@ -153,7 +153,6 @@ public class Breakout extends GraphicsProgram {
 					vy = -vy;
 					bounceClip.play();
 					BALL_RADIUS+=rgen.nextDouble(1.0, 3.0);
-					ball.setSize(BALL_RADIUS*2, BALL_RADIUS*2);
 
 				}else if (collider !=null ){
 
@@ -169,6 +168,8 @@ public class Breakout extends GraphicsProgram {
 					}
 
 				}
+				ball.setSize(BALL_RADIUS*2, BALL_RADIUS*2);
+
 				remove(points);
 				remove(livesLeft);
 			}
