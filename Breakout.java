@@ -247,6 +247,8 @@ public class Breakout extends GraphicsProgram {
 						bricksHit=colorPoints(collider, bricksHit);
 						if (collider.getColor()==Color.YELLOW){
 						ballRadius+=3;
+						ball.setSize(ballRadius*2, ballRadius*2);
+
 						}
 					}					
 				}
