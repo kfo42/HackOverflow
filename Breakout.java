@@ -230,6 +230,10 @@ public class Breakout extends GraphicsProgram {
 				//Clears the number of points and lives so that they can be updated.
 				remove(points);
 				remove(livesLeft);
+				if (bricksHit==620){
+					lives=0;
+				}
+
 
 			}
 			//Displays the win/loss and final points to the player.
