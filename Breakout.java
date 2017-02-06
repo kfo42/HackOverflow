@@ -305,7 +305,6 @@ public class Breakout extends GraphicsProgram {
 		int yCoin =  e.getY();
 		paddle.setFilled(true);
 		paddle.setFillColor(Color.BLACK);
-		paddle.setVisible(false);
 		paddle.setLocation(x, y);
 		add (paddle);
 		coin.setLocation(x, yCoin);
@@ -394,6 +393,8 @@ public class Breakout extends GraphicsProgram {
 
 	//Creates the title sequence for Breakout.
 	private void prepSequence(){
+		paddle.setVisible(false);
+
 		GLabel start = new GLabel ("BREAKOUT!");
 		start.setVisible(true);
 		start.setFont("Courier New-Bold-60");
