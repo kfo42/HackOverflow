@@ -401,7 +401,6 @@ public class Breakout extends GraphicsProgram {
 		double x=coin.getX();
 		double y=coin.getY();
 		coinInsert = getCollidingObject(x,y);
-		while (coinInsert==null){
 			GLabel start = new GLabel ("BREAKOUT!");
 			start.setVisible(true);
 			start.setFont("Courier New-Bold-60");
@@ -421,6 +420,8 @@ public class Breakout extends GraphicsProgram {
 			GLabel coinLabel2 = new GLabel ("3 Lives");
 			coinLabel2.setFont("Courier New-Bold-20");
 			add (coinLabel2, 2*getWidth()/3-coinSlot1.getWidth(), 380);
+
+			while (coinInsert==null){
 
 			coin.setFillColor(Color.YELLOW);
 			coin.setFilled(true);
