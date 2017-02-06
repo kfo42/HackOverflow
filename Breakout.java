@@ -164,7 +164,7 @@ public class Breakout extends GraphicsProgram {
 
 				// Updates the position of the ball.
 				ball.move(vx, vy);
-				pause(3);
+				pause(5);
 				double x = ball.getX();
 				double y = ball.getY();
 
