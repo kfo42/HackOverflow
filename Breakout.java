@@ -431,6 +431,7 @@ public class Breakout extends GraphicsProgram {
 		coinSlot2.setFilled(true);
 		coinSlot2.setFillColor(Color.BLACK);
 		while (coinInsert==null){
+			pause(1);
 		}
 
 		if (coinInsert != null){
@@ -441,7 +442,6 @@ public class Breakout extends GraphicsProgram {
 				lives = 3;
 			}
 				pause(10);
-
 
 				remove(start);
 				remove(reminder);
