@@ -433,9 +433,11 @@ public class Breakout extends GraphicsProgram {
 			return lives = 3;
 		}
 			pause(1000);
+			return lives =lives+0;
 
-		remove(start);
 		remove(reminder);
+		remove(start);
+
 		pause(800);
 		remove(coinSlot1);
 		remove(coinSlot2);
