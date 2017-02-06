@@ -15,7 +15,6 @@
  * ~Bouncing the ball off the edge of the paddle causes horizontal reflection.
  * ~The speed at which the player moves the paddle with the mouse determines
  * 	the change in the paddle's vertical speed.
- * ~Yellow bricks make the ball's radius return to 10.
  * ~The ball randomly decreases in radius with each turn, increasing difficulty.
  * ~At the end, displays win/loss and number of points attained.
  */
