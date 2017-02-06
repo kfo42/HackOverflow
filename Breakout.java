@@ -400,6 +400,7 @@ public class Breakout extends GraphicsProgram {
 		GLabel start = new GLabel ("BREAKOUT!");
 		GLabel coinLabel1 = new GLabel ("6 Lives");
 		GLabel coinLabel2 = new GLabel ("3 Lives");
+		add(coin);
 
 		double x=coin.getX();
 		double y=coin.getY();
@@ -414,7 +415,6 @@ public class Breakout extends GraphicsProgram {
 			add (start, getWidth()/2-start.getWidth()/2, getHeight()/2-50);
 			add (coinSlot1, getWidth()/3-coinSlot1.getWidth()/2, 400);
 			add (coinSlot2, 2*getWidth()/3-coinSlot1.getWidth()/2, 400);
-			add(coin);
 
 			reminder.setFont("Courier New-Bold-20");
 			add (reminder, getWidth()/2-reminder.getWidth()/2, getHeight()/2+50);
