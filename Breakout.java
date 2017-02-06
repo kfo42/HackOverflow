@@ -99,9 +99,7 @@ public class Breakout extends GraphicsProgram {
 			//Initializes the ball
 			GOval ball= makeBall();
 			add (ball, getWidth()/2, getHeight()/2);
-			BALL_RADIUS-=1;
 
-			ball.setSize(BALL_RADIUS*2, BALL_RADIUS*2);
 
 			//Initializes the horizontal speed of the ball
 			vx=rgen.nextDouble(1.0, 3.0);
@@ -110,6 +108,9 @@ public class Breakout extends GraphicsProgram {
 			}	
 
 			while(lives>0){
+				BALL_RADIUS-=1;
+
+				ball.setSize(BALL_RADIUS*2, BALL_RADIUS*2);
 				GLabel points = new GLabel("Score: "+bricksHit);
 
 				add (points, 20, PADDLE_Y_OFFSET/3);
