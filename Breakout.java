@@ -158,13 +158,10 @@ public class Breakout extends GraphicsProgram {
 				//and the bricks.
 				GObject collider = getCollidingObject(x,y);
 				if (collider ==paddle){
-					
-					if ((collider.getX()+PADDLE_WIDTH==
-							ball.getX())||(collider.getX()==ball.getX()+2*ballRadius)){
-						vx=-vx;
-					}
+	
 					vy = -vy;
 					bounceClip.play();
+					ball.get
 				}else if (collider !=null ){
 
 					if (collider != paddle){
@@ -174,8 +171,6 @@ public class Breakout extends GraphicsProgram {
 						//Updates the number of points depending on
 						//the color of brick hit.
 						bricksHit=colorPoints(collider, bricksHit);
-
-
 						}
 					
 				}
