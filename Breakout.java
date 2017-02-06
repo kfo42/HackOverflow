@@ -414,7 +414,7 @@ public class Breakout extends GraphicsProgram {
 		GObject coinInsert = getCollidingObject(coin.getX(),coin.getY());
 		
 		if (coinInsert == coinSlot)
-			pause(800);
+			pause(10000);
 
 		remove(start);
 		remove(reminder);
