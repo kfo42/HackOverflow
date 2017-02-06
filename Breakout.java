@@ -400,13 +400,14 @@ public class Breakout extends GraphicsProgram {
 		GLabel start = new GLabel ("BREAKOUT!");
 		GLabel coinLabel1 = new GLabel ("6 Lives");
 		GLabel coinLabel2 = new GLabel ("3 Lives");
-		add(coin);
 
 		double x=coin.getX();
 		double y=coin.getY();
 		coinInsert = getCollidingObject(x,y);
 
 		while (coinInsert == null){
+			add(coin);
+
 			paddle.setVisible(false);
 
 			start.setVisible(true);
