@@ -437,8 +437,11 @@ public class Breakout extends GraphicsProgram {
 			add (go, getWidth()/2-go.getWidth()/2, getHeight()/2+50);
 			pause(500);
 			remove(go);
+			remove(coin);
+			add(paddle);
 		}
 	}
+
 	private void endSequence(double bricksHit){
 		GLabel end = new GLabel ("GAME OVER");
 		end.setVisible(true);
