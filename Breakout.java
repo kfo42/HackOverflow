@@ -194,9 +194,9 @@ public class Breakout extends GraphicsProgram {
 					add (speed, 20, 80);
 
 					if (paddleSpeed<1) {
-						vy = paddleSpeed-vy;
+						vy = paddleSpeed/10-vy;
 					}else{
-						vy =-paddleSpeed-vy;
+						vy =-paddleSpeed/10-vy;
 						
 					}
 
