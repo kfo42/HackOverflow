@@ -428,7 +428,7 @@ public class Breakout extends GraphicsProgram {
 		add(coin);
 		
 		while (coinInsert == null){
-			pause(1);
+			pause(100);
 			
 		}
 		
