@@ -215,7 +215,7 @@ public class Breakout extends GraphicsProgram {
 
 					if (collider != paddle){
 						remove(collider);
-						vy=-paddleSpeed*vy;
+						vy=-vy;
 						bounceClip.play();
 						//Updates the number of points depending on
 						//the color of brick hit.
