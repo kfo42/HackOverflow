@@ -67,10 +67,13 @@ public class Breakout extends GraphicsProgram {
 	/** Runs the Breakout program. */
 	GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
 	private RandomGenerator rgen = RandomGenerator.getInstance();
+	
+	//Provides the set of all colors for the rows of bricks.
 	private Color[] color = {Color.RED, Color.RED, 
 			Color.ORANGE, Color.ORANGE,
 			Color.YELLOW, Color.YELLOW, 
 			Color.GREEN, Color.GREEN,
+			Color.CYAN, Color.CYAN};
 
 	private double vx = 0;
 	private double vy = 2;
