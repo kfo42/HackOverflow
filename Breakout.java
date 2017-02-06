@@ -129,8 +129,8 @@ public class Breakout extends GraphicsProgram {
 				if(hitBottomWall(ball)){
 
 					bounceClip.play();
-
-					ball.setSize(BALL_RADIUS-1, BALL_RADIUS-1);
+					BALL_RADIUS-=1;
+					ball.setSize(BALL_RADIUS*2, BALL_RADIUS*2);
 					vy = -vy;
 
 					/*if (lives>0){
