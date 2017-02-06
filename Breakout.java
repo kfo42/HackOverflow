@@ -396,112 +396,113 @@ public class Breakout extends GraphicsProgram {
 
 	//Creates the title sequence for Breakout.
 	private void prepSequence(){
-		paddle.setVisible(false);
+		GLabel reminder = new GLabel ("Insert coin to continue");
+		GLabel start = new GLabel ("BREAKOUT!");
+		GLabel coinLabel1 = new GLabel ("6 Lives");
+		GLabel coinLabel2 = new GLabel ("3 Lives");
 
 		double x=coin.getX();
 		double y=coin.getY();
 		coinInsert = getCollidingObject(x,y);
 
-		GLabel start = new GLabel ("BREAKOUT!");
-		start.setVisible(true);
-		start.setFont("Courier New-Bold-60");
-		start.setColor(Color.BLUE);
-		add (start, getWidth()/2-start.getWidth()/2, getHeight()/2-50);
-		add (coinSlot1, getWidth()/3-coinSlot1.getWidth()/2, 400);
-		add (coinSlot2, 2*getWidth()/3-coinSlot1.getWidth()/2, 400);
-		add(coin);
+		while (coinInsert == null){
+			paddle.setVisible(false);
 
-		GLabel reminder = new GLabel ("Insert coin to continue");
-		reminder.setFont("Courier New-Bold-20");
-		add (reminder, getWidth()/2-reminder.getWidth()/2, getHeight()/2+50);
+			start.setVisible(true);
+			start.setFont("Courier New-Bold-60");
+			start.setColor(Color.BLUE);
+			add (start, getWidth()/2-start.getWidth()/2, getHeight()/2-50);
+			add (coinSlot1, getWidth()/3-coinSlot1.getWidth()/2, 400);
+			add (coinSlot2, 2*getWidth()/3-coinSlot1.getWidth()/2, 400);
+			add(coin);
 
-		GLabel coinLabel1 = new GLabel ("6 Lives");
-		coinLabel1.setFont("Courier New-Bold-20");
-		add (coinLabel1, getWidth()/3-coinSlot1.getWidth(), 380);
+			reminder.setFont("Courier New-Bold-20");
+			add (reminder, getWidth()/2-reminder.getWidth()/2, getHeight()/2+50);
 
-		GLabel coinLabel2 = new GLabel ("3 Lives");
-		coinLabel2.setFont("Courier New-Bold-20");
-		add (coinLabel2, 2*getWidth()/3-coinSlot1.getWidth(), 380);
+			coinLabel1.setFont("Courier New-Bold-20");
+			add (coinLabel1, getWidth()/3-coinSlot1.getWidth(), 380);
 
-
-		coin.setFillColor(Color.YELLOW);
-		coin.setFilled(true);
-		coinSlot1.setFilled(true);
-		coinSlot1.setFillColor(Color.BLACK);
-		coinSlot2.setFilled(true);
-		coinSlot2.setFillColor(Color.BLACK);
+			coinLabel2.setFont("Courier New-Bold-20");
+			add (coinLabel2, 2*getWidth()/3-coinSlot1.getWidth(), 380);
 
 
-		if (coinInsert != null){
-			if (coinInsert ==coinSlot1){
-				lives = 6;
-			}
-			if (coinInsert == coinSlot2){
-				lives = 3;
-			}
-				pause(10);
-
-				remove(start);
-				remove(reminder);
-
-				pause(800);
-				remove(coinSlot1);
-				remove(coinSlot2);
-				remove(coinLabel1);
-				remove(coinLabel2);
-
-
-				GLabel ready = new GLabel ("READY...");
-				ready.setFont("Courier New-Bold-60");
-				add (ready, getWidth()/2-ready.getWidth()/2, getHeight()/2+50);
-				pause(800);
-				remove(ready);
-
-				GLabel set = new GLabel ("SET...");
-				set.setFont("Courier New-Bold-60");
-				add (set, getWidth()/2-set.getWidth()/2, getHeight()/2+50);
-				pause(600);
-				remove(set);
-
-				GLabel go = new GLabel ("GO!");
-				go.setFont("Courier New-Bold-60");
-				add (go, getWidth()/2-go.getWidth()/2, getHeight()/2+50);
-				pause(500);
-				remove(go);
-
-				remove(coin);
-				add(paddle);
-
-
-			}
+			coin.setFillColor(Color.YELLOW);
+			coin.setFilled(true);
+			coinSlot1.setFilled(true);
+			coinSlot1.setFillColor(Color.BLACK);
+			coinSlot2.setFilled(true);
+			coinSlot2.setFillColor(Color.BLACK);
 
 		}
+		if (coinInsert ==coinSlot1){
+			lives = 6;
+		}
+		if (coinInsert == coinSlot2){
+			lives = 3;
+		}
+		pause(10);
 
-		private void endSequence(double bricksHit){
-			GLabel end = new GLabel ("GAME OVER");
-			end.setVisible(true);
-			end.setFont("Courier New-Bold-40");
-			add (end, getWidth()/2-end.getWidth()/2, getHeight()/2);
-			GLabel total = new GLabel ("Points: " + bricksHit+" / 620");
-			total.setFont("Courier New-Bold-20");
-			add (total, getWidth()/2-total.getWidth()/2, getHeight()/2+200);
-			pause(800);
-			remove(total);
+		remove(start);
+		remove(reminder);
 
-			//The game is won only if all bricks are cleared, which amounts to
-			//620 total points.
-			if (bricksHit==620){
-				GLabel win = new GLabel ("YOU WON!");
-				win.setVisible(true);
-				win.setFont("Courier New-Bold-40");
-				win.setColor(Color.GREEN);
-				add (win, getWidth()/2-win.getWidth()/2, getHeight()/2+200);
-			}else{
-				GLabel loss = new GLabel ("YOU LOST!");
-				loss.setVisible(true);
-				loss.setFont("Courier New-Bold-40");
-				loss.setColor(Color.RED);
-				add (loss, getWidth()/2-loss.getWidth()/2, getHeight()/2+200);
-			}
+		pause(800);
+		remove(coinSlot1);
+		remove(coinSlot2);
+		remove(coinLabel1);
+		remove(coinLabel2);
+
+
+		GLabel ready = new GLabel ("READY...");
+		ready.setFont("Courier New-Bold-60");
+		add (ready, getWidth()/2-ready.getWidth()/2, getHeight()/2+50);
+		pause(800);
+		remove(ready);
+
+		GLabel set = new GLabel ("SET...");
+		set.setFont("Courier New-Bold-60");
+		add (set, getWidth()/2-set.getWidth()/2, getHeight()/2+50);
+		pause(600);
+		remove(set);
+
+		GLabel go = new GLabel ("GO!");
+		go.setFont("Courier New-Bold-60");
+		add (go, getWidth()/2-go.getWidth()/2, getHeight()/2+50);
+		pause(500);
+		remove(go);
+
+		remove(coin);
+		add(paddle);
+
+
+	}
+
+
+
+	private void endSequence(double bricksHit){
+		GLabel end = new GLabel ("GAME OVER");
+		end.setVisible(true);
+		end.setFont("Courier New-Bold-40");
+		add (end, getWidth()/2-end.getWidth()/2, getHeight()/2);
+		GLabel total = new GLabel ("Points: " + bricksHit+" / 620");
+		total.setFont("Courier New-Bold-20");
+		add (total, getWidth()/2-total.getWidth()/2, getHeight()/2+200);
+		pause(800);
+		remove(total);
+
+		//The game is won only if all bricks are cleared, which amounts to
+		//620 total points.
+		if (bricksHit==620){
+			GLabel win = new GLabel ("YOU WON!");
+			win.setVisible(true);
+			win.setFont("Courier New-Bold-40");
+			win.setColor(Color.GREEN);
+			add (win, getWidth()/2-win.getWidth()/2, getHeight()/2+200);
+		}else{
+			GLabel loss = new GLabel ("YOU LOST!");
+			loss.setVisible(true);
+			loss.setFont("Courier New-Bold-40");
+			loss.setColor(Color.RED);
+			add (loss, getWidth()/2-loss.getWidth()/2, getHeight()/2+200);
 		}
 	}
+}
