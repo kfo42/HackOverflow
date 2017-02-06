@@ -140,7 +140,7 @@ public class Breakout extends GraphicsProgram {
 				bounceClip.play();
 	
 
-			}else if (collider != paddle && collider!= null){
+			}else if (collider!= null){
 				vy=-vy;
 				bounceClip.play();
 
