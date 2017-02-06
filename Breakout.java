@@ -187,10 +187,10 @@ public class Breakout extends GraphicsProgram {
 					//The change in speed depends on the speed of 
 					//the paddle, but whether this is an increase or 
 					//decrease is randomized.
-					if (rgen.nextBoolean(0.2)) {
-						vy = -(paddleSpeed/2)-vy;
+					if (rgen.nextBoolean(0.5)) {
+						vy = -(paddleSpeed/10)-vy;
 					}else{
-						vy =(paddleSpeed/2)-vy;
+						vy =(paddleSpeed/10)-vy;
 					}
 
 					//The ball's motion also reverses in the x-direction if 
