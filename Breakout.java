@@ -411,12 +411,14 @@ public class Breakout extends GraphicsProgram {
 		coinSlot.setFillColor(Color.BLACK);
 		add(coin);
 
-		waitForClick();
+		GObject coinInsert = getCollidingObject(coin.getX(),coin.getY());
 		
+		if (coinInsert == coinSlot){
 		remove(start);
 		remove(reminder);
 		pause(800);
 		remove(coinSlot);
+		remove(coin);
 		
 		GLabel ready = new GLabel ("READY...");
 		ready.setFont("Courier New-Bold-60");
@@ -435,8 +437,6 @@ public class Breakout extends GraphicsProgram {
 		add (go, getWidth()/2-go.getWidth()/2, getHeight()/2+50);
 		pause(500);
 		remove(go);
-remove(coin);
-add(paddle);
 	}
 
 	private void endSequence(double bricksHit){
