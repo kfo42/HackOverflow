@@ -99,7 +99,7 @@ public class Breakout extends GraphicsProgram {
 			//Initializes the ball
 			GOval ball= makeBall();
 			add (ball, getWidth()/2, getHeight()/2);
-			BALL_RADIUS+=rgen.nextDouble(-3.0, 3.0);
+			BALL_RADIUS-=1;
 
 			ball.setSize(BALL_RADIUS*2, BALL_RADIUS*2);
 
