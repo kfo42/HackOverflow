@@ -421,7 +421,6 @@ public class Breakout extends GraphicsProgram {
 			coinLabel2.setFont("Courier New-Bold-20");
 			add (coinLabel2, 2*getWidth()/3-coinSlot1.getWidth(), 380);
 
-			while (coinInsert==null){
 
 			coin.setFillColor(Color.YELLOW);
 			coin.setFilled(true);
@@ -429,6 +428,8 @@ public class Breakout extends GraphicsProgram {
 			coinSlot1.setFillColor(Color.BLACK);
 			coinSlot2.setFilled(true);
 			coinSlot2.setFillColor(Color.BLACK);
+			while (coinInsert==null){
+
 			add(coin);
 
 		}
