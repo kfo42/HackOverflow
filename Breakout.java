@@ -405,7 +405,7 @@ public class Breakout extends GraphicsProgram {
 		double y=coin.getY();
 		coinInsert = getCollidingObject(x,y);
 
-		while (coinInsert == null){
+		while (coinInsert != coinLabel1){
 			add(coin);
 
 			paddle.setVisible(false);
