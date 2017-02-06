@@ -184,18 +184,20 @@ public class Breakout extends GraphicsProgram {
 				double paddleSpeed = Math.sqrt((prevX-x)*(prevX-x));
 				GLabel speed = new GLabel("PaddleSpeed: "+paddleSpeed);
 
-				add (speed, 20, 80);
 				//Controls collisions between the ball, the paddle,
 				//and the bricks.
 				GObject collider = getCollidingObject(x,y);
 				if (collider ==paddle){
-
+					remove(speed);
 					//The change in speed depends on the speed of 
 					//the paddle.
+					add (speed, 20, 80);
+
 					if (paddleSpeed<1) {
 						vy = paddleSpeed-vy;
 					}else{
 						vy =-paddleSpeed-vy;
+						
 					}
 
 					//The ball's motion also reverses in the x-direction if 
