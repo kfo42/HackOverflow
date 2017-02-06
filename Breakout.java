@@ -104,11 +104,19 @@ public class Breakout extends GraphicsProgram {
 			add (ball, getWidth()/2, getHeight()/2);
 
 
-			//Initializes the horizontal speed of the ball
+			//Initializes the (random) horizontal speed of the ball
 			vx=rgen.nextDouble(1.0, 3.0);
 			if (rgen.nextBoolean(0.5)) {
 				vx = -vx;
 			}	
+			
+			//Initializes the "extra life powerup" attained by
+			//hitting the lives counter.
+			GOval powerUp = new GOval (livesLeft.getWidth(),livesLeft.getHeight());
+			powerUp.setFilled(true);
+			powerUp.setColor(Color.YELLOW);
+			add (powerUp, 200, 10);
+			powerUp.sendToBack();
 
 			while(lives>0){
 
@@ -119,15 +127,6 @@ public class Breakout extends GraphicsProgram {
 				GLabel livesLeft = new GLabel("Lives: "+lives);
 
 				add (livesLeft, 200, PADDLE_Y_OFFSET/3);
-
-				//Creates the "extra life powerup" attained by
-				//hitting the lives counter.
-				GOval powerUp = new GOval (livesLeft.getWidth(),livesLeft.getHeight());
-				powerUp.setFilled(true);
-				powerUp.setColor(Color.YELLOW);
-				add (powerUp, 200, 10);
-				powerUp.sendToBack();
-
 				//Determines what the ball does upon hitting each wall.
 
 				if(hitLeftWall(ball) || hitRightWall(ball)) {
