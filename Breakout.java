@@ -79,7 +79,25 @@ public class Breakout extends GraphicsProgram {
 	private int lives = 3;
 	private int bricksHit = 0;
 
+	private void prepSequence(){
+		pause(500);
+		GLabel ready = new GLabel ("READY...");
+		ready.setFont("Courier New-Bold-20");
+		add (ready, getWidth()/2-ready.getWidth()/2, getHeight()/2+50);
+		pause(500);
+		remove(ready);
+		GLabel set = new GLabel ("SET...");
+		ready.setFont("Courier New-Bold-20");
+		add (set, getWidth()/2-set.getWidth()/2, getHeight()/2+50);
+		pause(500);
+		remove(set);
+		GLabel go = new GLabel ("GO!");
+		go.setFont("Courier New-Bold-20");
+		add (go, getWidth()/2-go.getWidth()/2, getHeight()/2+50);
+		pause(500);
+		remove(go);
 
+	}
 	public void run() {
 		GLabel start = new GLabel ("BREAKOUT!");
 		start.setVisible(true);
@@ -92,7 +110,9 @@ public class Breakout extends GraphicsProgram {
 
 
 		waitForClick();
-
+		
+		prepSequence();
+		
 		AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
 
 		addMouseListeners();
