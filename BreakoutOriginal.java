@@ -168,7 +168,6 @@ public class BreakoutOriginal extends GraphicsProgram {
 			lives=0;
 			bricksHit=0;
 			ballRadius=10;
-			paddle.setVisible(false);
 
 		}
 	}
@@ -241,6 +240,7 @@ public class BreakoutOriginal extends GraphicsProgram {
 		GOval ball = new GOval(size, size);
 		ball.setFilled(true);
 		ball.setColor(Color.BLACK);
+		ball.setVisible(true);
 		return ball;
 	}
 
