@@ -162,6 +162,8 @@ public class Breakout extends GraphicsProgram {
 		add (end, getWidth()/2-end.getWidth()/2, getHeight()/2);
 		GLabel total = new GLabel ("Total Points: " + bricksHit);
 		total.setFont("Courier New-Bold-40");
+		add (total, getWidth()/2-total.getWidth()/2, getHeight()/2+200);
+
 
 
 
