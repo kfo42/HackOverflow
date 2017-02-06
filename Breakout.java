@@ -398,47 +398,49 @@ public class Breakout extends GraphicsProgram {
 	private void prepSequence(){
 		paddle.setVisible(false);
 
-		GLabel start = new GLabel ("BREAKOUT!");
-		start.setVisible(true);
-		start.setFont("Courier New-Bold-60");
-		start.setColor(Color.BLUE);
-		add (start, getWidth()/2-start.getWidth()/2, getHeight()/2-50);
-		add (coinSlot1, getWidth()/3-coinSlot1.getWidth()/2, 400);
-		add (coinSlot2, 2*getWidth()/3-coinSlot1.getWidth()/2, 400);
-
-		GLabel reminder = new GLabel ("Insert coin to continue");
-		reminder.setFont("Courier New-Bold-20");
-		add (reminder, getWidth()/2-reminder.getWidth()/2, getHeight()/2+50);
-		
-		GLabel coinLabel1 = new GLabel ("6 Lives");
-		coinLabel1.setFont("Courier New-Bold-20");
-		add (coinLabel1, getWidth()/3-coinSlot1.getWidth(), 380);
-		
-		GLabel coinLabel2 = new GLabel ("3 Lives");
-		coinLabel2.setFont("Courier New-Bold-20");
-		add (coinLabel2, 2*getWidth()/3-coinSlot1.getWidth(), 380);
-		
-		coin.setFillColor(Color.YELLOW);
-		coin.setFilled(true);
-		coinSlot1.setFilled(true);
-		coinSlot1.setFillColor(Color.BLACK);
-		coinSlot2.setFilled(true);
-		coinSlot2.setFillColor(Color.BLACK);
-		add(coin);
-		
 		double x=coin.getX();
 		double y=coin.getY();
 		coinInsert = getCollidingObject(x,y);
-		
+		while (coinInsert==null){
+			GLabel start = new GLabel ("BREAKOUT!");
+			start.setVisible(true);
+			start.setFont("Courier New-Bold-60");
+			start.setColor(Color.BLUE);
+			add (start, getWidth()/2-start.getWidth()/2, getHeight()/2-50);
+			add (coinSlot1, getWidth()/3-coinSlot1.getWidth()/2, 400);
+			add (coinSlot2, 2*getWidth()/3-coinSlot1.getWidth()/2, 400);
+
+			GLabel reminder = new GLabel ("Insert coin to continue");
+			reminder.setFont("Courier New-Bold-20");
+			add (reminder, getWidth()/2-reminder.getWidth()/2, getHeight()/2+50);
+
+			GLabel coinLabel1 = new GLabel ("6 Lives");
+			coinLabel1.setFont("Courier New-Bold-20");
+			add (coinLabel1, getWidth()/3-coinSlot1.getWidth(), 380);
+
+			GLabel coinLabel2 = new GLabel ("3 Lives");
+			coinLabel2.setFont("Courier New-Bold-20");
+			add (coinLabel2, 2*getWidth()/3-coinSlot1.getWidth(), 380);
+
+			coin.setFillColor(Color.YELLOW);
+			coin.setFilled(true);
+			coinSlot1.setFilled(true);
+			coinSlot1.setFillColor(Color.BLACK);
+			coinSlot2.setFilled(true);
+			coinSlot2.setFillColor(Color.BLACK);
+			add(coin);
+
+		}
+
 		if (coinInsert == coinSlot1){
-			 lives = 6;
+			lives = 6;
 		}
 		if (coinInsert == coinSlot2){
-			 lives = 3;
+			lives = 3;
 		}
-			pause(1000);
-		
-			
+		pause(1000);
+
+
 		remove(start);
 		remove(reminder);
 
@@ -466,10 +468,10 @@ public class Breakout extends GraphicsProgram {
 		add (go, getWidth()/2-go.getWidth()/2, getHeight()/2+50);
 		pause(500);
 		remove(go);
-		
+
 		remove(coin);
 		add(paddle);
-		
+
 
 	}
 
