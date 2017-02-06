@@ -92,12 +92,14 @@ public class Breakout extends GraphicsProgram {
 
 		//Initializes the horizontal speed of the ball
 		vx=rgen.nextDouble(1.0, 3.0);
+		//Initializes the score
+		int bricksRemaining = NBRICKS_PER_ROW*NBRICK_ROWS;
+
 		if (rgen.nextBoolean(0.5)) {
 			vx = -vx;
 		}	
 
 		while(lives>0){
-			int bricksRemaining = NBRICKS_PER_ROW*NBRICK_ROWS;
 			if(hitLeftWall(ball) || hitRightWall(ball)) {
 				vx=-vx;
 				bounceClip.play();
