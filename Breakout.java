@@ -11,6 +11,9 @@
  * ~Collision sounds
  * ~A powerup that adds an extra life
  * ~Keeps score and displays the number of points and lives to the player.
+ * ~Bouncing the ball off the edge of the paddle causes horizontal reflection.
+ * ~The speed at which the player moves the paddle with the mouse determines
+ * 	the change in the paddle's vertical speed.
  * ~The ball randomly decreases in radius with each turn, increasing difficulty.
  * ~At the end, displays win/loss and number of points attained.
  */
@@ -179,7 +182,9 @@ public class Breakout extends GraphicsProgram {
 
 				//Finds the magnitude of the paddle's current speed.
 				double paddleSpeed = Math.sqrt((prevX-x)*(prevX-x));
+				GLabel speed = new GLabel("PaddleSpeed: "+paddleSpeed);
 
+				add (speed, 20, 500);
 				//Controls collisions between the ball, the paddle,
 				//and the bricks.
 				GObject collider = getCollidingObject(x,y);
@@ -188,9 +193,9 @@ public class Breakout extends GraphicsProgram {
 					//The change in speed depends on the speed of 
 					//the paddle.
 					if (paddleSpeed<10) {
-						vy = -(paddleSpeed/10)-vy;
+						vy = -(paddleSpeed)-vy;
 					}else{
-						vy =(paddleSpeed/10)-vy;
+						vy =paddleSpeed-vy;
 					}
 
 					//The ball's motion also reverses in the x-direction if 
