@@ -7,8 +7,9 @@
  * This file will eventually implement the game of Breakout.
  * 
  * Additions:
- * ~Title sequence
+ * ~Title sequence with "coin slots"
  * ~Collision sounds
+ * ~Option to use 3 or 6 lives
  * ~A powerup that adds an extra life
  * ~Keeps score and displays the number of points and lives to the player.
  * ~Bouncing the ball off the edge of the paddle causes horizontal reflection.
@@ -169,7 +170,7 @@ public class Breakout extends GraphicsProgram {
 						if (lives>0){
 							//Randomizes the reduction in the size of the ball's radius,
 							//which increases difficulty with each life lost.
-							ballRadius-=rgen.nextDouble(1.0, 1.5);
+							ballRadius-=rgen.nextDouble(1.0, 3.0);
 							ball.setSize(ballRadius*2, ballRadius*2);
 
 							//Displays a "TRY AGAIN" message after losing a life.
@@ -440,6 +441,7 @@ public class Breakout extends GraphicsProgram {
 		}
 		if (coinInsert ==coinSlot1){
 			lives = 6;
+			ballRadius = 15;
 		}
 		if (coinInsert == coinSlot2){
 			lives = 3;
