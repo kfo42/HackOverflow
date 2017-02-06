@@ -81,7 +81,12 @@ public class Breakout extends GraphicsProgram {
 
 
 	public void run() {
-
+		GLabel start = new GLabel ("BREAKOUT!");
+		start.setVisible(true);
+		start.setFont("Courier New-Bold-80");
+		start.setColor(Color.CYAN);
+		add (start, getWidth()/2-start.getWidth()/2, getHeight()/2+200);
+		waitForClick();
 
 		AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
 
