@@ -406,10 +406,6 @@ public class Breakout extends GraphicsProgram {
 		coinInsert = getCollidingObject(x,y);
 
 		while (coinInsert == null){
-			 x=coin.getX();
-			 y=coin.getY();
-			coinInsert = getCollidingObject(x,y);
-			add(coin);
 
 			paddle.setVisible(false);
 
@@ -437,6 +433,10 @@ public class Breakout extends GraphicsProgram {
 			coinSlot2.setFilled(true);
 			coinSlot2.setFillColor(Color.BLACK);
 
+			 x=coin.getX();
+			 y=coin.getY();
+			coinInsert = getCollidingObject(x,y);
+			add(coin);
 		}
 		if (coinInsert ==coinSlot1){
 			lives = 6;
