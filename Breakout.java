@@ -179,6 +179,8 @@ public class Breakout extends GraphicsProgram {
 				pause(5);
 				double x = ball.getX();
 				double y = ball.getY();
+				add (speed, 20, 80);
+
 
 				//Finds the magnitude of the paddle's current speed.
 				double paddleSpeed = Math.sqrt((prevX-x)*(prevX-x));
@@ -191,7 +193,6 @@ public class Breakout extends GraphicsProgram {
 					remove(speed);
 					//The change in speed depends on the speed of 
 					//the paddle.
-					add (speed, 20, 80);
 
 					if (paddleSpeed<2) {
 						vy = paddleSpeed/10-vy;
