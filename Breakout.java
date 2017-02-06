@@ -81,7 +81,13 @@ public class Breakout extends GraphicsProgram {
 	GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
 	
 	//Initializes the coin.
-	GOval coin = new GOval(PADDLE_WIDTH, PADDLE_WIDTH);
+	GOval coin = new GOval(30, PADDLE_WIDTH);
+	coin.setColor(Color.YELLOW);
+	
+	//Initializes the coin slot.
+	GOval coinSlot = new GOval(40, PADDLE_WIDTH);
+	coinSlot.setFillColor(Color.BLACK);
+
 
 	//Initializes the random generator.
 	private RandomGenerator rgen = RandomGenerator.getInstance();
