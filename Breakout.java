@@ -75,7 +75,7 @@ public class Breakout extends GraphicsProgram {
 			Color.CYAN, Color.CYAN};
 
 	private double vx = 0;
-	private double vy = 0.5;
+	private double vy = 2;
 	private int lives = 3;
 
 	public void run() {
@@ -125,7 +125,7 @@ public class Breakout extends GraphicsProgram {
 
 			// update visualization
 			ball.move(vx, vy);
-			pause(3);
+			pause(4);
 			double x = ball.getX();
 			double y = ball.getY();
 			GObject collider = getCollidingObject(x,y);
