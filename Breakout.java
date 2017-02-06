@@ -82,7 +82,7 @@ public class Breakout extends GraphicsProgram {
 
 	public void run() {
 
-
+while(true){
 		prepSequence();
 
 		AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
@@ -168,7 +168,7 @@ public class Breakout extends GraphicsProgram {
 		endSequence(bricksHit);
 
 	}
-
+	}
 
 public int colorPoints(GObject collider, int bricksHit){
 	if (collider.getColor() == Color.CYAN){
