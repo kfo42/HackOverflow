@@ -246,8 +246,13 @@ public class Breakout extends GraphicsProgram {
 						//the color of brick hit.
 						bricksHit=colorPoints(collider, bricksHit);
 						if (collider.getColor()==Color.YELLOW){
-						ballRadius+=3;
-						ball.setSize(ballRadius*2, ballRadius*2);
+							ballRadius+=2;
+							ball.setSize(ballRadius*2, ballRadius*2);
+
+						}
+						if (collider.getColor()==Color.ORANGE){
+							ballRadius-=2;
+							ball.setSize(ballRadius*2, ballRadius*2);
 
 						}
 					}					
@@ -440,8 +445,8 @@ public class Breakout extends GraphicsProgram {
 			coinSlot2.setFilled(true);
 			coinSlot2.setFillColor(Color.BLACK);
 
-			 x=coin.getX();
-			 y=coin.getY();
+			x=coin.getX();
+			y=coin.getY();
 			coinInsert = getCollidingObject(x,y);
 			add(coin);
 		}
