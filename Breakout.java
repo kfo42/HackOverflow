@@ -206,9 +206,9 @@ public class Breakout extends GraphicsProgram {
 					//the ball collides with the side of the paddle.
 					if (collider.getY()<(ball.getY()+2*ballRadius)){
 						if (paddleSpeed<1) {
-							vy = paddleSpeed/20-vy;
+							vx = paddleSpeed/20-vx;
 						}else{
-							vy =-paddleSpeed/20-vy;
+							vx =-paddleSpeed/20-vx;
 						}
 						bounceClip.play();
 					}
