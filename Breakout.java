@@ -169,7 +169,7 @@ public class Breakout extends GraphicsProgram {
 						if (lives>0){
 							//Randomizes the reduction in the size of the ball's radius,
 							//which increases difficulty with each life lost.
-							ballRadius-=rgen.nextDouble(1.0, 3.0);
+							ballRadius-=rgen.nextDouble(1.0, 2.0);
 							ball.setSize(ballRadius*2, ballRadius*2);
 
 							//Displays a "TRY AGAIN" message after losing a life.
