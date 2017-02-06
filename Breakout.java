@@ -99,6 +99,9 @@ public class Breakout extends GraphicsProgram {
 			//Initializes the ball
 			GOval ball= makeBall();
 			add (ball, getWidth()/2, getHeight()/2);
+			BALL_RADIUS+=rgen.nextDouble(-3.0, 3.0);
+
+			ball.setSize(BALL_RADIUS*2, BALL_RADIUS*2);
 
 			//Initializes the horizontal speed of the ball
 			vx=rgen.nextDouble(1.0, 3.0);
@@ -166,9 +169,7 @@ public class Breakout extends GraphicsProgram {
 						}
 					}
 				}
-				BALL_RADIUS+=rgen.nextDouble(1.0, 3.0);
 
-				ball.setSize(BALL_RADIUS*2, BALL_RADIUS*2);
 
 				remove(points);
 				remove(livesLeft);
@@ -248,42 +249,19 @@ public class Breakout extends GraphicsProgram {
 		return ball.getY() > getHeight() - ball.getHeight();
 	}
 
-	/**
-	 * Method: Hit Top Wall
-	 * -----------------------
-	 * Returns whether or not the given ball should bounce off
-	 * of the top wall of the window.
-	 */
 	private boolean hitTopWall(GOval ball) {
 		return ball.getY() <= 0;
 	}
 
-	/**
-	 * Method: Hit Right Wall
-	 * -----------------------
-	 * Returns whether or not the given ball should bounce off
-	 * of the right wall of the window.
-	 */
 	private boolean hitRightWall(GOval ball) {
 		return ball.getX() >= getWidth() - ball.getWidth();
 	}
 
-	/**
-	 * Method: Hit Left Wall
-	 * -----------------------
-	 * Returns whether or not the given ball should bounce off
-	 * of the left wall of the window.
-	 */
+
 	private boolean hitLeftWall(GOval ball) {
 		return ball.getX() <= 0;
 	}
 
-	/**
-	 * Method: Make Ball
-	 * -----------------------
-	 * Creates a ball, adds it to the screen, and returns it so
-	 * that the ball can be used for animation.
-	 */
 	public GOval makeBall() {
 		double size = BALL_RADIUS * 2;
 		GOval ball = new GOval(size, size);
