@@ -424,7 +424,9 @@ public class Breakout extends GraphicsProgram {
 		coinSlot2.setFillColor(Color.BLACK);
 		add(coin);
 		GObject coinInsert = getCollidingObject(coin.getX(),coin.getY());
-
+		while (coinInsert==null){
+		}
+		
 		if (coinInsert == coinSlot1){
 			 lives = 6;
 		}
