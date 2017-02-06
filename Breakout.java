@@ -192,10 +192,10 @@ public class Breakout extends GraphicsProgram {
 
 					//The change in speed depends on the speed of 
 					//the paddle.
-					if (paddleSpeed<10) {
-						vy = -(paddleSpeed)-vy;
+					if (paddleSpeed<1) {
+						vy = paddleSpeed-vy;
 					}else{
-						vy =paddleSpeed-vy;
+						vy =-paddleSpeed-vy;
 					}
 
 					//The ball's motion also reverses in the x-direction if 
