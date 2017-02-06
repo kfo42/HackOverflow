@@ -198,7 +198,7 @@ public class Breakout extends GraphicsProgram {
 					//The change in speed depends on the speed of 
 					//the paddle.
 
-					if (paddleSpeed<2) {
+					if (paddleSpeed<1) {
 						vy = paddleSpeed/10-vy;
 					}else{
 						vy =-paddleSpeed/10-vy;
