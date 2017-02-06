@@ -179,12 +179,12 @@ public class Breakout extends GraphicsProgram {
 				pause(5);
 				double x = ball.getX();
 				double y = ball.getY();
-				add (speed, 20, 80);
 
 
 				//Finds the magnitude of the paddle's current speed.
 				double paddleSpeed = Math.sqrt((prevX-x)*(prevX-x));
 				GLabel speed = new GLabel("PaddleSpeed: "+paddleSpeed);
+				add (speed, 20, 80);
 
 				//Controls collisions between the ball, the paddle,
 				//and the bricks.
