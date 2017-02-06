@@ -310,7 +310,6 @@ public class Breakout extends GraphicsProgram {
 		paddle.setLocation(x, y);
 		add (paddle);
 		coin.setLocation(x, yCoin);
-		coinInsert = getCollidingObject(coin.getX(),coin.getY());
 
 
 	}
@@ -426,7 +425,8 @@ public class Breakout extends GraphicsProgram {
 		coinSlot2.setFilled(true);
 		coinSlot2.setFillColor(Color.BLACK);
 		add(coin);
-		
+		coinInsert = getCollidingObject(coin.getX(),coin.getY());
+
 		while (coinInsert == null){
 			pause(1);
 			
