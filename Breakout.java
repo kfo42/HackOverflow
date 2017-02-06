@@ -239,7 +239,7 @@ public class Breakout extends GraphicsProgram {
 			bricksHit=0;
 			ballRadius=10;
 			paddle.setVisible(false);
-
+			}
 		}
 	}
 	//Determines how many points are awarded for each brick color.
