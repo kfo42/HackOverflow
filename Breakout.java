@@ -290,7 +290,7 @@ public class Breakout extends GraphicsProgram {
 		}
 		if (collider.getColor() == Color.YELLOW){
 			bricksHit+=4;
-			ballRadius+=1;
+			ballRadius+=3;
 		}
 		if (collider.getColor() == Color.ORANGE){
 			bricksHit+=8;
