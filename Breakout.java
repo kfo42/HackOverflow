@@ -98,6 +98,7 @@ public class Breakout extends GraphicsProgram {
 
 			//Waits for the player to click before launching the ball.
 			waitForClick();
+			
 			//Initializes the ball
 			GOval ball= makeBall();
 			add (ball, getWidth()/2, getHeight()/2);
@@ -122,6 +123,8 @@ public class Breakout extends GraphicsProgram {
 				//Creates the "extra life powerup" attained by
 				//hitting the lives counter.
 				GRect powerUp = new GRect(livesLeft.getWidth(),livesLeft.getWidth());
+				powerUp.setFilled(true);
+				powerUp.setColor(Color.YELLOW);
 				add (powerUp, 200, PADDLE_Y_OFFSET/3);
 
 				//Determines what the ball does upon hitting each wall.
