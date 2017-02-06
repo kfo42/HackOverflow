@@ -118,7 +118,6 @@ public class Breakout extends GraphicsProgram {
 
 			//Creates all rows of bricks simultaneously
 			setUpBricks();
-			remove(coin);
 
 			//Waits for the player to click before launching the ball.
 			waitForClick();
@@ -415,7 +414,6 @@ public class Breakout extends GraphicsProgram {
 		remove(reminder);
 		pause(800);
 		remove(coinSlot);
-		remove(coin);
 		
 		GLabel ready = new GLabel ("READY...");
 		ready.setFont("Courier New-Bold-60");
@@ -435,6 +433,7 @@ public class Breakout extends GraphicsProgram {
 		pause(500);
 		remove(go);
 		paddle.setVisible(true);
+		remove(coin);
 
 	}
 
