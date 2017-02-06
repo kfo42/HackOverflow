@@ -33,10 +33,10 @@ public class Breakout extends GraphicsProgram {
 
 	/** Dimensions of the paddle */
 	private static final int PADDLE_WIDTH = 60;
-	private static final int PADDLE_HEIGHT = 10;
+	private static final int PADDLE_HEIGHT = 60;
 
 	/** Offset of the paddle up from the bottom */
-	private static final int PADDLE_Y_OFFSET = 30;
+	private static final int PADDLE_Y_OFFSET = 60;
 
 	/** Number of bricks per row */
 	private static final int NBRICKS_PER_ROW = 10;
@@ -158,7 +158,11 @@ public class Breakout extends GraphicsProgram {
 				//and the bricks.
 				GObject collider = getCollidingObject(x,y);
 				if (collider ==paddle){
-	
+					
+					if ((collider.getX()+PADDLE_WIDTH==
+							ball.getX())||(collider.getX()==ball.getX()+2*ballRadius)){
+						vx=-vx;
+					}
 					vy = -vy;
 					bounceClip.play();
 				}else if (collider !=null ){
@@ -170,6 +174,8 @@ public class Breakout extends GraphicsProgram {
 						//Updates the number of points depending on
 						//the color of brick hit.
 						bricksHit=colorPoints(collider, bricksHit);
+
+
 						}
 					
 				}
