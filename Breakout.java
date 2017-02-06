@@ -83,7 +83,6 @@ public class Breakout extends GraphicsProgram {
 
 		addMouseListeners();
 		//Prevents the paddle from leaving a "trail"
-		paddle.setVisible(false);
 
 		//Creates all rows of bricks
 		setUpBricks();
