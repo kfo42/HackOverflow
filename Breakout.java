@@ -85,7 +85,7 @@ public class Breakout extends GraphicsProgram {
 		start.setVisible(true);
 		start.setFont("Courier New-Bold-60");
 		start.setColor(Color.CYAN);
-		add (start, getWidth()/2-start.getWidth()/2, getHeight()/2-200);
+		add (start, getWidth()/2-start.getWidth()/2, getHeight()/2-50);
 		waitForClick();
 
 		AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
