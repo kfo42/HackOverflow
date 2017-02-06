@@ -146,12 +146,12 @@ public class Breakout extends GraphicsProgram {
 
 
 			}else if (collider !=null ){
-				vy=-vy;
-				bounceClip.play();
+	
 				if (collider != paddle){
 					remove(collider);
-
-					bricksHit +=1;
+					vy=-vy;
+					bounceClip.play();
+					colorPoints(collider, bricksHit);
 				}
 
 			}
@@ -163,7 +163,25 @@ public class Breakout extends GraphicsProgram {
 	}
 
 
+public int colorPoints(GObject collider, int bricksHit){
+	if (collider.getColor() == Color.CYAN){
+		bricksHit+=1;
+	}
+	if (collider.getColor() == Color.GREEN){
+		bricksHit+=2;
+	}
+	if (collider.getColor() == Color.YELLOW){
+		bricksHit+=4;
+	}
+	if (collider.getColor() == Color.ORANGE){
+		bricksHit+=8;
+	}
+	if (collider.getColor() == Color.RED){
+		bricksHit+=16;
+	}
+	return bricksHit;
 
+}
 	public void mouseMoved(MouseEvent e) {
 		int x = e.getX();
 		int y = getHeight()-PADDLE_Y_OFFSET;
@@ -176,7 +194,7 @@ public class Breakout extends GraphicsProgram {
 	}
 
 
-	private GRect setUpBricks(){
+	private void setUpBricks(){
 		double brickCols = NBRICKS_PER_ROW;
 		//Total number of bricks in the current row.
 		double brickRows = NBRICK_ROWS;
@@ -205,8 +223,6 @@ public class Breakout extends GraphicsProgram {
 			y_brick = y_brick+BRICK_HEIGHT+BRICK_SEP;
 			i++;
 		}
-		return brick;
-
 	}
 	private boolean hitBottomWall(GOval ball) {
 		return ball.getY() > getHeight() - ball.getHeight();
@@ -317,7 +333,7 @@ public class Breakout extends GraphicsProgram {
 		add (total, getWidth()/2-total.getWidth()/2, getHeight()/2+200);
 		pause(800);
 		remove(total);
-		if (bricksHit==100){
+		if (bricksHit==620){
 			GLabel win = new GLabel ("YOU WON!");
 			win.setVisible(true);
 			win.setFont("Courier New-Bold-40");
