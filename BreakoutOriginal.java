@@ -128,43 +128,25 @@ public class BreakoutOriginal extends GraphicsProgram {
 					}
 
 				}
-
-				double prevPadX=paddle.getX();
-				// Updates the position of the ball.
-
 				ball.move(vx, vy);
 				pause(7);
-
-				//Finds the location of the paddle.
-				double newPadX=paddle.getX();
 
 				//Finds the location of the ball.
 				double x = ball.getX();
 				double y = ball.getY();
 
-
-				//Finds the magnitude of the paddle's current speed.
-				double paddleSpeed = Math.sqrt((prevPadX-newPadX)*(prevPadX-newPadX));
-
 				//Controls collisions between the ball, the paddle,
 				//and the bricks.
 				GObject collider = getCollidingObject(x,y);
 				if (collider ==paddle){
-					//The change in speed depends on the speed of 
-					//the paddle.
-
-					if (paddleSpeed<2) {
-						vy = paddleSpeed*2-vy;
-					}else{
-						vy =-paddleSpeed/20-vy;
-					}
+						vy =-vy;
 
 					//The ball's motion also reverses in the x-direction if 
 					//the ball collides with the side of the paddle.
 					if (paddle.getY()<(ball.getY()+PADDLE_HEIGHT/2)){
 						vx=-vx;
-						}
-					
+					}
+
 
 				}else if (collider !=null ){
 
