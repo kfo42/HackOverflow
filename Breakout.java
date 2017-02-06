@@ -433,10 +433,10 @@ public class Breakout extends GraphicsProgram {
 			return lives = 3;
 		}
 			pause(1000);
-			return lives =lives+0;
 
-		remove(reminder);
+			
 		remove(start);
+		remove(reminder);
 
 		pause(800);
 		remove(coinSlot1);
@@ -465,6 +465,8 @@ public class Breakout extends GraphicsProgram {
 		
 		remove(coin);
 		add(paddle);
+		return lives =lives+0;
+
 	}
 
 	private void endSequence(double bricksHit){
