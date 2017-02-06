@@ -68,7 +68,6 @@ public class BreakoutOriginal extends GraphicsProgram {
 	//Initializes the paddle.
 	GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
 
-
 	//Initializes the random generator.
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 
@@ -198,14 +197,10 @@ public class BreakoutOriginal extends GraphicsProgram {
 	public void mouseMoved(MouseEvent e) {
 		int x = e.getX();
 		int y = getHeight()-PADDLE_Y_OFFSET;
-		int yCoin =  e.getY();
 		paddle.setFilled(true);
 		paddle.setFillColor(Color.BLACK);
 		paddle.setLocation(x, y);
 		add (paddle);
-		coin.setLocation(x, yCoin);
-
-
 	}
 
 	//Creates the layout of colorful bricks.
