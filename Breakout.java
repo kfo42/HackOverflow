@@ -176,10 +176,10 @@ public class Breakout extends GraphicsProgram {
 				// Updates the position of the ball.
 				ball.move(vx, vy);
 				pause(5);
-				
+
 				//Finds the location of the paddle.
 				double newPadX=paddle.getX();
-				
+
 				//Finds the location of the ball.
 				double x = ball.getX();
 				double y = ball.getY();
@@ -199,7 +199,7 @@ public class Breakout extends GraphicsProgram {
 						vy = paddleSpeed/10-vy;
 					}else{
 						vy =-paddleSpeed/10-vy;
-						
+
 					}
 
 					//The ball's motion also reverses in the x-direction if 
@@ -209,15 +209,16 @@ public class Breakout extends GraphicsProgram {
 							vy = paddleSpeed/20-vy;
 						}else{
 							vy =-paddleSpeed/20-vy;
+						}
+						bounceClip.play();
 					}
-					bounceClip.play();
 				}else if (collider == livesLeft || collider == points ){
 					//Nothing occurs if the ball hits the text.
 
 				}else if (collider ==powerUp){
 					//The powerup is awarded.
 					lives=powerUpAwarded(lives, powerUp);
-				
+
 				}else if (collider !=null ){
 
 					if (collider != paddle){
@@ -251,17 +252,17 @@ public class Breakout extends GraphicsProgram {
 
 		}
 	}
-	
+
 	public int powerUpAwarded(int lives, GOval powerUp){
-	lives+=1;
-	remove(powerUp);
-	GLabel extraLife = new GLabel ("EXTRA LIFE!");
-	extraLife.setVisible(true);
-	extraLife.setFont("Courier New-Bold-40");
-	add (extraLife, getWidth()/2-extraLife.getWidth()/2, getHeight()/2);
-	return lives;
+		lives+=1;
+		remove(powerUp);
+		GLabel extraLife = new GLabel ("EXTRA LIFE!");
+		extraLife.setVisible(true);
+		extraLife.setFont("Courier New-Bold-40");
+		add (extraLife, getWidth()/2-extraLife.getWidth()/2, getHeight()/2);
+		return lives;
 	}
-	
+
 	//Determines how many points are awarded for each brick color.
 	public double colorPoints(GObject collider, double bricksHit){
 		if (collider.getColor() == Color.CYAN){
