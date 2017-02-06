@@ -398,7 +398,7 @@ public class Breakout extends GraphicsProgram {
 		start.setFont("Courier New-Bold-60");
 		start.setColor(Color.BLUE);
 		add (start, getWidth()/2-start.getWidth()/2, getHeight()/2-50);
-		add (coinSlot, getWidth()/2, 200);
+		add (coinSlot, getWidth()/2-coinSlot.getWidth()/2, 400);
 		
 		GLabel reminder = new GLabel ("Insert coin to continue");
 		reminder.setFont("Courier New-Bold-20");
