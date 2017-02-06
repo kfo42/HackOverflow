@@ -67,7 +67,7 @@ public class Breakout extends GraphicsProgram {
 	/** Runs the Breakout program. */
 	GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
 	private RandomGenerator rgen = RandomGenerator.getInstance();
-	
+
 	//Provides the set of all colors for the rows of bricks.
 	private Color[] color = {Color.RED, Color.RED, 
 			Color.ORANGE, Color.ORANGE,
@@ -111,6 +111,7 @@ public class Breakout extends GraphicsProgram {
 
 			while(lives>0){
 
+				//Initializes the lives and score counters.
 				GLabel points = new GLabel("Score: "+bricksHit);
 
 				add (points, 20, PADDLE_Y_OFFSET/3);
@@ -118,9 +119,16 @@ public class Breakout extends GraphicsProgram {
 
 				add (livesLeft, 200, PADDLE_Y_OFFSET/3);
 
+				//Creates the "extra life powerup" attained by
+				//hitting the lives counter.
+				GRect powerUp = new GRect(livesLeft.getWidth(),livesLeft.getWidth());
+				add (powerUp, 200, PADDLE_Y_OFFSET/3);
+
+				//Determines what the ball does upon hitting each wall.
+
 				if(hitLeftWall(ball) || hitRightWall(ball)) {
 					vx=-vx;
-					bounceClip.play();
+					bounceClip.play(); 
 
 				}
 				if(hitTopWall(ball) || hitBottomWall(ball)) {
@@ -153,19 +161,22 @@ public class Breakout extends GraphicsProgram {
 				pause(8);
 				double x = ball.getX();
 				double y = ball.getY();
-				
+
 				//Controls collisions between the ball, the paddle,
 				//and the bricks.
 				GObject collider = getCollidingObject(x,y);
 				if (collider ==paddle){
-					
+
 					if (collider.getY()>ball.getY()){
 						vx=-vx;
 					}
 					vy = -vy;
 					bounceClip.play();
 				}else if (collider == livesLeft || collider == points ){
-
+					//Nothing occurs if the ball hits the text.
+				}else if (collider ==powerUp){
+					lives+=1;
+					remove(powerUp);
 				}else if (collider !=null ){
 
 					if (collider != paddle){
@@ -176,9 +187,7 @@ public class Breakout extends GraphicsProgram {
 						//the color of brick hit.
 						bricksHit=colorPoints(collider, bricksHit);
 
-
-						}
-					
+					}					
 				}
 				//Clears the number of points and lives so that they can be updated.
 				remove(points);
