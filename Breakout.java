@@ -75,7 +75,7 @@ public class Breakout extends GraphicsProgram {
 			Color.CYAN, Color.CYAN};
 
 	private double vx = 0;
-	private double vy = 1;
+	private double vy = 0.5;
 	private int lives = 3;
 
 	public void run() {
