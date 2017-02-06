@@ -166,7 +166,8 @@ while(true){
 			remove(livesLeft);
 		}
 		endSequence(bricksHit);
-
+		lives=3;
+		bricksHit=0;
 	}
 	}
 
