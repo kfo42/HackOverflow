@@ -177,7 +177,7 @@ public class Breakout extends GraphicsProgram {
 
 
 						}
-					}
+					
 				}
 				//Clears the number of points and lives so that they can be updated.
 				remove(points);
