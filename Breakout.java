@@ -137,6 +137,7 @@ public class Breakout extends GraphicsProgram {
 							add (tryAgain, getWidth()/2-tryAgain.getWidth()/2, getHeight()/2);
 							pause(500);
 							remove(tryAgain);
+							lives-=1;
 						}
 
 					}
