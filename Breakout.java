@@ -172,11 +172,11 @@ public class Breakout extends GraphicsProgram {
 				//and the bricks.
 				GObject collider = getCollidingObject(x,y);
 				if (collider ==paddle){
+					vy = -vy;
 
 					if (collider.getY()<ball.getY()){
 						vx=-vx;
 					}
-					vy = -vy;
 					bounceClip.play();
 				}else if (collider == livesLeft || collider == points ){
 					//Nothing occurs if the ball hits the text.
