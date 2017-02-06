@@ -169,7 +169,8 @@ public class Breakout extends GraphicsProgram {
 						//the color of brick hit.
 						bricksHit=colorPoints(collider, bricksHit);
 						
-						if (collider.getX()+PADDLE_WIDTH==ball.getX()||collider.getX()==ball.getY()+2*ballRadius){
+						if (collider.getX()+PADDLE_WIDTH==
+								ball.getX()||collider.getX()==ball.getY()+2*ballRadius){
 							vx=-vx;
 
 						}
