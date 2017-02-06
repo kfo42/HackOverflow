@@ -161,8 +161,8 @@ public class Breakout extends GraphicsProgram {
 					vy = -vy;
 					bounceClip.play();
 					
-					if (collider.getX()+PADDLE_WIDTH==
-							ball.getX()||collider.getX()==ball.getY()+2*ballRadius){
+					if ((collider.getX()+PADDLE_WIDTH==
+							ball.getX())||(collider.getX()==ball.getX()+2*ballRadius)){
 						vx=-vx;
 					}
 				}else if (collider !=null ){
