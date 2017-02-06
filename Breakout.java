@@ -126,8 +126,12 @@ public class Breakout extends GraphicsProgram {
 					bounceClip.play();
 					if(hitBottomWall(ball)){
 						if (lives>0){
-							BALL_RADIUS-=rgen.nextDouble(1.0, 3.0);
-
+							int radiusChange=0;
+							if (rgen.nextBoolean(0.5)) {
+								radiusChange = -radiusChange;
+								BALL_RADIUS-=radiusChange;
+							}
+							
 							ball.setSize(BALL_RADIUS*2, BALL_RADIUS*2);
 							GLabel tryAgain = new GLabel ("TRY AGAIN");
 							tryAgain.setVisible(true);
