@@ -87,8 +87,7 @@ public class Breakout extends GraphicsProgram {
 		start.setColor(Color.BLUE);
 		add (start, getWidth()/2-start.getWidth()/2, getHeight()/2-50);
 		GLabel reminder = new GLabel ("Click anywhere to begin");
-		start.setFont("Courier New-Bold-20");
-
+		reminder.setFont("Courier New-Bold-20");
 		add (reminder, getWidth()/2-reminder.getWidth()/2, getHeight()/2+50);
 
 
