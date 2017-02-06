@@ -159,7 +159,7 @@ public class Breakout extends GraphicsProgram {
 				
 			}
 			remove(points);
-
+			remove(lives);
 		}
 		endSequence(bricksHit);
 
