@@ -192,7 +192,7 @@ public class Breakout extends GraphicsProgram {
 					}else{
 						vy =(paddleSpeed/10)-vy;
 					}
-
+				}
 					//The ball's motion also reverses in the x-direction if 
 					//the ball collides with the side of the paddle.
 					if (collider.getY()<(ball.getY()+2*ballRadius)){
