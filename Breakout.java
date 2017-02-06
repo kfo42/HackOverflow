@@ -82,8 +82,6 @@ public class Breakout extends GraphicsProgram {
 		AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
 
 		addMouseListeners();
-		//Prevents the paddle from leaving a "trail"
-
 		//Creates all rows of bricks
 		setUpBricks();
 
