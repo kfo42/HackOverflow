@@ -432,13 +432,15 @@ public class Breakout extends GraphicsProgram {
 		if (coinInsert == coinSlot2){
 			lives = 6;
 		}
-			pause(8000);
+			pause(1000);
 
 		remove(start);
 		remove(reminder);
 		pause(800);
 		remove(coinSlot1);
 		remove(coinSlot2);
+		remove(coinLabel1);
+		remove(coinLabel2);
 
 
 		GLabel ready = new GLabel ("READY...");
