@@ -110,6 +110,7 @@ public class Breakout extends GraphicsProgram {
 		while(true){
 			//Produces a title sequence for Breakout.
 			addMouseListeners();
+			paddle.setVisible(false);
 
 			prepSequence();
 			paddle.setVisible(true);
@@ -393,7 +394,6 @@ public class Breakout extends GraphicsProgram {
 
 	//Creates the title sequence for Breakout.
 	private void prepSequence(){
-		paddle.setVisible(false);
 
 		GLabel start = new GLabel ("BREAKOUT!");
 		start.setVisible(true);
