@@ -84,7 +84,7 @@ public class Breakout extends GraphicsProgram {
 	GOval coin = new GOval(30, PADDLE_WIDTH);
 	
 	//Initializes the coin slot.
-	GOval coinSlot = new GOval(40, PADDLE_WIDTH);
+	GRect coinSlot = new GRect(40, PADDLE_WIDTH+10);
 
 
 	//Initializes the random generator.
