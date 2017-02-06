@@ -194,7 +194,6 @@ public class Breakout extends GraphicsProgram {
 				//and the bricks.
 				GObject collider = getCollidingObject(x,y);
 				if (collider ==paddle){
-					remove(speed);
 					//The change in speed depends on the speed of 
 					//the paddle.
 
@@ -233,6 +232,8 @@ public class Breakout extends GraphicsProgram {
 				//Clears the number of points and lives so that they can be updated.
 				remove(points);
 				remove(livesLeft);
+				remove(speed);
+
 			}
 			//Displays the win/loss and final points to the player.
 			endSequence(bricksHit);
