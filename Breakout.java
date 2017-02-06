@@ -130,8 +130,7 @@ public class Breakout extends GraphicsProgram {
 					lives-=1;
 					bounceClip.play();
 					BALL_RADIUS -=2;
-					GOval newBall = new GOval(BALL_RADIUS,BALL_RADIUS);
-					ball = newBall;
+					ball.setSize(BALL_RADIUS, BALL_RADIUS);
 					if (lives>0){
 						GLabel tryAgain = new GLabel ("TRY AGAIN");
 						tryAgain.setVisible(true);
