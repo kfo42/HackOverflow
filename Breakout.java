@@ -55,7 +55,6 @@ public class Breakout extends GraphicsProgram {
 	private static final int BRICK_HEIGHT = 8;
 
 	/** Radius of the ball in pixels */
-	private static final int BALL_RADIUS = 10;
 
 	/** Offset of the top brick row from the top */
 	private static final int BRICK_Y_OFFSET = 70;
@@ -78,6 +77,7 @@ public class Breakout extends GraphicsProgram {
 	private double vy = 2;
 	private int lives = 3;
 	private int bricksHit = 0;
+	private int BALL_RADIUS = 10;
 
 
 	public void run() {
@@ -127,8 +127,11 @@ public class Breakout extends GraphicsProgram {
 
 				}
 				if(hitBottomWall(ball)){
-					lives+=-1;
+					lives-=1;
 					bounceClip.play();
+					BALL_RADIUS -=2;
+					GOval newBall = new GOval(BALL_RADIUS,BALL_RADIUS);
+					ball = newBall;
 					if (lives>0){
 						GLabel tryAgain = new GLabel ("TRY AGAIN");
 						tryAgain.setVisible(true);
