@@ -76,7 +76,7 @@ public class Breakout extends GraphicsProgram {
 			Color.CYAN, Color.CYAN};
 
 	private double vx = 0;
-	private double vy = 4;
+	private double vy = 3;
 	private int lives = 3;
 	private double bricksHit = 0;
 	private int ballRadius = 10;
