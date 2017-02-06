@@ -76,7 +76,7 @@ public class Breakout extends GraphicsProgram {
 
 	private double vx = 0;
 	private double vy = 3;
-	private int lives = 5;
+	private int lives = 3;
 
 	public void run() {
 		AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
@@ -128,7 +128,7 @@ public class Breakout extends GraphicsProgram {
 
 			// update visualization
 			ball.move(vx, vy);
-			pause(6);
+			pause(8);
 			double x = ball.getX();
 			double y = ball.getY();
 			GObject collider = getCollidingObject(x,y);
