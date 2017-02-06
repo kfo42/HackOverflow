@@ -132,7 +132,7 @@ public class Breakout extends GraphicsProgram {
 			double x = ball.getX();
 			double y = ball.getY();
 			GObject collider = getCollidingObject(x,y);
-			if ((collider ==paddle) &&collider.getY()-1==ball.getY()){
+			if ((collider ==paddle) &&collider.getY()==ball.getY()){
 				vy = -vy;
 				bounceClip.play();
 			}else if (collider != null){
