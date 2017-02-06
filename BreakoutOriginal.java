@@ -80,7 +80,7 @@ public class BreakoutOriginal extends GraphicsProgram {
 
 	private double vx = 0;
 	private double vy = 2.5;
-	private int lives = 0;
+	private int lives = 3;
 	private double bricksHit = 0;
 	private int ballRadius = 10;
 
