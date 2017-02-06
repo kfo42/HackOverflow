@@ -77,7 +77,7 @@ public class Breakout extends GraphicsProgram {
 	private double vy = 2;
 	private int lives = 3;
 	private int bricksHit = 0;
-	private int BALL_RADIUS = 10;
+	private int ballRadius = 10;
 
 
 	public void run() {
@@ -128,8 +128,8 @@ public class Breakout extends GraphicsProgram {
 						if (lives>0){
 							//Randomizes the reduction in the size of the ball's radius,
 							//which increases difficulty with each life lost.
-							BALL_RADIUS-=rgen.nextDouble(1.0, 3.0);
-							ball.setSize(BALL_RADIUS*2, BALL_RADIUS*2);
+							ballRadius-=rgen.nextDouble(1.0, 3.0);
+							ball.setSize(ballRadius*2, ballRadius*2);
 							//Displays a "TRY AGAIN" message after losing a life.
 							GLabel tryAgain = new GLabel ("TRY AGAIN");
 							tryAgain.setVisible(true);
@@ -163,7 +163,7 @@ public class Breakout extends GraphicsProgram {
 						vy=-vy;
 						bounceClip.play();
 						bricksHit=colorPoints(collider, bricksHit);
-						if (collider.getX()==ball.getY()+2*BALL_RADIUS){
+						if (collider.getX()==ball.getY()+2*ballRadius){
 							vx=-vx;
 
 						}
@@ -180,6 +180,7 @@ public class Breakout extends GraphicsProgram {
 			removeAll();
 			lives=3;
 			bricksHit=0;
+			ballRadius=10;
 			paddle.setVisible(false);
 
 		}
@@ -269,7 +270,7 @@ public class Breakout extends GraphicsProgram {
 
 	//Initializes  the ball.
 	public GOval makeBall() {
-		double size = BALL_RADIUS * 2;
+		double size = ballRadius * 2;
 		GOval ball = new GOval(size, size);
 		ball.setFilled(true);
 		ball.setColor(Color.BLACK);
@@ -283,14 +284,14 @@ public class Breakout extends GraphicsProgram {
 		if (getElementAt (x,y) !=null){
 			GObject collider = getElementAt (x,y);
 			return collider;
-		}else if (getElementAt (x+2*BALL_RADIUS,y) !=null){
-			GObject collider = getElementAt (x+2*BALL_RADIUS,y);
+		}else if (getElementAt (x+2*ballRadius,y) !=null){
+			GObject collider = getElementAt (x+2*ballRadius,y);
 			return collider;
-		}else if (getElementAt (x,y+2*BALL_RADIUS) !=null){
-			GObject collider = getElementAt (x,y+2*BALL_RADIUS);
+		}else if (getElementAt (x,y+2*ballRadius) !=null){
+			GObject collider = getElementAt (x,y+2*ballRadius);
 			return collider;
-		}else if (getElementAt (x+2*BALL_RADIUS,y+2*BALL_RADIUS) !=null){
-			GObject collider = getElementAt (x+2*BALL_RADIUS,y+2*BALL_RADIUS);
+		}else if (getElementAt (x+2*ballRadius,y+2*ballRadius) !=null){
+			GObject collider = getElementAt (x+2*ballRadius,y+2*ballRadius);
 			return collider;
 		}else{
 			return null;
