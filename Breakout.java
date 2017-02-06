@@ -304,6 +304,8 @@ public class Breakout extends GraphicsProgram {
 		paddle.setVisible(true);
 		paddle.setLocation(x, y);
 		add (paddle);
+		coin.setLocation(x, y);
+		add(coin);
 
 	}
 
