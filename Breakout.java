@@ -242,6 +242,7 @@ public class Breakout extends GraphicsProgram {
 	extraLife.setVisible(true);
 	extraLife.setFont("Courier New-Bold-40");
 	add (extraLife, getWidth()/2-extraLife.getWidth()/2, getHeight()/2);
+	return lives;
 	}
 	
 	//Determines how many points are awarded for each brick color.
