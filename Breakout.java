@@ -11,11 +11,12 @@
  * ~Collision sounds
  * ~Option to use 3 or 6 lives
  * ~A powerup that adds an extra life
+ * ~Yellow bricks decrease radius, orange bricks increase radius
  * ~Keeps score and displays the number of points and lives to the player.
  * ~Bouncing the ball off the edge of the paddle causes horizontal reflection.
  * ~The speed at which the player moves the paddle with the mouse determines
- * 	the change in the paddle's vertical speed.
- * ~The ball randomly decreases in radius with each turn, increasing difficulty.
+ * 	the change in the paddle's vertical speed.  This simulates spin/friction.
+ * ~The ball decreases in radius with each turn, increasing difficulty.
  * ~At the end, displays win/loss and number of points attained.
  */
 
@@ -245,6 +246,8 @@ public class Breakout extends GraphicsProgram {
 						//Updates the number of points depending on
 						//the color of brick hit.
 						bricksHit=colorPoints(collider, bricksHit);
+						
+						//Creates the size variances based on brick color.
 						if (collider.getColor()==Color.YELLOW){
 							ballRadius+=2;
 							ball.setSize(ballRadius*2, ballRadius*2);
