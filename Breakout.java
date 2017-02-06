@@ -79,36 +79,7 @@ public class Breakout extends GraphicsProgram {
 	private int lives = 3;
 	private int bricksHit = 0;
 
-	private void prepSequence(){
-		GLabel start = new GLabel ("BREAKOUT!");
-		start.setVisible(true);
-		start.setFont("Courier New-Bold-60");
-		start.setColor(Color.BLUE);
-		add (start, getWidth()/2-start.getWidth()/2, getHeight()/2-50);
-		GLabel reminder = new GLabel ("Click anywhere to begin");
-		reminder.setFont("Courier New-Bold-20");
-		add (reminder, getWidth()/2-reminder.getWidth()/2, getHeight()/2+50);
-		waitForClick();
-		remove(start);
-		remove(reminder);
-		pause(800);
-		GLabel ready = new GLabel ("READY...");
-		ready.setFont("Courier New-Bold-60");
-		add (ready, getWidth()/2-ready.getWidth()/2, getHeight()/2+50);
-		pause(800);
-		remove(ready);
-		GLabel set = new GLabel ("SET...");
-		set.setFont("Courier New-Bold-60");
-		add (set, getWidth()/2-set.getWidth()/2, getHeight()/2+50);
-		pause(600);
-		remove(set);
-		GLabel go = new GLabel ("GO!");
-		go.setFont("Courier New-Bold-60");
-		add (go, getWidth()/2-go.getWidth()/2, getHeight()/2+50);
-		pause(500);
-		remove(go);
 
-	}
 	public void run() {
 
 		
@@ -191,30 +162,6 @@ public class Breakout extends GraphicsProgram {
 
 	}
 
-private void endSequence(int bricksHit){
-	GLabel end = new GLabel ("GAME OVER");
-	end.setVisible(true);
-	end.setFont("Courier New-Bold-40");
-	add (end, getWidth()/2-end.getWidth()/2, getHeight()/2);
-	GLabel total = new GLabel ("Total Points: " + (100-bricksHit));
-	total.setFont("Courier New-Bold-40");
-	add (total, getWidth()/2-total.getWidth()/2, getHeight()/2+200);
-	pause(800);
-	remove(total);
-	if (bricksHit==100){
-		GLabel win = new GLabel ("YOU WON!");
-		win.setVisible(true);
-		win.setFont("Courier New-Bold-40");
-		win.setColor(Color.GREEN);
-		add (win, getWidth()/2-win.getWidth()/2, getHeight()/2+200);
-	}else{
-		GLabel loss = new GLabel ("YOU LOST!");
-		loss.setVisible(true);
-		loss.setFont("Courier New-Bold-40");
-		loss.setColor(Color.RED);
-		add (loss, getWidth()/2-loss.getWidth()/2, getHeight()/2+200);
-	}
-}
 
 
 	public void mouseMoved(MouseEvent e) {
@@ -326,4 +273,58 @@ private void endSequence(int bricksHit){
 		}
 	}
 
+}private void prepSequence(){
+	GLabel start = new GLabel ("BREAKOUT!");
+	start.setVisible(true);
+	start.setFont("Courier New-Bold-60");
+	start.setColor(Color.BLUE);
+	add (start, getWidth()/2-start.getWidth()/2, getHeight()/2-50);
+	GLabel reminder = new GLabel ("Click anywhere to begin");
+	reminder.setFont("Courier New-Bold-20");
+	add (reminder, getWidth()/2-reminder.getWidth()/2, getHeight()/2+50);
+	waitForClick();
+	remove(start);
+	remove(reminder);
+	pause(800);
+	GLabel ready = new GLabel ("READY...");
+	ready.setFont("Courier New-Bold-60");
+	add (ready, getWidth()/2-ready.getWidth()/2, getHeight()/2+50);
+	pause(800);
+	remove(ready);
+	GLabel set = new GLabel ("SET...");
+	set.setFont("Courier New-Bold-60");
+	add (set, getWidth()/2-set.getWidth()/2, getHeight()/2+50);
+	pause(600);
+	remove(set);
+	GLabel go = new GLabel ("GO!");
+	go.setFont("Courier New-Bold-60");
+	add (go, getWidth()/2-go.getWidth()/2, getHeight()/2+50);
+	pause(500);
+	remove(go);
+
+}
+
+private void endSequence(int bricksHit){
+GLabel end = new GLabel ("GAME OVER");
+end.setVisible(true);
+end.setFont("Courier New-Bold-40");
+add (end, getWidth()/2-end.getWidth()/2, getHeight()/2);
+GLabel total = new GLabel ("Total Points: " + (100-bricksHit));
+total.setFont("Courier New-Bold-40");
+add (total, getWidth()/2-total.getWidth()/2, getHeight()/2+200);
+pause(800);
+remove(total);
+if (bricksHit==100){
+	GLabel win = new GLabel ("YOU WON!");
+	win.setVisible(true);
+	win.setFont("Courier New-Bold-40");
+	win.setColor(Color.GREEN);
+	add (win, getWidth()/2-win.getWidth()/2, getHeight()/2+200);
+}else{
+	GLabel loss = new GLabel ("YOU LOST!");
+	loss.setVisible(true);
+	loss.setFont("Courier New-Bold-40");
+	loss.setColor(Color.RED);
+	add (loss, getWidth()/2-loss.getWidth()/2, getHeight()/2+200);
+}
 }
