@@ -188,9 +188,9 @@ public class Breakout extends GraphicsProgram {
 					//the paddle, but whether this is an increase or 
 					//decrease is randomized.
 					if (rgen.nextBoolean(0.2)) {
-						vy = -(paddleSpeed/2)+vy;
+						vy = -(paddleSpeed/2)-vy;
 					}else{
-						vy =(paddleSpeed/2)+vy;
+						vy =(paddleSpeed/2)-vy;
 					}
 
 					//The ball's motion also reverses in the x-direction if 
