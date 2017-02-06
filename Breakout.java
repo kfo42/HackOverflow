@@ -77,8 +77,12 @@ public class Breakout extends GraphicsProgram {
 	private double vx = 0;
 	private double vy = 2;
 	private int lives = 3;
+	private int bricksHit = NBRICKS_PER_ROW*NBRICK_ROWS;
+
 
 	public void run() {
+		
+		
 		AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
 
 		addMouseListeners();
@@ -93,14 +97,13 @@ public class Breakout extends GraphicsProgram {
 		//Initializes the horizontal speed of the ball
 		vx=rgen.nextDouble(1.0, 3.0);
 		//Initializes the score
-		int bricksRemaining = NBRICKS_PER_ROW*NBRICK_ROWS;
 
 		if (rgen.nextBoolean(0.5)) {
 			vx = -vx;
 		}	
 
 		while(lives>0){
-			GLabel points = new GLabel("Score"+bricksRemaining);
+			GLabel points = new GLabel("Score: "+bricksHit);
 
 			add (points, 20, getHeight()-PADDLE_Y_OFFSET/3);
 
@@ -146,7 +149,7 @@ public class Breakout extends GraphicsProgram {
 				if (collider != paddle){
 					remove(collider);
 
-					bricksRemaining +=-1;
+					bricksHit +=-1;
 				}
 
 			}
@@ -157,6 +160,9 @@ public class Breakout extends GraphicsProgram {
 		end.setVisible(true);
 		end.setFont("Courier New-Bold-40");
 		add (end, getWidth()/2-end.getWidth()/2, getHeight()/2);
+		GLabel total = new GLabel ("Total Points: " + bricksHit);
+		total.setFont("Courier New-Bold-40");
+
 
 
 	}
