@@ -407,6 +407,15 @@ public class Breakout extends GraphicsProgram {
 		GLabel reminder = new GLabel ("Insert coin to continue");
 		reminder.setFont("Courier New-Bold-20");
 		add (reminder, getWidth()/2-reminder.getWidth()/2, getHeight()/2+50);
+		
+		GLabel coinLabel1 = new GLabel ("3 Lives");
+		coinLabel1.setFont("Courier New-Bold-20");
+		add (coinLabel1, getWidth()/3-coinSlot1.getWidth()/2, 380);
+		
+		GLabel coinLabel2 = new GLabel ("6 Lives");
+		coinLabel2.setFont("Courier New-Bold-20");
+		add (coinLabel2, 2*getWidth()/3-coinSlot1.getWidth()/2, 380);
+		
 		coin.setFillColor(Color.YELLOW);
 		coin.setFilled(true);
 		coinSlot1.setFilled(true);
@@ -423,7 +432,7 @@ public class Breakout extends GraphicsProgram {
 		if (coinInsert == coinSlot2){
 			lives = 6;
 		}
-			pause(10000);
+			pause(8000);
 
 		remove(start);
 		remove(reminder);
