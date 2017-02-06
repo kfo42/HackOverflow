@@ -432,10 +432,8 @@ public class Breakout extends GraphicsProgram {
 		add (go, getWidth()/2-go.getWidth()/2, getHeight()/2+50);
 		pause(500);
 		remove(go);
-		coin.setVisible(false);
-		paddle.setVisible(true);
-
-
+remove(coin);
+add(paddle);
 	}
 
 	private void endSequence(double bricksHit){
