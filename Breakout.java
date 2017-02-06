@@ -423,14 +423,13 @@ public class Breakout extends GraphicsProgram {
 		coinSlot2.setFilled(true);
 		coinSlot2.setFillColor(Color.BLACK);
 		add(coin);
-
 		GObject coinInsert = getCollidingObject(coin.getX(),coin.getY());
 
 		if (coinInsert == coinSlot1){
-			return lives = 6;
+			 lives = 6;
 		}
 		if (coinInsert == coinSlot2){
-			return lives = 3;
+			 lives = 3;
 		}
 			pause(1000);
 
@@ -465,7 +464,7 @@ public class Breakout extends GraphicsProgram {
 		
 		remove(coin);
 		add(paddle);
-		return lives =lives+0;
+		return lives;
 
 	}
 
