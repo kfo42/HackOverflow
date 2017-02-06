@@ -138,17 +138,17 @@ public class Breakout extends GraphicsProgram {
 			if ((collider ==paddle) &&collider.getY()==ball.getY()+2*BALL_RADIUS){
 				vy = -vy;
 				bounceClip.play();
-	
 
-			}else if (collider !=null && collider != paddle ){
+
+			}else if (collider !=null ){
 				vy=-vy;
 				bounceClip.play();
+				if (collider != paddle){
+					remove(collider);
 
-				remove(collider);
+					bricksRemaining +=-1;
+				}
 
-				bricksRemaining +=-1;
-
-				
 			}
 			remove(points);
 
