@@ -204,7 +204,7 @@ public class Breakout extends GraphicsProgram {
 
 				}else if (collider ==powerUp){
 					//The powerup is awarded.
-					powerUpAwarded(lives, powerUp);
+					lives=powerUpAwarded(lives, powerUp);
 				
 				}else if (collider !=null ){
 
