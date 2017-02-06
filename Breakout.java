@@ -133,7 +133,7 @@ public class Breakout extends GraphicsProgram {
 					ball.setSize(BALL_RADIUS, BALL_RADIUS);
 					vy = -vy;
 
-					if (lives>0){
+					/*if (lives>0){
 
 						GLabel tryAgain = new GLabel ("TRY AGAIN");
 						tryAgain.setVisible(true);
@@ -143,7 +143,7 @@ public class Breakout extends GraphicsProgram {
 						remove(tryAgain);
 					}
 
-
+*/
 
 				}
 
