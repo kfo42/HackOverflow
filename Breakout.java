@@ -76,7 +76,14 @@ public class Breakout extends GraphicsProgram {
 
 	/* Method: run() */
 	/** Runs the Breakout program. */
+	
+	//Initializes the paddle.
 	GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
+	
+	//Initializes the coin.
+	GOval coin = new GOval(PADDLE_WIDTH, PADDLE_WIDTH);
+
+	//Initializes the random generator.
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 
 	//Provides the set of all colors for the rows of bricks.
@@ -384,13 +391,16 @@ public class Breakout extends GraphicsProgram {
 		start.setColor(Color.BLUE);
 		add (start, getWidth()/2-start.getWidth()/2, getHeight()/2-50);
 		
-		GLabel reminder = new GLabel ("Click anywhere to begin");
+		GLabel reminder = new GLabel ("Insert coin to continue");
 		reminder.setFont("Courier New-Bold-20");
 		add (reminder, getWidth()/2-reminder.getWidth()/2, getHeight()/2+50);
 		waitForClick();
+		
 		remove(start);
 		remove(reminder);
 		pause(800);
+		remove(coinSlot);
+		remove(coin);
 		
 		GLabel ready = new GLabel ("READY...");
 		ready.setFont("Courier New-Bold-60");
