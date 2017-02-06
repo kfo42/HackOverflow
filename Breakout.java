@@ -132,17 +132,6 @@ public class Breakout extends GraphicsProgram {
 					bounceClip.play();
 					vy = -vy;
 
-					if (lives>0){
-
-						GLabel tryAgain = new GLabel ("TRY AGAIN");
-						tryAgain.setVisible(true);
-						tryAgain.setFont("Courier New-Bold-40");
-						add (tryAgain, getWidth()/2-tryAgain.getWidth()/2, getHeight()/2);
-						pause(500);
-						remove(tryAgain);
-					}
-
-
 
 				}
 
