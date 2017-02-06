@@ -94,6 +94,8 @@ public class Breakout extends GraphicsProgram {
 		vx=rgen.nextDouble(1.0, 3.0);
 		//Initializes the score
 		int bricksRemaining = NBRICKS_PER_ROW*NBRICK_ROWS;
+		GLabel points = new GLabel("Score"+bricksRemaining);
+		add (points, 20, getHeight()-PADDLE_Y_OFFSET/3);
 
 		if (rgen.nextBoolean(0.5)) {
 			vx = -vx;
@@ -142,10 +144,11 @@ public class Breakout extends GraphicsProgram {
 
 				remove(collider);
 				bricksRemaining +=-1;
+				remove(points);
+
 				
 			}
-			GLabel points = new GLabel("Score"+bricksRemaining);
-			add (points, 20, getHeight()-PADDLE_Y_OFFSET/3);
+
 		}
 		GLabel end = new GLabel ("GAME OVER");
 		end.setVisible(true);
