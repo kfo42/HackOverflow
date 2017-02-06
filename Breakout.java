@@ -76,15 +76,16 @@ public class Breakout extends GraphicsProgram {
 
 	/* Method: run() */
 	/** Runs the Breakout program. */
-	
+
 	//Initializes the paddle.
 	GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
-	
+
 	//Initializes the coin.
 	GOval coin = new GOval(30, PADDLE_WIDTH);
-	
-	//Initializes the coin slot.
-	GRect coinSlot = new GRect(40, PADDLE_WIDTH+10);
+
+	//Initializes the coin slots.
+	GRect coinSlot1 = new GRect(40, PADDLE_WIDTH+10);
+	GRect coinSlot2 = new GRect(40, PADDLE_WIDTH+10);
 
 
 	//Initializes the random generator.
@@ -400,46 +401,57 @@ public class Breakout extends GraphicsProgram {
 		start.setFont("Courier New-Bold-60");
 		start.setColor(Color.BLUE);
 		add (start, getWidth()/2-start.getWidth()/2, getHeight()/2-50);
-		add (coinSlot, getWidth()/2-coinSlot.getWidth()/2, 400);
-		
+		add (coinSlot1, getWidth()/3-coinSlot1.getWidth()/2, 400);
+		add (coinSlot2, 2*getWidth()/3-coinSlot1.getWidth()/2, 400);
+
 		GLabel reminder = new GLabel ("Insert coin to continue");
 		reminder.setFont("Courier New-Bold-20");
 		add (reminder, getWidth()/2-reminder.getWidth()/2, getHeight()/2+50);
 		coin.setFillColor(Color.YELLOW);
 		coin.setFilled(true);
-		coinSlot.setFilled(true);
-		coinSlot.setFillColor(Color.BLACK);
+		coinSlot1.setFilled(true);
+		coinSlot1.setFillColor(Color.BLACK);
+		coinSlot2.setFilled(true);
+		coinSlot2.setFillColor(Color.BLACK);
 		add(coin);
 
 		GObject coinInsert = getCollidingObject(coin.getX(),coin.getY());
-		
-		if (coinInsert == coinSlot)
+
+		if (coinInsert == coinSlot1){
+			lives = 3;
+		}
+		if (coinInsert == coinSlot2){
+			lives = 6;
+		}
 			pause(10000);
 
 		remove(start);
 		remove(reminder);
 		pause(800);
-		remove(coinSlot);
-		
+		remove(coinSlot1);
+		remove(coinSlot2);
+
+
 		GLabel ready = new GLabel ("READY...");
 		ready.setFont("Courier New-Bold-60");
 		add (ready, getWidth()/2-ready.getWidth()/2, getHeight()/2+50);
 		pause(800);
 		remove(ready);
-		
+
 		GLabel set = new GLabel ("SET...");
 		set.setFont("Courier New-Bold-60");
 		add (set, getWidth()/2-set.getWidth()/2, getHeight()/2+50);
 		pause(600);
 		remove(set);
-		
+
 		GLabel go = new GLabel ("GO!");
 		go.setFont("Courier New-Bold-60");
 		add (go, getWidth()/2-go.getWidth()/2, getHeight()/2+50);
 		pause(500);
 		remove(go);
-remove(coin);
-add(paddle);
+		
+		remove(coin);
+		add(paddle);
 	}
 
 	private void endSequence(double bricksHit){
