@@ -245,7 +245,9 @@ public class Breakout extends GraphicsProgram {
 						//Updates the number of points depending on
 						//the color of brick hit.
 						bricksHit=colorPoints(collider, bricksHit);
-
+						if (collider.getColor()==Color.YELLOW){
+						ballRadius+=3;
+						}
 					}					
 				}
 				//Clears the number of points and lives so that they can be updated.
@@ -292,7 +294,6 @@ public class Breakout extends GraphicsProgram {
 		}
 		if (collider.getColor() == Color.YELLOW){
 			bricksHit+=4;
-			ballRadius+=3;
 		}
 		if (collider.getColor() == Color.ORANGE){
 			bricksHit+=8;
