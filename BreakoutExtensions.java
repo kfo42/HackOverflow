@@ -191,12 +191,12 @@ public class BreakoutExtensions extends GraphicsProgram {
 				}
 
 				double prevPadX=paddle.getX();
-				// Updates the position of the ball.
+				//Finds the location of the paddle.
 				
 				ball.move(vx, vy);
 				pause(7);
 
-				//Finds the location of the paddle.
+				//Finds the subsequent location of the paddle.
 				double newPadX=paddle.getX();
 
 				//Finds the location of the ball.
