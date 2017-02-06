@@ -188,24 +188,23 @@ public class Breakout extends GraphicsProgram {
 
 		while (brickRows != 0){
 			while (brickCols != 0) {
-				GRect brick = new GRect(BRICK_WIDTH, BRICK_HEIGHT);
-
 				x_brick = midpoint-((width)*(brickCols/2)+(BRICK_SEP)*(brickCols/2-0.5));
 				while (brickCols > 0){
+					GRect brick = new GRect(BRICK_WIDTH, BRICK_HEIGHT);
 					brick.setFilled(true);
 					brick.setFillColor(color[i]);
 					brick.setColor(color[i]);
 					add (brick, x_brick, y_brick);
 					brickCols = brickCols-1 ;	
 					x_brick = x_brick + width+BRICK_SEP;
-					return brick;
-
+				
 				}
 			}
 			brickCols = NBRICKS_PER_ROW;
 			brickRows += -1;
 			y_brick = y_brick+BRICK_HEIGHT+BRICK_SEP;
 			i++;
+			
 		}
 	}
 	private boolean hitBottomWall(GOval ball) {
