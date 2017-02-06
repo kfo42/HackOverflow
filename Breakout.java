@@ -145,12 +145,12 @@ public class Breakout extends GraphicsProgram {
 				bounceClip.play();
 
 				remove(collider);
-				remove(points);
 
 				bricksRemaining +=-1;
 
 				
 			}
+			remove(points);
 
 		}
 		GLabel end = new GLabel ("GAME OVER");
