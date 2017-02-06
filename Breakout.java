@@ -131,9 +131,10 @@ public class Breakout extends GraphicsProgram {
 					bounceClip.play();
 					BALL_RADIUS -=2;
 					ball.setSize(BALL_RADIUS, BALL_RADIUS);
-					vy = -vy;
 
 					if (lives>0){
+						vy = -vy;
+
 						GLabel tryAgain = new GLabel ("TRY AGAIN");
 						tryAgain.setVisible(true);
 						tryAgain.setFont("Courier New-Bold-40");
