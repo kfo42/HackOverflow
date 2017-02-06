@@ -95,12 +95,12 @@ public class Breakout extends GraphicsProgram {
 		GLabel ready = new GLabel ("READY...");
 		ready.setFont("Courier New-Bold-60");
 		add (ready, getWidth()/2-ready.getWidth()/2, getHeight()/2+50);
-		pause(500);
+		pause(800);
 		remove(ready);
 		GLabel set = new GLabel ("SET...");
 		set.setFont("Courier New-Bold-60");
 		add (set, getWidth()/2-set.getWidth()/2, getHeight()/2+50);
-		pause(500);
+		pause(600);
 		remove(set);
 		GLabel go = new GLabel ("GO!");
 		go.setFont("Courier New-Bold-60");
