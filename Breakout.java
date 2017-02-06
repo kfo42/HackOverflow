@@ -176,14 +176,23 @@ public class Breakout extends GraphicsProgram {
 				pause(5);
 				double x = ball.getX();
 				double y = ball.getY();
-				
+
 				double paddleSpeed = prevX-x;
 
 				//Controls collisions between the ball, the paddle,
 				//and the bricks.
 				GObject collider = getCollidingObject(x,y);
 				if (collider ==paddle){
-					vy = -(paddleSpeed/2)*vy;
+
+					//The change in speed depends on the speed of 
+					//the paddle, but whether this is an increase or 
+					//decrease is randomized.
+					if (rgen.nextBoolean(0.2)) {
+						vy = -(paddleSpeed/2)+vy;
+					}else{
+						vy =(paddleSpeed/2)+vy;
+					}
+
 					//The ball's motion also reverses in the x-direction if 
 					//the ball collides with the side of the paddle.
 					if (collider.getY()<(ball.getY()+2*ballRadius)){
