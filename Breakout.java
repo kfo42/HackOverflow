@@ -128,7 +128,7 @@ public class Breakout extends GraphicsProgram {
 				}
 				if(hitBottomWall(ball)){
 					vy = -vy;
-					BALL_RADIUS -=2;
+					BALL_RADIUS -=1;
 
 					bounceClip.play();
 					ball.setSize(BALL_RADIUS, BALL_RADIUS);
@@ -139,10 +139,10 @@ public class Breakout extends GraphicsProgram {
 						tryAgain.setVisible(true);
 						tryAgain.setFont("Courier New-Bold-40");
 						add (tryAgain, getWidth()/2-tryAgain.getWidth()/2, getHeight()/2);
+						pause(500);
 						remove(tryAgain);
 					}
 
-					pause(500);
 
 
 				}
