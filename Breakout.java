@@ -440,7 +440,7 @@ public class Breakout extends GraphicsProgram {
 			if (coinInsert == coinSlot2){
 				lives = 3;
 			}
-				pause(1000);
+				pause(10);
 
 
 				remove(start);
