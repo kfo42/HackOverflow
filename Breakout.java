@@ -169,6 +169,8 @@ while(true){
 		removeAll();
 		lives=3;
 		bricksHit=0;
+		paddle.setVisible(false);
+
 	}
 	}
 
