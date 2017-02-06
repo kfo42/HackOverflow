@@ -146,11 +146,14 @@ public class Breakout extends GraphicsProgram {
 				}
 
 
-				// update visualization
+				// Updates the position of the ball.
 				ball.move(vx, vy);
 				pause(4);
 				double x = ball.getX();
 				double y = ball.getY();
+				
+				//Controls collisions between the ball, the paddle,
+				//and the bricks.
 				GObject collider = getCollidingObject(x,y);
 				if (collider ==paddle){
 					vy = -vy;
@@ -162,8 +165,11 @@ public class Breakout extends GraphicsProgram {
 						remove(collider);
 						vy=-vy;
 						bounceClip.play();
+						//Updates the number of points depending on
+						//the color of brick hit.
 						bricksHit=colorPoints(collider, bricksHit);
-						if (collider.getX()==ball.getY()+2*ballRadius){
+						
+						if (collider.getX()+PADDLE_WIDTH==ball.getX()||collider.getX()==ball.getY()+2*ballRadius){
 							vx=-vx;
 
 						}
