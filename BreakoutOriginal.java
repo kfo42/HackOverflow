@@ -112,24 +112,14 @@ public class BreakoutOriginal extends GraphicsProgram {
 
 
 			while(lives>0){
-
-				//Initializes the lives and score counters.
-				GLabel points = new GLabel("Score: "+bricksHit);
-
-				add (points, 20, PADDLE_Y_OFFSET/3);
-				GLabel livesLeft = new GLabel("Lives: "+lives);
-
-				add (livesLeft, 200, PADDLE_Y_OFFSET/3);
-				//Determines what the ball does upon hitting each wall.
+				//Allows the ball to reverse direction (vertically)
+				//upon colliding with the walls.
 
 				if(hitLeftWall(ball) || hitRightWall(ball)) {
 					vx=-vx;
-					bounceClip.play(); 
-
 				}
 				if(hitTopWall(ball) || hitBottomWall(ball)) {
 					vy = -vy;
-					bounceClip.play();
 					if(hitBottomWall(ball)){
 
 						if (lives>0){
@@ -156,7 +146,7 @@ public class BreakoutOriginal extends GraphicsProgram {
 
 				double prevPadX=paddle.getX();
 				// Updates the position of the ball.
-				
+
 				ball.move(vx, vy);
 				pause(7);
 
@@ -211,7 +201,7 @@ public class BreakoutOriginal extends GraphicsProgram {
 						//Updates the number of points depending on
 						//the color of brick hit.
 						bricksHit=colorPoints(collider, bricksHit);
-						
+
 						//Creates the size variances based on brick color.
 						if (collider.getColor()==Color.YELLOW){
 							ballRadius+=2;
@@ -375,5 +365,5 @@ public class BreakoutOriginal extends GraphicsProgram {
 	}
 
 
-	}
+
 }
