@@ -428,9 +428,8 @@ public class Breakout extends GraphicsProgram {
 		add(coin);
 		
 		while (coinInsert == null){
-			pause(100);
-			coinInsert = getCollidingObject(coin.getX(),coin.getY());
-
+			pause(1);
+			
 		}
 		
 		if (coinInsert == coinSlot1){
