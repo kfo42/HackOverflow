@@ -169,8 +169,7 @@ public class Breakout extends GraphicsProgram {
 						}
 					}
 				}
-
-
+				//Clears the number of points and lives so that they can be updated.
 				remove(points);
 				remove(livesLeft);
 			}
@@ -268,6 +267,7 @@ public class Breakout extends GraphicsProgram {
 		return ball.getX() <= 0;
 	}
 
+	//Initializes  the ball.
 	public GOval makeBall() {
 		double size = BALL_RADIUS * 2;
 		GOval ball = new GOval(size, size);
@@ -277,8 +277,8 @@ public class Breakout extends GraphicsProgram {
 	}
 
 
-//Determines whether the ball collides with another object
-//at any of its four "corners."
+	//Determines whether the ball collides with another object
+	//at any of its four "corners."
 	private GObject getCollidingObject(double x, double y){
 		if (getElementAt (x,y) !=null){
 			GObject collider = getElementAt (x,y);
@@ -296,7 +296,7 @@ public class Breakout extends GraphicsProgram {
 			return null;
 		}
 	}
-	
+
 	//Creates the title sequence for Breakout.
 	private void prepSequence(){
 		GLabel start = new GLabel ("BREAKOUT!");
@@ -339,9 +339,9 @@ public class Breakout extends GraphicsProgram {
 		add (total, getWidth()/2-total.getWidth()/2, getHeight()/2+200);
 		pause(800);
 		remove(total);
-		
-	//The game is won only if all bricks are cleared, which amounts to
-	//620 total points.
+
+		//The game is won only if all bricks are cleared, which amounts to
+		//620 total points.
 		if (bricksHit==620){
 			GLabel win = new GLabel ("YOU WON!");
 			win.setVisible(true);
