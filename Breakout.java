@@ -82,11 +82,9 @@ public class Breakout extends GraphicsProgram {
 	
 	//Initializes the coin.
 	GOval coin = new GOval(30, PADDLE_WIDTH);
-	coin.setColor(Color.YELLOW);
 	
 	//Initializes the coin slot.
 	GOval coinSlot = new GOval(40, PADDLE_WIDTH);
-	coinSlot.setFillColor(Color.BLACK);
 
 
 	//Initializes the random generator.
@@ -401,6 +399,10 @@ public class Breakout extends GraphicsProgram {
 		GLabel reminder = new GLabel ("Insert coin to continue");
 		reminder.setFont("Courier New-Bold-20");
 		add (reminder, getWidth()/2-reminder.getWidth()/2, getHeight()/2+50);
+		coin.setColor(Color.YELLOW);
+		coinSlot.setFilled(true);
+		coinSlot.setFillColor(Color.BLACK);
+
 		waitForClick();
 		
 		remove(start);
