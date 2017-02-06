@@ -100,7 +100,7 @@ public class Breakout extends GraphicsProgram {
 
 	private double vx = 0;
 	private double vy = 2;
-	private int lives = 3;
+	private int lives = 0;
 	private double bricksHit = 0;
 	private int ballRadius = 10;
 
@@ -427,10 +427,10 @@ public class Breakout extends GraphicsProgram {
 		GObject coinInsert = getCollidingObject(coin.getX(),coin.getY());
 
 		if (coinInsert == coinSlot1){
-			lives = 3;
+			lives = 6;
 		}
 		if (coinInsert == coinSlot2){
-			lives = 6;
+			lives = 3;
 		}
 			pause(1000);
 
