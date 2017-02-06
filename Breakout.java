@@ -300,12 +300,13 @@ public class Breakout extends GraphicsProgram {
 	public void mouseMoved(MouseEvent e) {
 		int x = e.getX();
 		int y = getHeight()-PADDLE_Y_OFFSET;
+		int yCoin =  e.getY();
 		paddle.setFilled(true);
 		paddle.setFillColor(Color.BLACK);
-		paddle.setVisible(true);
+		paddle.setVisible(false);
 		paddle.setLocation(x, y);
 		add (paddle);
-		coin.setLocation(x, y);
+		coin.setLocation(x, yCoin);
 		add(coin);
 
 	}
@@ -402,7 +403,8 @@ public class Breakout extends GraphicsProgram {
 		GLabel reminder = new GLabel ("Insert coin to continue");
 		reminder.setFont("Courier New-Bold-20");
 		add (reminder, getWidth()/2-reminder.getWidth()/2, getHeight()/2+50);
-		coin.setColor(Color.YELLOW);
+		coin.setFillColor(Color.YELLOW);
+		coin.setFilled(true);
 		coinSlot.setFilled(true);
 		coinSlot.setFillColor(Color.BLACK);
 
@@ -431,6 +433,7 @@ public class Breakout extends GraphicsProgram {
 		add (go, getWidth()/2-go.getWidth()/2, getHeight()/2+50);
 		pause(500);
 		remove(go);
+		paddle.setVisible(true);
 
 	}
 
