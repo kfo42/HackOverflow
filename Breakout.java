@@ -78,7 +78,7 @@ public class Breakout extends GraphicsProgram {
 	private double vx = 0;
 	private double vy = 2;
 	private int lives = 3;
-	private int bricksHit = 0;
+	private double bricksHit = 0;
 	private int ballRadius = 10;
 
 
@@ -340,7 +340,7 @@ public class Breakout extends GraphicsProgram {
 
 	}
 
-	private void endSequence(int bricksHit){
+	private void endSequence(double bricksHit){
 		GLabel end = new GLabel ("GAME OVER");
 		end.setVisible(true);
 		end.setFont("Courier New-Bold-40");
