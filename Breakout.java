@@ -213,7 +213,7 @@ public class Breakout extends GraphicsProgram {
 					//the paddle.
 
 					if (paddleSpeed<1) {
-						vy = paddleSpeed-vy;
+						vy = paddleSpeed*2-vy;
 					}else{
 						vy =-paddleSpeed/20-vy;
 
@@ -223,7 +223,7 @@ public class Breakout extends GraphicsProgram {
 					//the ball collides with the side of the paddle.
 					if (paddle.getY()<(ball.getY()+PADDLE_HEIGHT/2)){
 						if (paddleSpeed<1) {
-							vx = paddleSpeed-vx;
+							vx = paddleSpeed*2-vx;
 						}else{
 							vx =-paddleSpeed/20-vx;
 						}
