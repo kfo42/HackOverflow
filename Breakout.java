@@ -164,6 +164,8 @@ public class Breakout extends GraphicsProgram {
 					}
 					vy = -vy;
 					bounceClip.play();
+				}else if (collider == livesLeft || collider == points ){
+
 				}else if (collider !=null ){
 
 					if (collider != paddle){
