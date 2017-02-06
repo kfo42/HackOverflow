@@ -7,6 +7,7 @@
  * This file will eventually implement the game of Breakout.
  * 
  * Additions:
+ * 
  * ~Title sequence with "coin slots"
  * ~Collision sounds
  * ~Option to use 3 or 6 lives
@@ -18,6 +19,7 @@
  * 	the change in the paddle's vertical speed.  This simulates spin/friction.
  * ~The ball decreases in radius with each turn, increasing difficulty.
  * ~At the end, displays win/loss and number of points attained.
+ * 
  */
 
 import acm.graphics.*;
