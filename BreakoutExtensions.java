@@ -463,8 +463,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 			add(easterEgg, getWidth()/2-easterEgg.getWidth()/2, getHeight()/2);
 			coinSlot1.setFillColor(Color.YELLOW);
 			coinSlot2.setFillColor(Color.YELLOW);
-			pause(5000);
-			lives = 9000;
+			
 			remove(easterEgg);
 			remove(coinSlot1);
 			remove(coinSlot2);
@@ -472,6 +471,10 @@ public class BreakoutExtensions extends GraphicsProgram {
 			remove(coinLabel2);
 			remove(start);
 			remove(reminder);
+			
+			pause(5000);
+			lives = 9000;
+
 		}
 		if (coinInsert ==coinSlot1){
 			remove(coin);
