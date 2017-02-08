@@ -418,7 +418,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 	//Determines whether the ball collides with another object
 	//at any of its four "corners."
 	private GObject getCollidingObject(double x, double y){
-		if (getElementAt (x,y) !=null){
+		if (getElementAt (x,y) !=clouds){
 			GObject collider = getElementAt (x,y);
 			return collider;
 		}else if (getElementAt (x+2*ballRadius,y) !=null){
