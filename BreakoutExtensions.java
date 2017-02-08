@@ -68,8 +68,6 @@ public class BreakoutExtensions extends GraphicsProgram {
 	/** Height of a brick */
 	private static final int BRICK_HEIGHT = 8;
 
-	/** Radius of the ball in pixels */
-
 	/** Offset of the top brick row from the top */
 	private static final int BRICK_Y_OFFSET = 70;
 
@@ -281,10 +279,10 @@ public class BreakoutExtensions extends GraphicsProgram {
 							shrink.play();
 						}else
 							bounceClip.play();
-
-
 					}                   
+					ball.setFilled(true);
 				}
+				
 				//Clears the number of points and lives so that they can be updated.
 				remove(points);
 				remove(livesLeft);
@@ -481,17 +479,17 @@ public class BreakoutExtensions extends GraphicsProgram {
 			easterEggRun();
 		}
 		if (coinInsert ==coinSlot1){
+			ballRadius = 15;
 			remove(coin);
 			coinDrop.play();
 			coinSlot1.setFillColor(Color.PINK);
 			lives = 6;
-			ballRadius = 15;
 		}
 		if (coinInsert == coinSlot2){
+			ballRadius = 10;
 			coinDrop.play();
 			coinSlot2.setFillColor(Color.CYAN);
 			remove(coin);
-			ballRadius = 10;
 			lives = 3;
 		}
 		pause(10);
