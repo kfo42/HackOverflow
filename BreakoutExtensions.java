@@ -114,6 +114,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 	private AudioClip thatsIt = MediaTools.loadAudioClip("thats-it.wav");
 	private AudioClip ready = MediaTools.loadAudioClip("im-so-ready.wav");
 	private AudioClip coinDrop = MediaTools.loadAudioClip("electronic_stapler.wav");
+	private AudioClip grow = MediaTools.loadAudioClip("spring_1.wav");
 
 
 	private GImage clouds = new GImage("clouds.jpeg");
@@ -257,7 +258,6 @@ public class BreakoutExtensions extends GraphicsProgram {
 					if (collider != paddle && collider !=clouds){
 						remove(collider);
 						vy=-vy;
-						bounceClip.play();
 						//Updates the number of points depending on
 						//the color of brick hit.
 						bricksHit=colorPoints(collider, bricksHit);
@@ -266,13 +266,15 @@ public class BreakoutExtensions extends GraphicsProgram {
 						if (collider.getColor()==Color.YELLOW){
 							ballRadius+=2;
 							ball.setSize(ballRadius*2, ballRadius*2);
-
-						}
-						if (collider.getColor()==Color.ORANGE){
+							grow.play();
+						}else if (collider.getColor()==Color.ORANGE){
 							ballRadius-=2;
 							ball.setSize(ballRadius*2, ballRadius*2);
 
-						}
+						}else
+							bounceClip.play();
+
+						
 					}                   
 				}
 				//Clears the number of points and lives so that they can be updated.
