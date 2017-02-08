@@ -10,7 +10,7 @@
  * ~Collision sounds
  * ~Option to use 3 or 6 lives
  * ~A powerup that adds an extra life
- * ~Easter egg with 9000 lives
+ * ~Easter egg with 9000 lives -- move coin 5/6 of the way down
  * ~Yellow bricks decrease radius, orange bricks increase radius
  * ~Keeps score and displays the number of points and lives to the player.
  * ~Bouncing the ball off the edge of the paddle causes horizontal reflection.
