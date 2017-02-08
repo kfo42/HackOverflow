@@ -288,6 +288,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 		}
 	}
+}
 
 	public int powerUpAwarded(int lives, GOval powerUp){
 		lives+=1;
