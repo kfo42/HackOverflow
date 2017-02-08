@@ -191,102 +191,100 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 				}
 
-				double prevPadX=paddle.getX();
-				//Finds the location of the paddle.
-
-				ball.move(vx, vy);
-				pause(7);
-
-				//Finds the subsequent location of the paddle.
-				double newPadX=paddle.getX();
-
-				//Finds the location of the ball.
-				double x = ball.getX();
-				double y = ball.getY();
-
-
-				//Finds the magnitude of the paddle's current speed.
-				double paddleSpeed = Math.sqrt((prevPadX-newPadX)*(prevPadX-newPadX));
-
-				//Controls collisions between the ball, the paddle,
-				//and the bricks.
-				GObject collider = getCollidingObject(x,y);
-				if (collider ==paddle){
-					//The change in speed depends on the speed of 
-					//the paddle.
-
-					if (paddleSpeed<2) {
-						vy = paddleSpeed*2-vy;
-					}else{
-						vy =-paddleSpeed/20-vy;
-
-					}
-				
-				//The ball's motion also reverses in the x-direction if 
-				//the ball collides with the side of the paddle.
-				if (paddle.getY()<(ball.getY()+PADDLE_HEIGHT/2)){
-					if (paddleSpeed<2) {
-						vx = paddleSpeed*2-vx;
-					}else{
-						vx =-paddleSpeed/20-vx;
-					}
-					bounceClip.play();
-				}
-				//Secret powerup with near-infinite lives.
-							
-			}else if (collider == livesLeft || collider == points ){
-				//Nothing occurs if the ball hits the text.
-
-			}else if (collider ==powerUp){
-				//The powerup is awarded.
-				lives=powerUpAwarded(lives, powerUp);
-
-			}else if (collider !=bg ){
-
-				if (collider != paddle){
-					remove(collider);
-					vy=-vy;
-					bounceClip.play();
-					//Updates the number of points depending on
-					//the color of brick hit.
-					bricksHit=colorPoints(collider, bricksHit);
-
-					//Creates the size variances based on brick color.
-					if (collider.getColor()==Color.YELLOW){
-						ballRadius+=2;
-						ball.setSize(ballRadius*2, ballRadius*2);
-
-					}
-					if (collider.getColor()==Color.ORANGE){
-						ballRadius-=2;
-						ball.setSize(ballRadius*2, ballRadius*2);
-
-					}
-				}					
-			}
-			//Clears the number of points and lives so that they can be updated.
-			remove(points);
-			remove(livesLeft);
-			ball.setFilled(true);
-
-			if (bricksHit==620){
-				lives=0;
-			}
-
-
-		}
-		//Displays the win/loss and final points to the player.
-		endSequence(bricksHit);
-
-		//Clears the game for the next round (of 3 lives).
-		removeAll();
-		lives=0;
-		bricksHit=0;
-		ballRadius=10;
-		paddle.setVisible(false);
-
-	}
-}
+                double prevPadX=paddle.getX();
+                //Finds the location of the paddle.
+                 
+                ball.move(vx, vy);
+                pause(7);
+ 
+                //Finds the subsequent location of the paddle.
+                double newPadX=paddle.getX();
+ 
+                //Finds the location of the ball.
+                double x = ball.getX();
+                double y = ball.getY();
+ 
+ 
+                //Finds the magnitude of the paddle's current speed.
+                double paddleSpeed = Math.sqrt((prevPadX-newPadX)*(prevPadX-newPadX));
+ 
+                //Controls collisions between the ball, the paddle,
+                //and the bricks.
+                GObject collider = getCollidingObject(x,y);
+                if (collider ==paddle){
+                    //The change in speed depends on the speed of 
+                    //the paddle.
+ 
+                    if (paddleSpeed<2) {
+                        vy = paddleSpeed*2-vy;
+                    }else{
+                        vy =-paddleSpeed/20-vy;
+ 
+                    }
+ 
+                    //The ball's motion also reverses in the x-direction if 
+                    //the ball collides with the side of the paddle.
+                    if (paddle.getY()<(ball.getY()+PADDLE_HEIGHT/2)){
+                        if (paddleSpeed<2) {
+                            vx = paddleSpeed*2-vx;
+                        }else{
+                            vx =-paddleSpeed/20-vx;
+                        }
+                        bounceClip.play();
+                    }
+                }else if (collider == livesLeft || collider == points ){
+                    //Nothing occurs if the ball hits the text.
+ 
+                }else if (collider ==powerUp){
+                    //The powerup is awarded.
+                    lives=powerUpAwarded(lives, powerUp);
+ 
+                }else if (collider !=null ){
+ 
+                    if (collider != paddle){
+                        remove(collider);
+                        vy=-vy;
+                        bounceClip.play();
+                        //Updates the number of points depending on
+                        //the color of brick hit.
+                        bricksHit=colorPoints(collider, bricksHit);
+                         
+                        //Creates the size variances based on brick color.
+                        if (collider.getColor()==Color.YELLOW){
+                            ballRadius+=2;
+                            ball.setSize(ballRadius*2, ballRadius*2);
+ 
+                        }
+                        if (collider.getColor()==Color.ORANGE){
+                            ballRadius-=2;
+                            ball.setSize(ballRadius*2, ballRadius*2);
+ 
+                        }
+                    }                   
+                }
+                //Clears the number of points and lives so that they can be updated.
+                remove(points);
+                remove(livesLeft);
+                ball.setFilled(true);
+ 
+                if (bricksHit==620){
+                    lives=0;
+                }
+ 
+ 
+            }
+            //Displays the win/loss and final points to the player.
+            endSequence(bricksHit);
+ 
+            //Clears the game for the next round (of 3 lives).
+            removeAll();
+            lives=0;
+            bricksHit=0;
+            ballRadius=10;
+            paddle.setVisible(false);
+ 
+        }
+    }
 
 public int powerUpAwarded(int lives, GOval powerUp){
 	lives+=1;
