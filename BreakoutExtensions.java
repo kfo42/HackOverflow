@@ -115,8 +115,8 @@ public class BreakoutExtensions extends GraphicsProgram {
 	private AudioClip grow = MediaTools.loadAudioClip("spring_1.wav");
 	private AudioClip shrink = MediaTools.loadAudioClip("bottle_pop_3.wav");
 	private AudioClip excite = MediaTools.loadAudioClip("here-i-come.wav");
-	private AudioClip beeps = MediaTools.loadAudioClip("beeps.wav");
 	private AudioClip laugh = MediaTools.loadAudioClip("laugh.wav");
+	private AudioClip colorShift = MediaTools.loadAudioClip("velcro-strap-1.wav");
 
 	//For the intro sequence.
 	private GLabel reminder = new GLabel ("Insert coin to continue");
@@ -279,6 +279,10 @@ public class BreakoutExtensions extends GraphicsProgram {
 							ballRadius-=2;
 							ball.setSize(ballRadius*2, ballRadius*2);
 							shrink.play();
+						}else if (collider.getColor()==Color.GREEN){
+							ball.setFillColor(color[rgen.nextInt(0,9)]);
+							ball.setSize(ballRadius*2, ballRadius*2);
+							colorShift.play();
 						}else
 							bounceClip.play();
 					}                   
