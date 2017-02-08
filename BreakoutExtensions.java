@@ -108,7 +108,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 	private int ballRadius = 10;
 
 	//The sound of the ball's bounce.
-	private AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
+	AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
 	
 	public void run() {
 		//Placing the entire game sequence within a while loop
@@ -235,14 +235,10 @@ public class BreakoutExtensions extends GraphicsProgram {
 				}else if (collider ==powerUp){
 					//The powerup is awarded.
 					lives=powerUpAwarded(lives, powerUp);
-				}else if (collider ==powerUp){
-						//The powerup is awarded.
-						lives=powerUpAwarded(lives, powerUp);
-						
-				//Secret easter egg with near-infinite lives.	
-				}
-				
-			if (collider != paddle){
+
+				}else if (collider !=null ){
+
+					if (collider != paddle){
 						remove(collider);
 						vy=-vy;
 						bounceClip.play();
@@ -262,7 +258,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 						}
 					}					
-				
+				}
 				//Clears the number of points and lives so that they can be updated.
 				remove(points);
 				remove(livesLeft);
@@ -271,6 +267,8 @@ public class BreakoutExtensions extends GraphicsProgram {
 				if (bricksHit==620){
 					lives=0;
 				}
+
+
 			}
 			//Displays the win/loss and final points to the player.
 			endSequence(bricksHit);
@@ -284,7 +282,6 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 		}
 	}
-}
 
 	public int powerUpAwarded(int lives, GOval powerUp){
 		lives+=1;
