@@ -478,14 +478,14 @@ public class BreakoutExtensions extends GraphicsProgram {
 			easterEggRun();
 		}
 		if (coinInsert ==coinSlot1){
-			ballRadius = 15;
+			ballRadius += 5;
 			remove(coin);
 			coinDrop.play();
 			coinSlot1.setFillColor(Color.PINK);
 			lives = 6;
 		}
 		if (coinInsert == coinSlot2){
-
+			
 			coinDrop.play();
 			coinSlot2.setFillColor(Color.CYAN);
 			remove(coin);
