@@ -110,7 +110,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 	//The sound of the ball's bounce.
 	private AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
-	
+
 	private GImage bg = new GImage("doge.png");
 
 	public void run() {
@@ -221,343 +221,343 @@ public class BreakoutExtensions extends GraphicsProgram {
 						vy =-paddleSpeed/20-vy;
 
 					}
-
-					//The ball's motion also reverses in the x-direction if 
-					//the ball collides with the side of the paddle.
-					if (paddle.getY()<(ball.getY()+PADDLE_HEIGHT/2)){
-						if (paddleSpeed<2) {
-							vx = paddleSpeed*2-vx;
-						}else{
-							vx =-paddleSpeed/20-vx;
-						}
-						bounceClip.play();
+				}
+				//The ball's motion also reverses in the x-direction if 
+				//the ball collides with the side of the paddle.
+				if (paddle.getY()<(ball.getY()+PADDLE_HEIGHT/2)){
+					if (paddleSpeed<2) {
+						vx = paddleSpeed*2-vx;
+					}else{
+						vx =-paddleSpeed/20-vx;
 					}
-					//Secret powerup with near-infinite lives.
-
-				}else if (collider == livesLeft || collider == points ){
-					//Nothing occurs if the ball hits the text.
-
-				}else if (collider ==powerUp){
-					//The powerup is awarded.
-					lives=powerUpAwarded(lives, powerUp);
-
-				}else if (collider !=bg ){
-
-					if (collider != paddle){
-						remove(collider);
-						vy=-vy;
-						bounceClip.play();
-						//Updates the number of points depending on
-						//the color of brick hit.
-						bricksHit=colorPoints(collider, bricksHit);
-
-						//Creates the size variances based on brick color.
-						if (collider.getColor()==Color.YELLOW){
-							ballRadius+=2;
-							ball.setSize(ballRadius*2, ballRadius*2);
-
-						}
-						if (collider.getColor()==Color.ORANGE){
-							ballRadius-=2;
-							ball.setSize(ballRadius*2, ballRadius*2);
-
-						}
-					}					
+					bounceClip.play();
 				}
-				//Clears the number of points and lives so that they can be updated.
-				remove(points);
-				remove(livesLeft);
-				ball.setFilled(true);
+				//Secret powerup with near-infinite lives.
 
-				if (bricksHit==620){
-					lives=0;
-				}
+			}else if (collider == livesLeft || collider == points ){
+				//Nothing occurs if the ball hits the text.
 
+			}else if (collider ==powerUp){
+				//The powerup is awarded.
+				lives=powerUpAwarded(lives, powerUp);
+
+			}else if (collider !=bg ){
+
+				if (collider != paddle){
+					remove(collider);
+					vy=-vy;
+					bounceClip.play();
+					//Updates the number of points depending on
+					//the color of brick hit.
+					bricksHit=colorPoints(collider, bricksHit);
+
+					//Creates the size variances based on brick color.
+					if (collider.getColor()==Color.YELLOW){
+						ballRadius+=2;
+						ball.setSize(ballRadius*2, ballRadius*2);
+
+					}
+					if (collider.getColor()==Color.ORANGE){
+						ballRadius-=2;
+						ball.setSize(ballRadius*2, ballRadius*2);
+
+					}
+				}					
+			}
+			//Clears the number of points and lives so that they can be updated.
+			remove(points);
+			remove(livesLeft);
+			ball.setFilled(true);
+
+			if (bricksHit==620){
+				lives=0;
+			}
+
+
+		}
+		//Displays the win/loss and final points to the player.
+		endSequence(bricksHit);
+
+		//Clears the game for the next round (of 3 lives).
+		removeAll();
+		lives=0;
+		bricksHit=0;
+		ballRadius=10;
+		paddle.setVisible(false);
+
+	}
+}
+
+public int powerUpAwarded(int lives, GOval powerUp){
+	lives+=1;
+	remove(powerUp);
+	GLabel extraLife = new GLabel ("EXTRA LIFE!");
+	extraLife.setVisible(true);
+	extraLife.setFont("Courier New-Bold-40");
+	add (extraLife, getWidth()/2-extraLife.getWidth()/2, getHeight()/2);
+	return lives;
+}
+
+//Determines how many points are awarded for each brick color.
+public double colorPoints(GObject collider, double bricksHit){
+	if (collider.getColor() == Color.CYAN){
+		bricksHit+=1;
+	}
+	if (collider.getColor() == Color.GREEN){
+		bricksHit+=2;
+	}
+	if (collider.getColor() == Color.YELLOW){
+		bricksHit+=4;
+	}
+	if (collider.getColor() == Color.ORANGE){
+		bricksHit+=8;
+	}
+	if (collider.getColor() == Color.RED){
+		bricksHit+=16;
+	}
+	return bricksHit;
+
+}
+
+//Creates the MouseEvent for moving the paddle.
+public void mouseMoved(MouseEvent e) {
+	int x = e.getX();
+	int y = getHeight()-PADDLE_Y_OFFSET;
+	int yCoin =  e.getY();
+	paddle.setFilled(true);
+	paddle.setFillColor(Color.BLACK);
+	paddle.setLocation(x, y);
+	add (paddle);
+	coin.setLocation(x, yCoin);
+
+
+}
+
+//Creates the layout of colorful bricks.
+private void setUpBricks(){
+	double brickCols = NBRICKS_PER_ROW;
+	//Total number of bricks in the current row.
+	double brickRows = NBRICK_ROWS;
+	double midpoint = (getWidth())/2;
+	double width = BRICK_WIDTH;
+	double x_brick = 0;
+	double y_brick = BRICK_Y_OFFSET;
+	int i=0;
+
+	while (brickRows != 0){
+		while (brickCols != 0) {
+			x_brick = midpoint-((width)*(brickCols/2)+(BRICK_SEP)*(brickCols/2-0.5));
+			while (brickCols > 0){
+				GRect brick = new GRect(BRICK_WIDTH, BRICK_HEIGHT);
+
+				brick.setFilled(true);
+				brick.setFillColor(color[i]);
+				brick.setColor(color[i]);
+				add (brick, x_brick, y_brick);
+				brickCols = brickCols-1 ;	
+				x_brick = x_brick + width+BRICK_SEP;
 
 			}
-			//Displays the win/loss and final points to the player.
-			endSequence(bricksHit);
-
-			//Clears the game for the next round (of 3 lives).
-			removeAll();
-			lives=0;
-			bricksHit=0;
-			ballRadius=10;
-			paddle.setVisible(false);
-
 		}
+		brickCols = NBRICKS_PER_ROW;
+		brickRows += -1;
+		y_brick = y_brick+BRICK_HEIGHT+BRICK_SEP;
+		i++;
 	}
+}
 
-	public int powerUpAwarded(int lives, GOval powerUp){
-		lives+=1;
-		remove(powerUp);
-		GLabel extraLife = new GLabel ("EXTRA LIFE!");
-		extraLife.setVisible(true);
-		extraLife.setFont("Courier New-Bold-40");
-		add (extraLife, getWidth()/2-extraLife.getWidth()/2, getHeight()/2);
-		return lives;
+//Determines whether the ball should bounce off of each wall.
+private boolean hitBottomWall(GOval ball) {
+	return ball.getY() > getHeight() - ball.getHeight();
+}
+
+private boolean hitTopWall(GOval ball) {
+	return ball.getY() <= 0;
+}
+
+private boolean hitRightWall(GOval ball) {
+	return ball.getX() >= getWidth() - ball.getWidth();
+}
+
+private boolean hitLeftWall(GOval ball) {
+	return ball.getX() <= 0;
+}
+
+//Initializes  the ball.
+public GOval makeBall() {
+	double size = ballRadius * 2;
+	GOval ball = new GOval(size, size);
+	ball.setFilled(true);
+	ball.setColor(Color.BLACK);
+	return ball;
+}
+
+
+//Determines whether the ball collides with another object
+//at any of its four "corners."
+private GObject getCollidingObject(double x, double y){
+	if (getElementAt (x,y) !=null){
+		GObject collider = getElementAt (x,y);
+		return collider;
+	}else if (getElementAt (x+2*ballRadius,y) !=null){
+		GObject collider = getElementAt (x+2*ballRadius,y);
+		return collider;
+	}else if (getElementAt (x,y+2*ballRadius) !=null){
+		GObject collider = getElementAt (x,y+2*ballRadius);
+		return collider;
+	}else if (getElementAt (x+2*ballRadius,y+2*ballRadius) !=null){
+		GObject collider = getElementAt (x+2*ballRadius,y+2*ballRadius);
+		return collider;
+	}else{
+		return null;
 	}
+}
 
-	//Determines how many points are awarded for each brick color.
-	public double colorPoints(GObject collider, double bricksHit){
-		if (collider.getColor() == Color.CYAN){
-			bricksHit+=1;
-		}
-		if (collider.getColor() == Color.GREEN){
-			bricksHit+=2;
-		}
-		if (collider.getColor() == Color.YELLOW){
-			bricksHit+=4;
-		}
-		if (collider.getColor() == Color.ORANGE){
-			bricksHit+=8;
-		}
-		if (collider.getColor() == Color.RED){
-			bricksHit+=16;
-		}
-		return bricksHit;
+//Creates the title sequence for Breakout.
+private void prepSequence(){
+	GLabel reminder = new GLabel ("Insert coin to continue");
+	GLabel start = new GLabel ("BREAKOUT!");
+	GLabel coinLabel1 = new GLabel ("6 Lives");
+	GLabel coinLabel2 = new GLabel ("3 Lives");
 
-	}
+	double x=coin.getX();
+	double y=coin.getY();
+	coinInsert = getCollidingObject(x,y);
 
-	//Creates the MouseEvent for moving the paddle.
-	public void mouseMoved(MouseEvent e) {
-		int x = e.getX();
-		int y = getHeight()-PADDLE_Y_OFFSET;
-		int yCoin =  e.getY();
-		paddle.setFilled(true);
-		paddle.setFillColor(Color.BLACK);
-		paddle.setLocation(x, y);
-		add (paddle);
-		coin.setLocation(x, yCoin);
+	while ((coinInsert != coinSlot1 && coinInsert != coinSlot2)&&(coin.getY()!=5*getHeight()/6)){
 
+		paddle.setVisible(false);
 
-	}
+		start.setVisible(true);
+		start.setFont("Courier New-Bold-60");
+		start.setColor(Color.BLUE);
+		add (start, getWidth()/2-start.getWidth()/2, getHeight()/2-50);
+		add (coinSlot1, getWidth()/3-coinSlot1.getWidth()/2, 400);
+		add (coinSlot2, 2*getWidth()/3-coinSlot1.getWidth()/2, 400);
 
-	//Creates the layout of colorful bricks.
-	private void setUpBricks(){
-		double brickCols = NBRICKS_PER_ROW;
-		//Total number of bricks in the current row.
-		double brickRows = NBRICK_ROWS;
-		double midpoint = (getWidth())/2;
-		double width = BRICK_WIDTH;
-		double x_brick = 0;
-		double y_brick = BRICK_Y_OFFSET;
-		int i=0;
+		reminder.setFont("Courier New-Bold-20");
+		add (reminder, getWidth()/2-reminder.getWidth()/2, getHeight()/2+50);
 
-		while (brickRows != 0){
-			while (brickCols != 0) {
-				x_brick = midpoint-((width)*(brickCols/2)+(BRICK_SEP)*(brickCols/2-0.5));
-				while (brickCols > 0){
-					GRect brick = new GRect(BRICK_WIDTH, BRICK_HEIGHT);
+		coinLabel1.setFont("Courier New-Bold-20");
+		add (coinLabel1, getWidth()/3-coinSlot1.getWidth(), 380);
 
-					brick.setFilled(true);
-					brick.setFillColor(color[i]);
-					brick.setColor(color[i]);
-					add (brick, x_brick, y_brick);
-					brickCols = brickCols-1 ;	
-					x_brick = x_brick + width+BRICK_SEP;
-
-				}
-			}
-			brickCols = NBRICKS_PER_ROW;
-			brickRows += -1;
-			y_brick = y_brick+BRICK_HEIGHT+BRICK_SEP;
-			i++;
-		}
-	}
-
-	//Determines whether the ball should bounce off of each wall.
-	private boolean hitBottomWall(GOval ball) {
-		return ball.getY() > getHeight() - ball.getHeight();
-	}
-
-	private boolean hitTopWall(GOval ball) {
-		return ball.getY() <= 0;
-	}
-
-	private boolean hitRightWall(GOval ball) {
-		return ball.getX() >= getWidth() - ball.getWidth();
-	}
-
-	private boolean hitLeftWall(GOval ball) {
-		return ball.getX() <= 0;
-	}
-
-	//Initializes  the ball.
-	public GOval makeBall() {
-		double size = ballRadius * 2;
-		GOval ball = new GOval(size, size);
-		ball.setFilled(true);
-		ball.setColor(Color.BLACK);
-		return ball;
-	}
+		coinLabel2.setFont("Courier New-Bold-20");
+		add (coinLabel2, 2*getWidth()/3-coinSlot1.getWidth(), 380);
 
 
-	//Determines whether the ball collides with another object
-	//at any of its four "corners."
-	private GObject getCollidingObject(double x, double y){
-		if (getElementAt (x,y) !=null){
-			GObject collider = getElementAt (x,y);
-			return collider;
-		}else if (getElementAt (x+2*ballRadius,y) !=null){
-			GObject collider = getElementAt (x+2*ballRadius,y);
-			return collider;
-		}else if (getElementAt (x,y+2*ballRadius) !=null){
-			GObject collider = getElementAt (x,y+2*ballRadius);
-			return collider;
-		}else if (getElementAt (x+2*ballRadius,y+2*ballRadius) !=null){
-			GObject collider = getElementAt (x+2*ballRadius,y+2*ballRadius);
-			return collider;
-		}else{
-			return null;
-		}
-	}
+		coin.setFillColor(Color.YELLOW);
+		coin.setFilled(true);
+		coinSlot1.setFilled(true);
+		coinSlot1.setFillColor(Color.BLACK);
+		coinSlot2.setFilled(true);
+		coinSlot2.setFillColor(Color.BLACK);
 
-	//Creates the title sequence for Breakout.
-	private void prepSequence(){
-		GLabel reminder = new GLabel ("Insert coin to continue");
-		GLabel start = new GLabel ("BREAKOUT!");
-		GLabel coinLabel1 = new GLabel ("6 Lives");
-		GLabel coinLabel2 = new GLabel ("3 Lives");
-
-		double x=coin.getX();
-		double y=coin.getY();
+		x=coin.getX();
+		y=coin.getY();
 		coinInsert = getCollidingObject(x,y);
-
-		while ((coinInsert != coinSlot1 && coinInsert != coinSlot2)&&(coin.getY()!=5*getHeight()/6)){
-
-			paddle.setVisible(false);
-
-			start.setVisible(true);
-			start.setFont("Courier New-Bold-60");
-			start.setColor(Color.BLUE);
-			add (start, getWidth()/2-start.getWidth()/2, getHeight()/2-50);
-			add (coinSlot1, getWidth()/3-coinSlot1.getWidth()/2, 400);
-			add (coinSlot2, 2*getWidth()/3-coinSlot1.getWidth()/2, 400);
-
-			reminder.setFont("Courier New-Bold-20");
-			add (reminder, getWidth()/2-reminder.getWidth()/2, getHeight()/2+50);
-
-			coinLabel1.setFont("Courier New-Bold-20");
-			add (coinLabel1, getWidth()/3-coinSlot1.getWidth(), 380);
-
-			coinLabel2.setFont("Courier New-Bold-20");
-			add (coinLabel2, 2*getWidth()/3-coinSlot1.getWidth(), 380);
-
-
-			coin.setFillColor(Color.YELLOW);
-			coin.setFilled(true);
-			coinSlot1.setFilled(true);
-			coinSlot1.setFillColor(Color.BLACK);
-			coinSlot2.setFilled(true);
-			coinSlot2.setFillColor(Color.BLACK);
-
-			x=coin.getX();
-			y=coin.getY();
-			coinInsert = getCollidingObject(x,y);
-			add(coin);
-		}
-		//Easter egg with near-infinite lives.
-		if (coin.getY()==5*getHeight()/6){
-			GLabel easterEgg= new GLabel ("9,000 LIVES!!!");
-			double scaleX = 0.2;
-			double scaleY = 0.2;
-			bg.scale(scaleX,scaleY);
-			add(bg,getWidth()/2-bg.getWidth()/2, 0);
-			easterEgg.setColor(Color.PINK);
-			remove(coin);
-			easterEgg.setFont("Comic Sans MS-Bold-60");
-			add(easterEgg, getWidth()/2-easterEgg.getWidth()/2, getHeight()/2);
-			coinSlot1.setFillColor(Color.YELLOW);
-			coinSlot2.setFillColor(Color.YELLOW);
-			bg.sendToBack();
-
-
-			GLabel easterEgg2 = new GLabel ("NINE THOUSAND!!!!");
-			pause(5000);
-
-			remove(easterEgg);
-			remove(easterEgg2);
-
-			lives = 9000;
-			remove(bg);
-
-
-		}
-		if (coinInsert ==coinSlot1){
-			remove(coin);
-			coinSlot1.setFillColor(Color.PINK);
-			lives = 6;
-			ballRadius = 15;
-		}
-		if (coinInsert == coinSlot2){
-			coinSlot2.setFillColor(Color.CYAN);
-			remove(coin);
-			lives = 3;
-		}
-		pause(10);
-
-		remove(start);
-		remove(reminder);
-
-		pause(800);
-		remove(coinSlot1);
-		remove(coinSlot2);
-		remove(coinLabel1);
-		remove(coinLabel2);
-
-
-		GLabel ready = new GLabel ("READY...");
-		ready.setFont("Courier New-Bold-60");
-		add (ready, getWidth()/2-ready.getWidth()/2, getHeight()/2+50);
-		pause(800);
-		remove(ready);
-
-		GLabel set = new GLabel ("SET...");
-		set.setFont("Courier New-Bold-60");
-		add (set, getWidth()/2-set.getWidth()/2, getHeight()/2+50);
-		pause(600);
-		remove(set);
-
-		GLabel go = new GLabel ("GO!");
-		go.setFont("Courier New-Bold-60");
-		add (go, getWidth()/2-go.getWidth()/2, getHeight()/2+50);
-		pause(500);
-		remove(go);
-
+		add(coin);
+	}
+	//Easter egg with near-infinite lives.
+	if (coin.getY()==5*getHeight()/6){
+		GLabel easterEgg= new GLabel ("9,000 LIVES!!!");
+		double scaleX = 0.2;
+		double scaleY = 0.2;
+		bg.scale(scaleX,scaleY);
+		add(bg,getWidth()/2-bg.getWidth()/2, 0);
+		easterEgg.setColor(Color.PINK);
 		remove(coin);
-		add(paddle);
+		easterEgg.setFont("Comic Sans MS-Bold-60");
+		add(easterEgg, getWidth()/2-easterEgg.getWidth()/2, getHeight()/2);
+		coinSlot1.setFillColor(Color.YELLOW);
+		coinSlot2.setFillColor(Color.YELLOW);
+		bg.sendToBack();
+
+
+		GLabel easterEgg2 = new GLabel ("NINE THOUSAND!!!!");
+		pause(5000);
+
+		remove(easterEgg);
+		remove(easterEgg2);
+
+		lives = 9000;
+		remove(bg);
 
 
 	}
-
-
-
-	private void endSequence(double bricksHit){
-		GLabel end = new GLabel ("GAME OVER");
-		end.setVisible(true);
-		end.setFont("Courier New-Bold-40");
-		add (end, getWidth()/2-end.getWidth()/2, getHeight()/2);
-		GLabel total = new GLabel ("Points: " + bricksHit+" / 620");
-		total.setFont("Courier New-Bold-20");
-		add (total, getWidth()/2-total.getWidth()/2, getHeight()/2+200);
-		pause(800);
-		remove(total);
-
-		//The game is won only if all bricks are cleared, which amounts to
-		//620 total points.
-		if (bricksHit==620){
-			GLabel win = new GLabel ("YOU WON!");
-			win.setVisible(true);
-			win.setFont("Courier New-Bold-40");
-			win.setColor(Color.GREEN);
-			add (win, getWidth()/2-win.getWidth()/2, getHeight()/2+200);
-		}else{
-			GLabel loss = new GLabel ("YOU LOST!");
-			loss.setVisible(true);
-			loss.setFont("Courier New-Bold-40");
-			loss.setColor(Color.RED);
-			add (loss, getWidth()/2-loss.getWidth()/2, getHeight()/2+200);
-		}
+	if (coinInsert ==coinSlot1){
+		remove(coin);
+		coinSlot1.setFillColor(Color.PINK);
+		lives = 6;
+		ballRadius = 15;
 	}
+	if (coinInsert == coinSlot2){
+		coinSlot2.setFillColor(Color.CYAN);
+		remove(coin);
+		lives = 3;
+	}
+	pause(10);
+
+	remove(start);
+	remove(reminder);
+
+	pause(800);
+	remove(coinSlot1);
+	remove(coinSlot2);
+	remove(coinLabel1);
+	remove(coinLabel2);
+
+
+	GLabel ready = new GLabel ("READY...");
+	ready.setFont("Courier New-Bold-60");
+	add (ready, getWidth()/2-ready.getWidth()/2, getHeight()/2+50);
+	pause(800);
+	remove(ready);
+
+	GLabel set = new GLabel ("SET...");
+	set.setFont("Courier New-Bold-60");
+	add (set, getWidth()/2-set.getWidth()/2, getHeight()/2+50);
+	pause(600);
+	remove(set);
+
+	GLabel go = new GLabel ("GO!");
+	go.setFont("Courier New-Bold-60");
+	add (go, getWidth()/2-go.getWidth()/2, getHeight()/2+50);
+	pause(500);
+	remove(go);
+
+	remove(coin);
+	add(paddle);
+
+
+}
+
+
+
+private void endSequence(double bricksHit){
+	GLabel end = new GLabel ("GAME OVER");
+	end.setVisible(true);
+	end.setFont("Courier New-Bold-40");
+	add (end, getWidth()/2-end.getWidth()/2, getHeight()/2);
+	GLabel total = new GLabel ("Points: " + bricksHit+" / 620");
+	total.setFont("Courier New-Bold-20");
+	add (total, getWidth()/2-total.getWidth()/2, getHeight()/2+200);
+	pause(800);
+	remove(total);
+
+	//The game is won only if all bricks are cleared, which amounts to
+	//620 total points.
+	if (bricksHit==620){
+		GLabel win = new GLabel ("YOU WON!");
+		win.setVisible(true);
+		win.setFont("Courier New-Bold-40");
+		win.setColor(Color.GREEN);
+		add (win, getWidth()/2-win.getWidth()/2, getHeight()/2+200);
+	}else{
+		GLabel loss = new GLabel ("YOU LOST!");
+		loss.setVisible(true);
+		loss.setFont("Courier New-Bold-40");
+		loss.setColor(Color.RED);
+		add (loss, getWidth()/2-loss.getWidth()/2, getHeight()/2+200);
+	}
+}
 }
