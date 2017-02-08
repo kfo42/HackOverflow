@@ -462,7 +462,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 			GLabel easterEgg= new GLabel ("9,000 LIVES!!!");
 			double scaleX = 0.1;
 			double scaleY = 0.1;
-			bg.scale(x,y);
+			bg.scale(scaleX,scaleY);
 			add(bg);
 			easterEgg.setColor(Color.PINK);
 			remove(coin);
