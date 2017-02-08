@@ -11,6 +11,7 @@
  * ~Option to use 3 or 6 lives
  * ~A powerup that adds an extra life
  * ~Easter egg with 9000 lives -- move coin 5/6 of the way down
+ * 
  * ~Yellow bricks decrease radius, orange bricks increase radius
  * ~Keeps score and displays the number of points and lives to the player.
  * ~Bouncing the ball off the edge of the paddle causes horizontal reflection.
@@ -108,8 +109,10 @@ public class BreakoutExtensions extends GraphicsProgram {
 	private double bricksHit = 0;
 	private int ballRadius = 10;
 
-	//The sound of the ball's bounce.
+	//The sound of the ball's bounce and other effects.
 	private AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
+	private AudioClip why = MediaTools.loadAudioClip("why.wav");
+	private AudioClip thatsIt = MediaTools.loadAudioClip("thats-it.wav");
 
 	private GImage bg = new GImage("doge.png");
 
@@ -185,6 +188,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 							pause(500);
 							remove(tryAgain);
 							lives-=1;
+							why.play();
 						}
 
 					}
@@ -557,6 +561,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 		GLabel total = new GLabel ("Points: " + bricksHit+" / 620");
 		total.setFont("Courier New-Bold-20");
 		add (total, getWidth()/2-total.getWidth()/2, getHeight()/2+200);
+		thatsIt.play();
 		pause(800);
 		remove(total);
 
