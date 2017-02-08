@@ -477,6 +477,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 			remove(easterEgg);
 			add(easterEgg, getWidth()/2-easterEgg.getWidth()/2, getHeight()/2);
 			pause(300);
+			remove(easterEgg);
 
 			remove(easterEgg2);
 
