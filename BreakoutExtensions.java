@@ -495,7 +495,6 @@ public class BreakoutExtensions extends GraphicsProgram {
 			lives = 6;
 		}
 		if (coinInsert == coinSlot2){
-			ballRadius +=0;
 			coinDrop.play();
 			coinSlot2.setFillColor(Color.CYAN);
 			remove(coin);
@@ -515,18 +514,24 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 		GLabel ready = new GLabel ("READY...");
 		ready.setFont("Courier New-Bold-60");
+		ready.setColor(Color.WHITE);
+		
 		add (ready, getWidth()/2-ready.getWidth()/2, getHeight()/2+50);
 		pause(800);
 		remove(ready);
 
 		GLabel set = new GLabel ("SET...");
 		set.setFont("Courier New-Bold-60");
+		set.setColor(Color.WHITE);
+
 		add (set, getWidth()/2-set.getWidth()/2, getHeight()/2+50);
 		pause(600);
 		remove(set);
 
 		GLabel go = new GLabel ("GO!");
 		go.setFont("Courier New-Bold-60");
+		go.setColor(Color.WHITE);
+
 		add (go, getWidth()/2-go.getWidth()/2, getHeight()/2+50);
 		pause(500);
 		remove(go);
@@ -586,6 +591,13 @@ public class BreakoutExtensions extends GraphicsProgram {
 	}
 
 	private void easterEggRun(){
+		remove(coinSlot1);
+		remove(coinSlot2);
+		remove(coinLabel1);
+		remove(coinLabel2);
+		remove(start);
+		remove(reminder);
+		
 		laugh.play();
 		GLabel easterEgg= new GLabel ("9,000 LIVES!!!");
 
@@ -612,15 +624,9 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 
 		lives = 9000;
-		ballRadius+=0;
-		remove(start);
-		remove(reminder);
-		ready.setColor(Color.WHITE);
+
 		pause(800);
-		remove(coinSlot1);
-		remove(coinSlot2);
-		remove(coinLabel1);
-		remove(coinLabel2);
+
 		int i=0;
 		for ( i=0; i < color.length; i++){
 			easterEgg2.setColor(color[i]);
