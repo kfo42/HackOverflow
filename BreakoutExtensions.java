@@ -523,6 +523,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 			coinDrop.play();
 			coinSlot2.setFillColor(Color.CYAN);
 			remove(coin);
+			ballRadius = 10;
 			lives = 3;
 		}
 		pause(10);
