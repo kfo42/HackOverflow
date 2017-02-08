@@ -240,11 +240,6 @@ public class BreakoutExtensions extends GraphicsProgram {
 						lives=powerUpAwarded(lives, powerUp);
 						
 				//Secret easter egg with near-infinite lives.	
-				}else if (collider.getX()==getWidth()/2 && collider.getY()==0){
-					GLabel easterEgg= new GLabel ("You get 9,000 LIVES!!!");
-					pause(5000);
-					lives = 9000;
-					remove(easterEgg);
 				}
 				
 			if (collider != paddle){
