@@ -472,11 +472,11 @@ public class BreakoutExtensions extends GraphicsProgram {
 			GLabel easterEgg2 = new GLabel ("NINE THOUSAND!!!!");
 			easterEgg2.setFont("Comic Sans MS-Bold-60");
 
-			pause(5000);
+			pause(300);
 
 			remove(easterEgg);
 			add(easterEgg, getWidth()/2-easterEgg.getWidth()/2, getHeight()/2);
-			pause(800);
+			pause(300);
 
 			remove(easterEgg2);
 
@@ -486,11 +486,11 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 			int i=0;
 			for ( i=0; i < color.length; i++){
-				pause(300);
-				remove(easterEgg2);
 				easterEgg2.setColor(color[i]);
 				easterEgg2.sendToFront();
 				add(easterEgg2, getWidth()/2-easterEgg2.getWidth()/2, getHeight()/2);
+				pause(300);
+				remove(easterEgg2);
 			}
 		}
 		if (coinInsert ==coinSlot1){
