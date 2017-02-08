@@ -110,7 +110,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 	private AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
 	private AudioClip why = MediaTools.loadAudioClip("why.wav");
 	private AudioClip thatsIt = MediaTools.loadAudioClip("thats-it.wav");
-	private AudioClip ready = MediaTools.loadAudioClip("im-so-ready.wav");
+	private AudioClip readySound = MediaTools.loadAudioClip("im-so-ready.wav");
 	private AudioClip coinDrop = MediaTools.loadAudioClip("electronic_stapler.wav");
 	private AudioClip grow = MediaTools.loadAudioClip("spring_1.wav");
 	private AudioClip shrink = MediaTools.loadAudioClip("bottle_pop_3.wav");
@@ -138,7 +138,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 			prepSequence();
 
-			ready.play();
+			readySound.play();
 
 			paddle.setVisible(true);
 
@@ -615,7 +615,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 		ballRadius+=0;
 		remove(start);
 		remove(reminder);
-
+		ready.setColor(Color.WHITE);
 		pause(800);
 		remove(coinSlot1);
 		remove(coinSlot2);
