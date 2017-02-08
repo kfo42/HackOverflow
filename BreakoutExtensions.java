@@ -240,9 +240,11 @@ public class BreakoutExtensions extends GraphicsProgram {
 						lives=powerUpAwarded(lives, powerUp);
 					
 				}else if (collider.getX()==getWidth()/2 && collider.getY()==0){
-					new GLabel ("INFINITE LIVES!!!");
-
-				}if (collider != paddle){
+					GLabel easterEgg= new GLabel ("INFINITE LIVES!!!");
+					pause(5000);
+					remove(easterEgg);
+				}
+			if (collider != paddle){
 						remove(collider);
 						vy=-vy;
 						bounceClip.play();
@@ -262,7 +264,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 						}
 					}					
-				}
+				
 				//Clears the number of points and lives so that they can be updated.
 				remove(points);
 				remove(livesLeft);
