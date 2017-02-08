@@ -573,6 +573,8 @@ public class BreakoutExtensions extends GraphicsProgram {
 			loss.setVisible(true);
 			loss.setFont("Courier New-Bold-40");
 			loss.setColor(Color.RED);
+			loss.sendToFront();
+
 			add (loss, getWidth()/2-loss.getWidth()/2, getHeight()/2);
 			pause(800);
 			remove(loss);
