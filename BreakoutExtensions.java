@@ -428,10 +428,10 @@ public class BreakoutExtensions extends GraphicsProgram {
 		if (getElementAt (x,y) !=clouds&&getElementAt (x,y)!=bg){
 			GObject collider = getElementAt (x,y);
 			return collider;
-		}else if (getElementAt (x+2*ballRadius,y) !=clouds&& getElementAt (x+2*ballRadius,y)!=bg)){
+		}else if (getElementAt (x+2*ballRadius,y) !=clouds&& getElementAt (x+2*ballRadius,y)!=bg){
 			GObject collider = getElementAt (x+2*ballRadius,y);
 			return collider;
-		}else if (getElementAt (x,y+2*ballRadius) !=clouds&&getElementAt (x,y+2*ballRadius) !=bg)){
+		}else if (getElementAt (x,y+2*ballRadius) !=clouds&&getElementAt (x,y+2*ballRadius) !=bg){
 			GObject collider = getElementAt (x,y+2*ballRadius);
 			return collider;
 		}else if (getElementAt (x+2*ballRadius,y+2*ballRadius) !=clouds&&getElementAt (x+2*ballRadius,y+2*ballRadius) !=bg){
