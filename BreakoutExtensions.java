@@ -463,7 +463,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 			double scaleX = 0.2;
 			double scaleY = 0.2;
 			bg.scale(scaleX,scaleY);
-			add(bg,getWidth()/2-bg.getWidth()/2, getHeight()/2);
+			add(bg,getWidth()/2-bg.getWidth()/2, 0);
 			easterEgg.setColor(Color.PINK);
 			remove(coin);
 			easterEgg.setFont("Comic Sans MS-Bold-60");
