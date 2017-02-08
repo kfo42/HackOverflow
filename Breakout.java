@@ -166,6 +166,7 @@ public class Breakout extends GraphicsProgram {
 
 			//Clears the game for the next round (of 3 lives).
 			removeAll();
+			add(paddle);
 			lives=0;
 			bricksHit=0;
 			ballRadius=10;
