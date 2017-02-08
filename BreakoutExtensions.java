@@ -107,7 +107,9 @@ public class BreakoutExtensions extends GraphicsProgram {
 	private double bricksHit = 0;
 	private int ballRadius = 10;
 
-
+	//The sound of the ball's bounce.
+	private AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
+	
 	public void run() {
 		//Placing the entire game sequence within a while loop
 		//allows for the game to restart when the player loses.
@@ -117,10 +119,6 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 			prepSequence();
 			paddle.setVisible(true);
-
-			//The sound of the ball's bounce.
-			AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
-
 
 			//Creates all rows of bricks simultaneously
 			setUpBricks();
