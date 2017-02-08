@@ -117,6 +117,8 @@ public class BreakoutExtensions extends GraphicsProgram {
 	private AudioClip grow = MediaTools.loadAudioClip("spring_1.wav");
 	private AudioClip shrink = MediaTools.loadAudioClip("bottle_pop_3.wav");
 	private AudioClip excite = MediaTools.loadAudioClip("here-i-come.wav");
+	private AudioClip beeps = MediaTools.loadAudioClip("beeps.wav");
+	private AudioClip laugh = MediaTools.loadAudioClip("laugh.wav");
 
 
 	private GImage clouds = new GImage("clouds.jpeg");
@@ -129,6 +131,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 		//Placing the entire game sequence within a while loop
 		//allows for the game to restart when the player loses.
 		while(true){
+			beeps.play();
 			//Produces a title sequence for Breakout.
 			addMouseListeners();
 
