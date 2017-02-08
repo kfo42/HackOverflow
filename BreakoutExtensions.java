@@ -483,7 +483,6 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 
 			lives = 9000;
-			remove(bg);
 
 			int i=0;
 			for ( i=0; i < color.length; i++){
