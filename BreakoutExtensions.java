@@ -467,7 +467,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 			easterEgg.setColor(Color.PINK);
 			remove(coin);
 			easterEgg.setFont("Comic Sans MS-Bold-50");
-			add(easterEgg, getWidth()/2-easterEgg.getWidth()/2, getHeight()/2);
+			add(easterEgg, getWidth()/2-easterEgg.getWidth()/2, 0) ;
 			coinSlot1.setFillColor(Color.YELLOW);
 			coinSlot2.setFillColor(Color.YELLOW);
 			
