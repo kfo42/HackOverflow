@@ -575,7 +575,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 			loss.setColor(Color.RED);
 			loss.sendToFront();
 
-			add (loss, getWidth()/2-loss.getWidth()/2, 3*getHeight()/2);
+			add (loss, getWidth()/2-loss.getWidth()/2, 3*getHeight()/4);
 			pause(1000);
 			remove(loss);
 
