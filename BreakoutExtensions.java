@@ -238,12 +238,15 @@ public class BreakoutExtensions extends GraphicsProgram {
 				}else if (collider ==powerUp){
 						//The powerup is awarded.
 						lives=powerUpAwarded(lives, powerUp);
-					
+						
+				//Secret easter egg with near-infinite lives.	
 				}else if (collider.getX()==getWidth()/2 && collider.getY()==0){
-					GLabel easterEgg= new GLabel ("INFINITE LIVES!!!");
+					GLabel easterEgg= new GLabel ("You get 9,000 LIVES!!!");
 					pause(5000);
+					lives = 9000;
 					remove(easterEgg);
 				}
+				
 			if (collider != paddle){
 						remove(collider);
 						vy=-vy;
@@ -273,8 +276,6 @@ public class BreakoutExtensions extends GraphicsProgram {
 				if (bricksHit==620){
 					lives=0;
 				}
-
-
 			}
 			//Displays the win/loss and final points to the player.
 			endSequence(bricksHit);
