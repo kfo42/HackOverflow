@@ -591,7 +591,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 		remove(easterEgg2);
 
 
-		lives = 9000;
+		lives += 8997;
 		remove(start);
 		remove(reminder);
 
