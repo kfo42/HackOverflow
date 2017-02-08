@@ -441,7 +441,6 @@ public class BreakoutExtensions extends GraphicsProgram {
 		coinInsert = getCollidingObject(x,y);
 
 		while ((coinInsert != coinSlot1 && coinInsert != coinSlot2)&&(coin.getY()!=5*getHeight()/6)){
-			beeps.play();
 
 			paddle.setVisible(false);
 
@@ -486,6 +485,8 @@ public class BreakoutExtensions extends GraphicsProgram {
 			lives = 6;
 		}
 		if (coinInsert == coinSlot2){
+			beeps.play();
+
 			ballRadius = 10;
 			coinDrop.play();
 			coinSlot2.setFillColor(Color.CYAN);
