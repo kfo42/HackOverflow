@@ -485,7 +485,6 @@ public class BreakoutExtensions extends GraphicsProgram {
 			lives = 6;
 		}
 		if (coinInsert == coinSlot2){
-			beeps.play();
 
 			ballRadius = 10;
 			coinDrop.play();
