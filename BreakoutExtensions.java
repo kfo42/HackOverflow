@@ -10,6 +10,7 @@
  * ~Collision sounds
  * ~Option to use 3 or 6 lives
  * ~A powerup that adds an extra life
+ * ~Easter egg with 9000 lives
  * ~Yellow bricks decrease radius, orange bricks increase radius
  * ~Keeps score and displays the number of points and lives to the player.
  * ~Bouncing the ball off the edge of the paddle causes horizontal reflection.
@@ -421,7 +422,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 		double y=coin.getY();
 		coinInsert = getCollidingObject(x,y);
 
-		while ((coinInsert != coinSlot1 && coinInsert != coinSlot2)&&(!(coin.getX()==0 && coin.getY()==0))){
+		while ((coinInsert != coinSlot1 && coinInsert != coinSlot2)&&(!(coin.getX()==getWidth()/2 && coin.getY()==0))){
 
 			paddle.setVisible(false);
 
@@ -454,7 +455,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 			coinInsert = getCollidingObject(x,y);
 			add(coin);
 		}
-		if (coin.getX()==0 && coin.getY()==0){
+		if (coin.getX()==getWidth()/2 && coin.getY()==0){
 			GLabel easterEgg= new GLabel ("You get 9,000 LIVES!!!");
 			remove(coin);
 			add(easterEgg, getWidth()/2, getHeight()/2);
