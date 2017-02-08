@@ -460,8 +460,8 @@ public class BreakoutExtensions extends GraphicsProgram {
 		//Easter egg with near-infinite lives.
 		if (coin.getY()==5*getHeight()/6){
 			GLabel easterEgg= new GLabel ("9,000 LIVES!!!");
-			double scaleX = 0.1;
-			double scaleY = 0.1;
+			double scaleX = 0.2;
+			double scaleY = 0.2;
 			bg.scale(scaleX,scaleY);
 			add(bg,getWidth()/2-bg.getWidth()/2, getHeight()/2);
 			easterEgg.setColor(Color.PINK);
