@@ -470,8 +470,6 @@ private void prepSequence(){
 		add(easterEgg, getWidth()/2-easterEgg.getWidth()/2, getHeight()/2);
 		coinSlot1.setFillColor(Color.YELLOW);
 		coinSlot2.setFillColor(Color.YELLOW);
-		bg.sendToBack();
-
 
 		GLabel easterEgg2 = new GLabel ("NINE THOUSAND!!!!");
 		pause(5000);
@@ -481,7 +479,6 @@ private void prepSequence(){
 
 		lives = 9000;
 		remove(bg);
-
 
 	}
 	if (coinInsert ==coinSlot1){
