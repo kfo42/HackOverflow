@@ -131,7 +131,6 @@ public class BreakoutExtensions extends GraphicsProgram {
 		//Placing the entire game sequence within a while loop
 		//allows for the game to restart when the player loses.
 		while(true){
-			beeps.play();
 			//Produces a title sequence for Breakout.
 			addMouseListeners();
 
@@ -441,6 +440,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 		double x=coin.getX();
 		double y=coin.getY();
 		coinInsert = getCollidingObject(x,y);
+		beeps.play();
 
 		while ((coinInsert != coinSlot1 && coinInsert != coinSlot2)&&(coin.getY()!=5*getHeight()/6)){
 
