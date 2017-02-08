@@ -4,6 +4,7 @@
  * Name: Katie Fo
  * Section Leader: Armin Namavari
  * 
+ * Plays the game of Breakout (no extensions)
  */
 
 import acm.graphics.*;
