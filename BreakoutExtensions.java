@@ -464,15 +464,16 @@ public class BreakoutExtensions extends GraphicsProgram {
 			coinSlot1.setFillColor(Color.YELLOW);
 			coinSlot2.setFillColor(Color.YELLOW);
 			
-			remove(easterEgg);
 			remove(coinSlot1);
 			remove(coinSlot2);
 			remove(coinLabel1);
 			remove(coinLabel2);
 			remove(start);
 			remove(reminder);
-			
 			pause(5000);
+			
+			remove(easterEgg);
+
 			lives = 9000;
 
 		}
