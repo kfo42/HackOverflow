@@ -249,7 +249,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 				}else if (collider !=null ){
 
-					if (collider != paddle){
+					if (collider != paddle && collider !=clouds){
 						remove(collider);
 						vy=-vy;
 						bounceClip.play();
