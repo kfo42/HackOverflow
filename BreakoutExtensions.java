@@ -168,6 +168,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 			powerUp.sendToFront();
 
 			while(lives>0){
+				ball.setSize(2*ballRadius, 2*ballRadius);
 
 				//Initializes the lives and score counters.
 				GLabel points = new GLabel("Score: "+bricksHit);
