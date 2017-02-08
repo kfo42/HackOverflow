@@ -251,8 +251,9 @@ public class BreakoutExtensions extends GraphicsProgram {
 						}else{
 							vx =-paddleSpeed/20-vx;
 						}
-						bounceClip.play();
 					}
+					bounceClip.play();
+
 				}else if (collider == livesLeft || collider == points ){
 					//Nothing occurs if the ball hits the text.
 
