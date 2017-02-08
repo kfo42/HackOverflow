@@ -165,7 +165,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 			powerUp.setFilled(true);
 			powerUp.setColor(Color.YELLOW);
 			add (powerUp, 200, 10);
-			powerUp.sendToBack();
+			powerUp.sendToFront();
 
 			while(lives>0){
 
