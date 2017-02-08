@@ -474,7 +474,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 			pause(5000);
 			remove(easterEgg);
-			
+			remove(bg);
 
 			easterEgg= new GLabel ("NINE THOUSAND!!!!");
 			pause(5000);
