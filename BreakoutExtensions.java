@@ -172,10 +172,10 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 				//Initializes the lives and score counters.
 				GLabel points = new GLabel("Score: "+bricksHit);
-				points.setFont("Courier-Bold-20");
+				points.setFont("Courier New-Bold-20");
 				add (points, 20, points.getHeight()+5);
 				GLabel livesLeft = new GLabel("Lives: "+lives);
-				livesLeft.setFont("Courier-Bold-20");
+				livesLeft.setFont("Courier New-Bold-20");
 				add (livesLeft, 200, livesLeft.getHeight()+5);
 				//Determines what the ball does upon hitting each wall.
 
