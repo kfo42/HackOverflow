@@ -486,9 +486,10 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 			int i=0;
 			for ( i=0; i < color.length; i++){
-				pause(100);
+				pause(300);
 				remove(easterEgg2);
 				easterEgg2.setColor(color[i]);
+				easterEgg2.sendToFront();
 				add(easterEgg2, getWidth()/2-easterEgg2.getWidth()/2, getHeight()/2);
 			}
 		}
