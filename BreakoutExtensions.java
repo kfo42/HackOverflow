@@ -473,10 +473,11 @@ public class BreakoutExtensions extends GraphicsProgram {
 			bg.sendToBack();
 
 
-			easterEgg= new GLabel ("NINE THOUSAND!!!!");
+			GLabel easterEgg2 = new GLabel ("NINE THOUSAND!!!!");
 			pause(5000);
 
 			remove(easterEgg);
+			remove(easterEgg2);
 
 			lives = 9000;
 			remove(bg);
