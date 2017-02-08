@@ -282,7 +282,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 					}                   
 					ball.setFilled(true);
 				}
-				
+
 				//Clears the number of points and lives so that they can be updated.
 				remove(points);
 				remove(livesLeft);
@@ -563,50 +563,50 @@ public class BreakoutExtensions extends GraphicsProgram {
 			add (loss, getWidth()/2-loss.getWidth()/2, getHeight()/2+200);
 		}
 	}
-	
-private void easterEggRun(){
-	laugh.play();
-	GLabel easterEgg= new GLabel ("9,000 LIVES!!!");
 
-	bg.scale(scaleX,scaleY);
-	add(bg,getWidth()/2-bg.getWidth()/2, 0);
-	easterEgg.setColor(Color.PINK);
-	remove(coin);
-	easterEgg.setFont("Comic Sans MS-Bold-50");
-	add(easterEgg, getWidth()/2-easterEgg.getWidth()/2, getHeight()/2);
-	coinSlot1.setFillColor(Color.YELLOW);
-	coinSlot2.setFillColor(Color.YELLOW);
+	private void easterEggRun(){
+		laugh.play();
+		GLabel easterEgg= new GLabel ("9,000 LIVES!!!");
 
-	GLabel easterEgg2 = new GLabel ("NINE THOUSAND!!!!");
-	easterEgg2.setFont("Comic Sans MS-Bold-30");
+		bg.scale(scaleX,scaleY);
+		add(bg,getWidth()/2-bg.getWidth()/2, 0);
+		easterEgg.setColor(Color.PINK);
+		remove(coin);
+		easterEgg.setFont("Comic Sans MS-Bold-50");
+		add(easterEgg, getWidth()/2-easterEgg.getWidth()/2, getHeight()/2);
+		coinSlot1.setFillColor(Color.YELLOW);
+		coinSlot2.setFillColor(Color.YELLOW);
 
-	pause(300);
+		GLabel easterEgg2 = new GLabel ("NINE THOUSAND!!!!");
+		easterEgg2.setFont("Comic Sans MS-Bold-30");
 
-	remove(easterEgg);
-	add(easterEgg, getWidth()/2-easterEgg.getWidth()/2, getHeight()/2);
-	pause(300);
-	remove(easterEgg);
+		pause(300);
 
-	remove(easterEgg2);
+		remove(easterEgg);
+		add(easterEgg, getWidth()/2-easterEgg.getWidth()/2, getHeight()/2);
+		pause(300);
+		remove(easterEgg);
 
-
-	lives = 9000;
-	remove(start);
-	remove(reminder);
-
-	pause(800);
-	remove(coinSlot1);
-	remove(coinSlot2);
-	remove(coinLabel1);
-	remove(coinLabel2);
-	int i=0;
-	for ( i=0; i < color.length; i++){
-		easterEgg2.setColor(color[i]);
-		easterEgg2.sendToFront();
-		add(easterEgg2, getWidth()/2-easterEgg2.getWidth()/2, getHeight()/2);
-		pause(500);
 		remove(easterEgg2);
+
+
+		lives = 9000;
+		remove(start);
+		remove(reminder);
+
+		pause(800);
+		remove(coinSlot1);
+		remove(coinSlot2);
+		remove(coinLabel1);
+		remove(coinLabel2);
+		int i=0;
+		for ( i=0; i < color.length; i++){
+			easterEgg2.setColor(color[i]);
+			easterEgg2.sendToFront();
+			add(easterEgg2, getWidth()/2-easterEgg2.getWidth()/2, getHeight()/2);
+			pause(500);
+			remove(easterEgg2);
+		}
 	}
-}
 }
 
