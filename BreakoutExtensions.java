@@ -303,6 +303,8 @@ public class BreakoutExtensions extends GraphicsProgram {
 			bricksHit=0;
 			ballRadius=10;
 			paddle.setVisible(false);
+			clouds.scale(1/scaleX,1/scaleY);
+
 
 		}
 	}
