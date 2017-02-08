@@ -473,6 +473,8 @@ private void prepSequence(){
 		pause(5000);
 
 		remove(easterEgg);
+		add(easterEgg, getWidth()/2-easterEgg.getWidth()/2, getHeight()/2);
+pause(800);
 		remove(easterEgg2);
 
 		lives = 9000;
