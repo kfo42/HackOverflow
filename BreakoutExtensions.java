@@ -161,7 +161,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 			//Initializes the "extra life powerup" attained by
 			//hitting the lives counter.
-			GOval powerUp = new GOval (40, 10);
+			GOval powerUp = new GOval (60, 30);
 			powerUp.setFilled(true);
 			powerUp.setColor(Color.YELLOW);
 			add (powerUp, 200, 10);
