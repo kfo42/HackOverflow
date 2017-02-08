@@ -112,7 +112,9 @@ public class BreakoutExtensions extends GraphicsProgram {
 	private AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
 	private AudioClip why = MediaTools.loadAudioClip("why.wav");
 	private AudioClip thatsIt = MediaTools.loadAudioClip("thats-it.wav");
+	private AudioClip ready = MediaTools.loadAudioClip("im-so-ready.wav");
 
+	
 	private GImage clouds = new GImage("clouds.jpeg");
 	private GImage bg = new GImage("doge.png");
 	private double scaleX = 0.35;
@@ -127,6 +129,8 @@ public class BreakoutExtensions extends GraphicsProgram {
 			addMouseListeners();
 
 			prepSequence();
+			
+			ready.play();
 			
 			paddle.setVisible(true);
 
