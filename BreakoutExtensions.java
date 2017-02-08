@@ -470,7 +470,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 			coinSlot2.setFillColor(Color.YELLOW);
 
 			GLabel easterEgg2 = new GLabel ("NINE THOUSAND!!!!");
-			easterEgg2.setFont("Comic Sans MS-Bold-60");
+			easterEgg2.setFont("Comic Sans MS-Bold-30");
 
 			pause(300);
 
