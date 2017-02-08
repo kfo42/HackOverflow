@@ -114,7 +114,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 	public void run() {
 		//Placing the entire game sequence within a while loop
 		//allows for the game to restart when the player loses.
-		GImage bg = new GImage(Image doge.png);
+		GImage bg = new GImage(doge.png);
 		while(true){
 			//Produces a title sequence for Breakout.
 			addMouseListeners();
