@@ -263,7 +263,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 				}else if (collider !=null ){
 
-					if (collider != paddle && collider !=clouds){
+					if ((collider != paddle && collider !=clouds)&&collider!=bg){
 						remove(collider);
 						vy=-vy;
 						//Updates the number of points depending on
@@ -425,16 +425,16 @@ public class BreakoutExtensions extends GraphicsProgram {
 	//Determines whether the ball collides with another object
 	//at any of its four "corners."
 	private GObject getCollidingObject(double x, double y){
-		if (getElementAt (x,y) !=clouds){
+		if (getElementAt (x,y) !=clouds&&getElementAt (x,y)!=bg){
 			GObject collider = getElementAt (x,y);
 			return collider;
-		}else if (getElementAt (x+2*ballRadius,y) !=clouds){
+		}else if (getElementAt (x+2*ballRadius,y) !=clouds&& getElementAt (x+2*ballRadius,y)!=bg)){
 			GObject collider = getElementAt (x+2*ballRadius,y);
 			return collider;
-		}else if (getElementAt (x,y+2*ballRadius) !=clouds){
+		}else if (getElementAt (x,y+2*ballRadius) !=clouds&&getElementAt (x,y+2*ballRadius) !=bg)){
 			GObject collider = getElementAt (x,y+2*ballRadius);
 			return collider;
-		}else if (getElementAt (x+2*ballRadius,y+2*ballRadius) !=clouds){
+		}else if (getElementAt (x+2*ballRadius,y+2*ballRadius) !=clouds&&getElementAt (x+2*ballRadius,y+2*ballRadius) !=bg){
 			GObject collider = getElementAt (x+2*ballRadius,y+2*ballRadius);
 			return collider;
 		}else{
@@ -486,6 +486,8 @@ public class BreakoutExtensions extends GraphicsProgram {
 		//Easter egg with near-infinite lives.
 		if (coin.getY()==5*getHeight()/6){
 			easterEggRun();
+			bg.scale(scaleX,scaleY);
+			add(bg,getWidth()/2-bg.getWidth()/2, 0);
 		}
 		if (coinInsert ==coinSlot1){
 			ballRadius += 5;
@@ -601,8 +603,6 @@ public class BreakoutExtensions extends GraphicsProgram {
 		laugh.play();
 		GLabel easterEgg= new GLabel ("9,000 LIVES!!!");
 
-		bg.scale(scaleX,scaleY);
-		add(bg,getWidth()/2-bg.getWidth()/2, 0);
 		easterEgg.setColor(Color.PINK);
 		remove(coin);
 		easterEgg.setFont("Comic Sans MS-Bold-50");
