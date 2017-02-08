@@ -109,7 +109,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 	//The sound of the ball's bounce.
 	AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
-	
+
 	public void run() {
 		//Placing the entire game sequence within a while loop
 		//allows for the game to restart when the player loses.
@@ -190,7 +190,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 				double prevPadX=paddle.getX();
 				//Finds the location of the paddle.
-				
+
 				ball.move(vx, vy);
 				pause(7);
 
@@ -229,6 +229,11 @@ public class BreakoutExtensions extends GraphicsProgram {
 						}
 						bounceClip.play();
 					}
+				}else if (collider.getX()==getWidth()/2 && collider.getY()==0){
+					GLabel easterEgg= new GLabel ("You get 9,000 LIVES!!!");
+					pause(5000);
+					lives = 9000;
+					remove(easterEgg);
 				}else if (collider == livesLeft || collider == points ){
 					//Nothing occurs if the ball hits the text.
 
@@ -245,7 +250,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 						//Updates the number of points depending on
 						//the color of brick hit.
 						bricksHit=colorPoints(collider, bricksHit);
-						
+
 						//Creates the size variances based on brick color.
 						if (collider.getColor()==Color.YELLOW){
 							ballRadius+=2;
