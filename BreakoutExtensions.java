@@ -561,7 +561,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 		GLabel total = new GLabel ("Points: " + bricksHit+" / 620");
 		total.setFont("Courier New-Bold-20");
 		add (total, getWidth()/2-total.getWidth()/2, getHeight()/2+200);
-		pause(200);
+		pause(800);
 		thatsIt.play();
 		pause(800);
 		remove(total);
