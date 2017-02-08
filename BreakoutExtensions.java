@@ -470,6 +470,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 			add(easterEgg, getWidth()/2-easterEgg.getWidth()/2, getHeight()/2);
 			coinSlot1.setFillColor(Color.YELLOW);
 			coinSlot2.setFillColor(Color.YELLOW);
+			bg.sendToBack();
 			
 			remove(coinSlot1);
 			remove(coinSlot2);
