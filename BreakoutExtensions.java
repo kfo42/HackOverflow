@@ -230,11 +230,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 						bounceClip.play();
 					}
 				//Secret powerup with near-infinite lives.
-				}else if (collider.getX()==getWidth()/2 && collider.getY()==0){
-					GLabel easterEgg= new GLabel ("You get 9,000 LIVES!!!");
-					pause(5000);
-					lives = 9000;
-					remove(easterEgg);
+				
 				}else if (collider == livesLeft || collider == points ){
 					//Nothing occurs if the ball hits the text.
 
@@ -458,6 +454,15 @@ public class BreakoutExtensions extends GraphicsProgram {
 			coinInsert = getCollidingObject(x,y);
 			add(coin);
 		}
+		if (coinInsert.getX()==getWidth()/2 && coinInsert.getY()==0){
+		GLabel easterEgg= new GLabel ("You get 9,000 LIVES!!!");
+		remove(coin);
+		coinSlot1.setFillColor(Color.YELLOW);
+		coinSlot1.setFillColor(Color.YELLOW);
+		pause(5000);
+		lives = 9000;
+		remove(easterEgg);
+		
 		if (coinInsert ==coinSlot1){
 			remove(coin);
 			coinSlot1.setFillColor(Color.PINK);
