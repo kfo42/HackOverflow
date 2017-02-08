@@ -472,8 +472,6 @@ public class BreakoutExtensions extends GraphicsProgram {
 			coinSlot2.setFillColor(Color.YELLOW);
 			bg.sendToBack();
 
-			pause(5000);
-			remove(easterEgg);
 
 			easterEgg= new GLabel ("NINE THOUSAND!!!!");
 			pause(5000);
