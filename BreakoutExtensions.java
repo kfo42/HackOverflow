@@ -454,7 +454,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 			coinInsert = getCollidingObject(x,y);
 			add(coin);
 		}
-		if (coinInsert.getX()==getWidth()/2 && coinInsert.getY()==0){
+		if (coinInsert.getX()==getWidth()/2 && coinInsert.getY()==50){
 			GLabel easterEgg= new GLabel ("You get 9,000 LIVES!!!");
 			remove(coin);
 			coinSlot1.setFillColor(Color.YELLOW);
