@@ -282,13 +282,14 @@ public class BreakoutExtensions extends GraphicsProgram {
 							bounceClip.play();
 					}                   
 					ball.setFilled(true);
+					
 				}
 
 				//Clears the number of points and lives so that they can be updated.
 				remove(points);
 				remove(livesLeft);
 				ball.setFilled(true);
-
+				
 				if (bricksHit==620){
 					lives=0;
 				}
