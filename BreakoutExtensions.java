@@ -235,10 +235,14 @@ public class BreakoutExtensions extends GraphicsProgram {
 				}else if (collider ==powerUp){
 					//The powerup is awarded.
 					lives=powerUpAwarded(lives, powerUp);
+				}else if (collider ==powerUp){
+						//The powerup is awarded.
+						lives=powerUpAwarded(lives, powerUp);
+					
+				}else if (collider.getX()==getWidth()/2 && collider.getY()==0){
+					new GLabel ("INFINITE LIVES!!!");
 
-				}else if (collider !=null ){
-
-					if (collider != paddle){
+				}if (collider != paddle){
 						remove(collider);
 						vy=-vy;
 						bounceClip.play();
