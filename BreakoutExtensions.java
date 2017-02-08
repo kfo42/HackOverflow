@@ -114,6 +114,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 	public void run() {
 		//Placing the entire game sequence within a while loop
 		//allows for the game to restart when the player loses.
+		GImage bg = new GImage(Image doge.png);
 		while(true){
 			//Produces a title sequence for Breakout.
 			addMouseListeners();
@@ -239,7 +240,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 					//The powerup is awarded.
 					lives=powerUpAwarded(lives, powerUp);
 
-				}else if (collider !=null ){
+				}else if (collider !=doge ){
 
 					if (collider != paddle){
 						remove(collider);
@@ -460,7 +461,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 			GLabel easterEgg= new GLabel ("9,000 LIVES!!!");
 			easterEgg.setColor(Color.PINK);
 			remove(coin);
-			easterEgg.setFont("Comic Sans MS-Bold-80");
+			easterEgg.setFont("Comic Sans MS-Bold-70");
 			add(easterEgg, getWidth()/2-easterEgg.getWidth()/2, getHeight()/2);
 			coinSlot1.setFillColor(Color.YELLOW);
 			coinSlot2.setFillColor(Color.YELLOW);
