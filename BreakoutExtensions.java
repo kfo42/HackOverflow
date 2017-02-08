@@ -115,6 +115,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 	private AudioClip ready = MediaTools.loadAudioClip("im-so-ready.wav");
 	private AudioClip coinDrop = MediaTools.loadAudioClip("electronic_stapler.wav");
 	private AudioClip grow = MediaTools.loadAudioClip("spring_1.wav");
+	private AudioClip excite = MediaTools.loadAudioClip("crowd-excited.wav");
 
 
 	private GImage clouds = new GImage("clouds.jpeg");
@@ -538,7 +539,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 		remove(coinSlot2);
 		remove(coinLabel1);
 		remove(coinLabel2);
-
+		excite.play();
 
 		GLabel ready = new GLabel ("READY...");
 		ready.setFont("Courier New-Bold-60");
