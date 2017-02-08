@@ -221,7 +221,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 						vy =-paddleSpeed/20-vy;
 
 					}
-				}
+				
 				//The ball's motion also reverses in the x-direction if 
 				//the ball collides with the side of the paddle.
 				if (paddle.getY()<(ball.getY()+PADDLE_HEIGHT/2)){
@@ -233,7 +233,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 					bounceClip.play();
 				}
 				//Secret powerup with near-infinite lives.
-
+							
 			}else if (collider == livesLeft || collider == points ){
 				//Nothing occurs if the ball hits the text.
 
