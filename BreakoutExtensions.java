@@ -563,13 +563,13 @@ public class BreakoutExtensions extends GraphicsProgram {
 			win.setVisible(true);
 			win.setFont("Courier New-Bold-40");
 			win.setColor(Color.GREEN);
-			add (win, getWidth()/2-win.getWidth()/2, getHeight()/2+200);
+			add (win, getWidth()/2-win.getWidth()/2, getHeight()/2);
 		}else{
 			GLabel loss = new GLabel ("YOU LOST!");
 			loss.setVisible(true);
 			loss.setFont("Courier New-Bold-40");
 			loss.setColor(Color.RED);
-			add (loss, getWidth()/2-loss.getWidth()/2, getHeight()/2+200);
+			add (loss, getWidth()/2-loss.getWidth()/2, getHeight()/2);
 		}
 	}
 
