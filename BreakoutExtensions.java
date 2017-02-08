@@ -486,7 +486,6 @@ public class BreakoutExtensions extends GraphicsProgram {
 		}
 		if (coinInsert == coinSlot2){
 
-			ballRadius = 10;
 			coinDrop.play();
 			coinSlot2.setFillColor(Color.CYAN);
 			remove(coin);
