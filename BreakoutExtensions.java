@@ -460,7 +460,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 			GLabel easterEgg= new GLabel ("You get 9,000 LIVES!!!");
 			remove(coin);
 			easterEgg.setFont("Comic Sans MS-Bold-30");
-			add(easterEgg, getWidth()/2, getHeight()/2);
+			add(easterEgg, getWidth()/2-easterEgg.getWidth()/2, getHeight()/2);
 			coinSlot1.setFillColor(Color.YELLOW);
 			coinSlot2.setFillColor(Color.YELLOW);
 			pause(5000);
