@@ -563,6 +563,8 @@ public class BreakoutExtensions extends GraphicsProgram {
 			win.setVisible(true);
 			win.setFont("Courier New-Bold-40");
 			win.setColor(Color.GREEN);
+			win.sendToFront();
+
 			add (win, getWidth()/2-win.getWidth()/2, 3*getHeight()/4);
 			pause(1000);
 			remove(win);
