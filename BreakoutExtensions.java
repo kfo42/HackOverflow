@@ -115,7 +115,8 @@ public class BreakoutExtensions extends GraphicsProgram {
 	private AudioClip ready = MediaTools.loadAudioClip("im-so-ready.wav");
 	private AudioClip coinDrop = MediaTools.loadAudioClip("electronic_stapler.wav");
 	private AudioClip grow = MediaTools.loadAudioClip("spring_1.wav");
-	private AudioClip excite = MediaTools.loadAudioClip("crowd-excited.mp3");
+	private AudioClip shrink = MediaTools.loadAudioClip("bottle_pop_3.wav");
+	private AudioClip excite = MediaTools.loadAudioClip("here-i-come.wav");
 
 
 	private GImage clouds = new GImage("clouds.jpeg");
@@ -271,11 +272,11 @@ public class BreakoutExtensions extends GraphicsProgram {
 						}else if (collider.getColor()==Color.ORANGE){
 							ballRadius-=2;
 							ball.setSize(ballRadius*2, ballRadius*2);
-
+							shrink.play();
 						}else
 							bounceClip.play();
 
-						
+
 					}                   
 				}
 				//Clears the number of points and lives so that they can be updated.
