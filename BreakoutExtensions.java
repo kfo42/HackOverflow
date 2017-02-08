@@ -466,6 +466,12 @@ public class BreakoutExtensions extends GraphicsProgram {
 			pause(5000);
 			lives = 9000;
 			remove(easterEgg);
+			remove(coinSlot1);
+			remove(coinSlot2);
+			remove(coinLabel1);
+			remove(coinLabel2);
+			remove(start);
+			remove(reminder);
 		}
 		if (coinInsert ==coinSlot1){
 			remove(coin);
