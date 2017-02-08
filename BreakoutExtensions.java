@@ -115,13 +115,11 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 	private GImage clouds = new GImage("clouds.jpeg");
 	private GImage bg = new GImage("doge.png");
+	private double scaleX = 0.35;
+	private double scaleY = 0.35;
 
 	public void run() {
-		double scaleX = 0.35;
-		double scaleY = 0.35;
-		clouds.scale(scaleX,scaleY);
-		add(clouds,getWidth()/2-clouds.getWidth()/2, 0);
-		clouds.sendToBack();
+
 		//Placing the entire game sequence within a while loop
 		//allows for the game to restart when the player loses.
 		while(true){
@@ -129,6 +127,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 			addMouseListeners();
 
 			prepSequence();
+			
 			paddle.setVisible(true);
 
 			//Creates all rows of bricks simultaneously
@@ -467,8 +466,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 		//Easter egg with near-infinite lives.
 		if (coin.getY()==5*getHeight()/6){
 			GLabel easterEgg= new GLabel ("9,000 LIVES!!!");
-			double scaleX = 0.35;
-			double scaleY = 0.35;
+
 			bg.scale(scaleX,scaleY);
 			add(bg,getWidth()/2-bg.getWidth()/2, 0);
 			easterEgg.setColor(Color.PINK);
@@ -553,6 +551,9 @@ public class BreakoutExtensions extends GraphicsProgram {
 		remove(coin);
 		add(paddle);
 
+		clouds.scale(scaleX,scaleY);
+		add(clouds,getWidth()/2-clouds.getWidth()/2, 0);
+		clouds.sendToBack();
 
 	}
 
