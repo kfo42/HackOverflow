@@ -517,7 +517,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 		GLabel ready = new GLabel ("READY...");
 		ready.setFont("Courier New-Bold-60");
-		ready.setColor(Color.WHITE);
+		ready.setColor(Color.RED);
 		
 		add (ready, getWidth()/2-ready.getWidth()/2, getHeight()/2+50);
 		pause(800);
@@ -525,7 +525,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 		GLabel set = new GLabel ("SET...");
 		set.setFont("Courier New-Bold-60");
-		set.setColor(Color.WHITE);
+		set.setColor(Color.RED);
 
 		add (set, getWidth()/2-set.getWidth()/2, getHeight()/2+50);
 		pause(600);
@@ -533,7 +533,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 		GLabel go = new GLabel ("GO!");
 		go.setFont("Courier New-Bold-60");
-		go.setColor(Color.WHITE);
+		go.setColor(Color.RED);
 
 		add (go, getWidth()/2-go.getWidth()/2, getHeight()/2+50);
 		pause(500);
