@@ -636,6 +636,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 			pause(500);
 			remove(easterEgg2);
 		}
+		remove(bg);
 	}
 }
 
