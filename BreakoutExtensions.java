@@ -422,7 +422,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 		double y=coin.getY();
 		coinInsert = getCollidingObject(x,y);
 
-		while ((coinInsert != coinSlot1 && coinInsert != coinSlot2)&&(coin.getY()!=getHeight()/2)){
+		while ((coinInsert != coinSlot1 && coinInsert != coinSlot2)&&(coin.getY()!=5*getHeight()/6)){
 
 			paddle.setVisible(false);
 
@@ -456,7 +456,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 			add(coin);
 		}
 		//Easter egg with near-infinite lives.
-		if (coin.getY()==getHeight()/2){
+		if (coin.getY()==5*getHeight()/6){
 			GLabel easterEgg= new GLabel ("You get 9,000 LIVES!!!");
 			remove(coin);
 			easterEgg.setFont("Comic Sans MS-Bold-30");
