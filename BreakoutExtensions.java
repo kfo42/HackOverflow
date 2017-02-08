@@ -280,6 +280,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 							ball.setSize(ballRadius*2, ballRadius*2);
 							shrink.play();
 						}else if (collider.getColor()==Color.GREEN){
+							ballRadius+=0.5;
 							ball.setFillColor(color[rgen.nextInt(0,9)]);
 							ball.setSize(ballRadius*2, ballRadius*2);
 							colorShift.play();
