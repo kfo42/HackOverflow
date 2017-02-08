@@ -229,6 +229,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 						}
 						bounceClip.play();
 					}
+				//Secret powerup with near-infinite lives.
 				}else if (collider.getX()==getWidth()/2 && collider.getY()==0){
 					GLabel easterEgg= new GLabel ("You get 9,000 LIVES!!!");
 					pause(5000);
