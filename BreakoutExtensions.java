@@ -550,9 +550,10 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 		remove(coin);
 		add(paddle);
+		
+		add(clouds,getWidth()/2-clouds.getWidth()/2, 0);
 
 		clouds.scale(scaleX,scaleY);
-		add(clouds,getWidth()/2-clouds.getWidth()/2, 0);
 		clouds.sendToBack();
 
 	}
