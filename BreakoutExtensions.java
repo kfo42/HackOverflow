@@ -113,8 +113,9 @@ public class BreakoutExtensions extends GraphicsProgram {
 	private AudioClip why = MediaTools.loadAudioClip("why.wav");
 	private AudioClip thatsIt = MediaTools.loadAudioClip("thats-it.wav");
 	private AudioClip ready = MediaTools.loadAudioClip("im-so-ready.wav");
+	private AudioClip coinDrop = MediaTools.loadAudioClip("electronic-stapler.wav");
 
-	
+
 	private GImage clouds = new GImage("clouds.jpeg");
 	private GImage bg = new GImage("doge.png");
 	private double scaleX = 0.35;
@@ -129,9 +130,9 @@ public class BreakoutExtensions extends GraphicsProgram {
 			addMouseListeners();
 
 			prepSequence();
-			
+
 			ready.play();
-			
+
 			paddle.setVisible(true);
 
 			//Creates all rows of bricks simultaneously
@@ -513,11 +514,13 @@ public class BreakoutExtensions extends GraphicsProgram {
 		}
 		if (coinInsert ==coinSlot1){
 			remove(coin);
+			coinDrop.play();
 			coinSlot1.setFillColor(Color.PINK);
 			lives = 6;
 			ballRadius = 15;
 		}
 		if (coinInsert == coinSlot2){
+			coinDrop.play();
 			coinSlot2.setFillColor(Color.CYAN);
 			remove(coin);
 			lives = 3;
@@ -554,7 +557,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 		remove(coin);
 		add(paddle);
-		
+
 		clouds.scale(scaleX,scaleY);
 		add(clouds,getWidth()/2-clouds.getWidth()/2, 0);
 
