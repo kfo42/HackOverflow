@@ -113,7 +113,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 	private AudioClip why = MediaTools.loadAudioClip("why.wav");
 	private AudioClip thatsIt = MediaTools.loadAudioClip("thats-it.wav");
 	private AudioClip ready = MediaTools.loadAudioClip("im-so-ready.wav");
-	private AudioClip coinDrop = MediaTools.loadAudioClip("electronic-stapler.wav");
+	private AudioClip coinDrop = MediaTools.loadAudioClip("electronic_stapler.wav");
 
 
 	private GImage clouds = new GImage("clouds.jpeg");
