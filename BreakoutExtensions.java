@@ -109,12 +109,13 @@ public class BreakoutExtensions extends GraphicsProgram {
 	private int ballRadius = 10;
 
 	//The sound of the ball's bounce.
-	AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
+	private AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
+	
+	private GImage bg = new GImage("doge.png");
 
 	public void run() {
 		//Placing the entire game sequence within a while loop
 		//allows for the game to restart when the player loses.
-		GImage bg = new GImage(doge.png);
 		while(true){
 			//Produces a title sequence for Breakout.
 			addMouseListeners();
@@ -240,7 +241,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 					//The powerup is awarded.
 					lives=powerUpAwarded(lives, powerUp);
 
-				}else if (collider !=doge ){
+				}else if (collider !=bg ){
 
 					if (collider != paddle){
 						remove(collider);
@@ -459,6 +460,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 		//Easter egg with near-infinite lives.
 		if (coin.getY()==5*getHeight()/6){
 			GLabel easterEgg= new GLabel ("9,000 LIVES!!!");
+			add(bg);
 			easterEgg.setColor(Color.PINK);
 			remove(coin);
 			easterEgg.setFont("Comic Sans MS-Bold-70");
