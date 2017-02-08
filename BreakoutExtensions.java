@@ -485,9 +485,10 @@ public class BreakoutExtensions extends GraphicsProgram {
 		}
 		//Easter egg with near-infinite lives.
 		if (coin.getY()==5*getHeight()/6){
-			easterEggRun();
 			bg.scale(scaleX,scaleY);
 			add(bg,getWidth()/2-bg.getWidth()/2, 0);
+			easterEggRun();
+
 		}
 		if (coinInsert ==coinSlot1){
 			ballRadius += 5;
