@@ -567,6 +567,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 	}
 	
 private void easterEggRun(){
+	laugh.play();
 	GLabel easterEgg= new GLabel ("9,000 LIVES!!!");
 
 	bg.scale(scaleX,scaleY);
