@@ -165,7 +165,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 			powerUp.setFilled(true);
 			powerUp.setColor(Color.YELLOW);
 			add (powerUp, 200, 10);
-			powerUp.sendToBack();
+			powerUp.sendToFront();
 
 			while(lives>0){
 
@@ -303,6 +303,8 @@ public class BreakoutExtensions extends GraphicsProgram {
 			bricksHit=0;
 			ballRadius=10;
 			paddle.setVisible(false);
+			clouds.scale(1/scaleX,1/scaleY);
+
 
 		}
 	}
@@ -590,6 +592,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 
 
 		lives = 9000;
+		ballRadius+=0;
 		remove(start);
 		remove(reminder);
 
