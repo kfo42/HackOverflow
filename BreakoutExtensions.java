@@ -7,11 +7,10 @@
  * Additions:
  * 
  * ~Title sequence with "coin slots"
- * ~Collision sounds
+ * ~Collision sounds and various other sound effects
  * ~Option to use 3 or 6 lives
  * ~A powerup that adds an extra life
  * ~Easter egg with 9000 lives -- move coin 5/6 of the way down
- * 
  * ~Yellow bricks decrease radius, orange bricks increase radius
  * ~Keeps score and displays the number of points and lives to the player.
  * ~Bouncing the ball off the edge of the paddle causes horizontal reflection.
@@ -114,9 +113,15 @@ public class BreakoutExtensions extends GraphicsProgram {
 	private AudioClip why = MediaTools.loadAudioClip("why.wav");
 	private AudioClip thatsIt = MediaTools.loadAudioClip("thats-it.wav");
 
+	private GImage clouds = new GImage("clouds.jpeg");
 	private GImage bg = new GImage("doge.png");
 
 	public void run() {
+		double scaleX = 0.35;
+		double scaleY = 0.35;
+		clouds.scale(scaleX,scaleY);
+		add(clouds,getWidth()/2-clouds.getWidth()/2, 0);
+		clouds.sendToBack();
 		//Placing the entire game sequence within a while loop
 		//allows for the game to restart when the player loses.
 		while(true){
