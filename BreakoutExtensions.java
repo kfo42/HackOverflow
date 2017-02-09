@@ -511,6 +511,7 @@ public class BreakoutExtensions extends GraphicsProgram {
 		pause(800);
 		remove(coinSlot1);
 		remove(coinSlot2);
+		
 		remove(coinLabel1);
 		remove(coinLabel2);
 		excite.play();
