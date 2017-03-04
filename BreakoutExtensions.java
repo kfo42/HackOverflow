@@ -641,7 +641,8 @@ public class BreakoutExtensions extends GraphicsProgram {
 	}
 //MUSIC LEVEL
 	private AudioClip g3 = MediaTools.loadAudioClip("G3.wav");
-	
+	private AudioClip a3 = MediaTools.loadAudioClip("A3.wav");
+	private AudioClip b3 = MediaTools.loadAudioClip("B3.wav");
 	private AudioClip c4 = MediaTools.loadAudioClip("C4.wav");
 	private AudioClip d4 = MediaTools.loadAudioClip("D4.wav");
 	private AudioClip e4 = MediaTools.loadAudioClip("E4.wav");
