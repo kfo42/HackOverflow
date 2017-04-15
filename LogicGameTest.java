@@ -36,8 +36,9 @@ public class LogicGameTest extends GraphicsProgram {
 		
 		public void run() {	
 			Ball ball = new Ball(BALL_COLOR);
+			Ball ball2 = new Ball(BALL_COLOR);
 			add(ball.getBall(),200,200);
-			
+			add(ball2.getBall(), 100, 300);
 			waitForClick();
 			
 			while(true) {
@@ -62,6 +63,7 @@ public class LogicGameTest extends GraphicsProgram {
 							vx = 0.0;
 						}
 					}
+				}
 			/*	if(ball.fillBucket()){
 					
 				}*/
