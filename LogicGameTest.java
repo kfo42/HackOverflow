@@ -7,20 +7,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class LogicGameTest extends GraphicsProgram {
-	/*
-	 * File: GravityBall.java
-	 * -----------------------------
-	 * Has a ball bounce around the screen and applies a downward
-	 * force on the ball (gravity).
-	 */
-
-	import java.awt.Color;
-
-	import acm.graphics.*;
-	import acm.program.*;
-
-	public class GravityBall extends GraphicsProgram {
-
+	
 		/* How many ms to pause between "heartbeats" */
 		private static final int DELAY = 2;
 		/* How much to reduce velocity after a collision */
