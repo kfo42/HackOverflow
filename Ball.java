@@ -7,8 +7,8 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Ball extends GraphicsProgram{
-	public GOval ballImg;
-	public Color ballColor;
+	private GOval ballImg;
+	private Color ballColor;
 	public Ball (Color color) {
 		ballColor=color;
 
