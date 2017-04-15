@@ -27,10 +27,10 @@ public class LogicGameTest extends GraphicsProgram {
 		/* The damping from the force of friction */
 		private static final double FRICTION = 0.999;
 
-		private Ball ball = new Ball(BALL_COLOR);
 		
 		public void run() {	
-			
+			Ball ball = new Ball(BALL_COLOR);
+				
 			waitForClick();
 			makeBall(ball);
 			double vx = INITIAL_VX;
@@ -70,7 +70,7 @@ public class LogicGameTest extends GraphicsProgram {
 		 * Creates a ball, adds it to the screen, and returns it so
 		 * that the ball can be used for animation.
 		 */
-		public void makeBall(Ball ball) {
+		private void makeBall(Ball ball) {
 			ball.addBall();
 		}
 
