@@ -26,7 +26,8 @@ public class LogicGameTest extends GraphicsProgram {
 		private static final double STATIC_FRICTION = 0.05;
 		/* The damping from the force of friction */
 		private static final double FRICTION = 0.999;
-
+		
+		private GRect bucket = new GRect (50,10);
 		
 		public void run() {	
 			Ball ball = new Ball(BALL_COLOR);
@@ -39,7 +40,7 @@ public class LogicGameTest extends GraphicsProgram {
 				// update visualization
 				ball.move(vx, vy);
 				vy += DELTA_VY;
-//*
+
 				// update parameters
 				if(ball.hitLeftWall(vx) || ball.hitRightWall(vx)) {
 					vx = -(vx * DAMPING);
@@ -57,9 +58,9 @@ public class LogicGameTest extends GraphicsProgram {
 							vx = 0.0;
 						}
 					}
-			//	if(ball.fillBucket()){
+			/*	if(ball.fillBucket()){
 					
-				//}
+				}*/
 				}
 
 				// pause
@@ -76,7 +77,30 @@ public class LogicGameTest extends GraphicsProgram {
 		private void makeBall(Ball ball) {
 			ball.addBall();
 		}
-
+		/* public boolean fillBucket() {
+		if(getCollidingObject(ballImg.getX(), ballImg.getY())== bucket){
+		
+		
+		}
+		
+		private GObject getCollidingObject(double x, double y){
+			if (getElementAt (x,y) !=null){
+				GObject collider = getElementAt (x,y);
+				return collider;
+			}else if (getElementAt (x+2*BALL_RADIUS,y) !=null){
+				GObject collider = getElementAt (x+2*BALL_RADIUS,y);
+				return collider;
+			}else if (getElementAt (x,y+2*BALL_RADIUS) !=null){
+				GObject collider = getElementAt (x,y+2*BALL_RADIUS);
+				return collider;
+			}else if (getElementAt (x+2*BALL_RADIUS,y+2*BALL_RADIUS) !=null){
+				GObject collider = getElementAt (x+2*BALL_RADIUS,y+2*BALL_RADIUS);
+				return collider;
+			}else{
+				return null;
+			}
+		}
+	*/
 	}
 
 
