@@ -41,7 +41,7 @@ public class LogicGameTest extends GraphicsProgram {
 			
 			while(true) {
 				// update visualization
-				ball.move(vx, vy);
+				move(ball, vx, vy);
 				vy += DELTA_VY;
 
 				// update parameters
@@ -97,7 +97,7 @@ public class LogicGameTest extends GraphicsProgram {
 	*/
 		
 		public void move(Ball ball, double vx, double vy){
-			ball.getBall().move( vx, vy);
+			ball.getBall().move(vx, vy);
 		}
 	}
 
