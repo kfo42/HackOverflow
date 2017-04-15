@@ -13,6 +13,8 @@ public class Ball extends GraphicsProgram{
 		
 		ballImg = new GOval(10,10);
 		ballImg.setColor(ballColor);
+		add(ballImg, 0, 0);
+
 	
 	}
 	public void move(double vx, double vy){
