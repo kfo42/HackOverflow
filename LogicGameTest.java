@@ -72,6 +72,7 @@ public class LogicGameTest extends GraphicsProgram {
 		// pause
 		pause(DELAY);
 	}
+}
 
 
 /* public boolean fillBucket() {
