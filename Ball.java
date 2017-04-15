@@ -15,7 +15,7 @@ public class Ball extends GraphicsProgram{
 	}
 	public void addBall(){
 
-		ballImg = new GOval(10,10);
+		ballImg = new GOval(20,20);
 		ballImg.setColor(ballColor);
 		add(ballImg, 0, 0);
 	}
