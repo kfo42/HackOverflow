@@ -28,16 +28,22 @@ public class LogicGameTest extends GraphicsProgram {
 
 		private Ball currentBall;
 		public void run() {	
-			GOval ball = makeBall();
+			
 			waitForClick();
 			double vx = INITIAL_VX;
 			double vy = INITIAL_VY;
 			while(true) {
 				// update visualization
-				ball.move(vx, vy);
+				currentBall.move(vx, vy);
 				vy += DELTA_VY;
 
-				// update parameters
+				// update pimport acm.graphics.*;
+				import acm.program.*;
+				import acm.util.*;
+
+				import java.applet.*;
+				import java.awt.*;
+				import java.awt.event.*;arameters
 				if(hitLeftWall(ball, vx) || hitRightWall(ball, vx)) {
 					vx = -(vx * DAMPING);
 				}
