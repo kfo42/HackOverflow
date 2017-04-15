@@ -33,7 +33,7 @@ public class LogicGameTest extends GraphicsProgram {
 			Ball ball = new Ball(BALL_COLOR);
 				
 			waitForClick();
-			makeBall(ball);
+			ball.makeBall(ball);
 			double vx = INITIAL_VX;
 			double vy = INITIAL_VY;
 			while(true) {
@@ -68,15 +68,6 @@ public class LogicGameTest extends GraphicsProgram {
 			}
 		}
 
-		/**
-		 * Method: Make Ball
-		 * -----------------------
-		 * Creates a ball, adds it to the screen, and returns it so
-		 * that the ball can be used for animation.
-		 */
-		private void makeBall(Ball ball) {
-			ball.addBall();
-		}
 		/* public boolean fillBucket() {
 		if(getCollidingObject(ballImg.getX(), ballImg.getY())== bucket){
 		
