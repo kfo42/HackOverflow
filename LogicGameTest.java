@@ -57,6 +57,9 @@ public class LogicGameTest extends GraphicsProgram {
 							vx = 0.0;
 						}
 					}
+			//	if(ball.fillBucket()){
+					
+				//}
 				}
 
 				// pause
