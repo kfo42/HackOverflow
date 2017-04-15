@@ -33,7 +33,7 @@ public class LogicGameTest extends GraphicsProgram {
 			Ball ball = new Ball(BALL_COLOR);
 			GOval oval = new GOval (20, 20);
 			add(ball.addBall(),0,0);
-			ball.addBall();
+			
 			waitForClick();
 			
 			double vx = INITIAL_VX;
