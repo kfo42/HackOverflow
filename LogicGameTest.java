@@ -77,5 +77,5 @@ public class LogicGameTest extends GraphicsProgram {
 		}
 
 	}
-
+}
 
