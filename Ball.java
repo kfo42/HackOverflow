@@ -15,7 +15,7 @@ public class Ball extends GraphicsProgram{
 		ballImg.setColor(ballColor);
 	
 	}
-	private void move(double vx, double vy){
+	public void move(double vx, double vy){
 		ballImg.move(vx, vy);
 	}
 }
