@@ -16,8 +16,9 @@ public class Ball extends GraphicsProgram{
 		ballImg.setColor(ballColor);
 		ballImg.setVisible(true);
 	}
-	public void addBall(){
+	public GOval addBall(){
 		add(ballImg, 20, 20);
+		return ballImg;
 	}
 
 	public void move(double vx, double vy){
