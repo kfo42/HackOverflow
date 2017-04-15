@@ -7,7 +7,6 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class LogicGameTest extends GraphicsProgram {
-	
 		/* How many ms to pause between "heartbeats" */
 		private static final int DELAY = 2;
 		/* How much to reduce velocity after a collision */
@@ -28,13 +27,12 @@ public class LogicGameTest extends GraphicsProgram {
 		private static final double FRICTION = 0.999;
 
 		public void run() {	
-			for(int i=0; i<5; i++){
 			GOval ball = makeBall();
 			waitForClick();
 			double vx = INITIAL_VX;
 			double vy = INITIAL_VY;
 			while(true) {
-				// update visualization
+				// update vizualization
 				ball.move(vx, vy);
 				vy += DELTA_VY;
 
@@ -59,7 +57,6 @@ public class LogicGameTest extends GraphicsProgram {
 
 				// pause
 				pause(DELAY);
-			}
 			}
 		}
 
@@ -124,4 +121,4 @@ public class LogicGameTest extends GraphicsProgram {
 
 	}
 
-
+}
