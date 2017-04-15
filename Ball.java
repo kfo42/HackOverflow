@@ -8,15 +8,15 @@ import java.awt.event.*;
 
 public class Ball extends GraphicsProgram{
 	public GOval ballImg;
-	
-	public Ball (Color ballColor) {
-		
-		ballImg = new GOval(10,10);
-		ballImg.setColor(ballColor);
-		add(ballImg, 0, 0);
-
-	
+	public Color ballColor;
+	public Ball (Color color) {
+	ballColor=color;
 	}
+public void addBall(Color ){
+	ballImg = new GOval(10,10);
+	add(ballImg, 0, 0);
+}
+
 	public void move(double vx, double vy){
 		ballImg.move(vx, vy);
 	}
