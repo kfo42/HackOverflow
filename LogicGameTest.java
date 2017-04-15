@@ -32,7 +32,7 @@ public class LogicGameTest extends GraphicsProgram {
 		public void run() {	
 			
 			waitForClick();
-			ball.addBall();
+			makeBall(ball);
 			double vx = INITIAL_VX;
 			double vy = INITIAL_VY;
 			while(true) {
