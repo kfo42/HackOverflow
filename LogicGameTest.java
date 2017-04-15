@@ -26,6 +26,7 @@ public class LogicGameTest extends GraphicsProgram {
 		/* The damping from the force of friction */
 		private static final double FRICTION = 0.999;
 
+		private Ball currentBall;
 		public void run() {	
 			GOval ball = makeBall();
 			waitForClick();
