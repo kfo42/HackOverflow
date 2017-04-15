@@ -97,7 +97,7 @@ public class LogicGameTest extends GraphicsProgram {
 	*/
 		
 		public void move(double vx, double vy){
-			ballImg.move(vx, vy);
+			ball.getBall.move(vx, vy);
 		}
 	}
 
