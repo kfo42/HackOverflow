@@ -31,11 +31,14 @@ public class LogicGameTest extends GraphicsProgram {
 		
 		public void run() {	
 			Ball ball = new Ball(BALL_COLOR);
+			GOval oval = new GOval (20, 20);
+			add(oval, 0,0);
 			ball.addBall();
 			waitForClick();
 			
 			double vx = INITIAL_VX;
 			double vy = INITIAL_VY;
+			
 			while(true) {
 				// update visualization
 				ball.move(vx, vy);
