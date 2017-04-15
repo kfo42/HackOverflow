@@ -56,10 +56,10 @@ public class LogicGameTest extends GraphicsProgram {
 				if(ball.hitLeftWall(vx) || ball.hitRightWall(vx)) {
 					vx = -(vx * DAMPING);
 				}
-				if(ball.hitTopWall(ball, vy)) {
+				if(ball.hitTopWall(vy)) {
 					vy = -(vy * DAMPING);
 				}
-				if(ball.hitBottomWall(ball, vy)) {
+				if(ball.hitBottomWall(vy)) {
 					vy = -(vy * DAMPING);
 					// if the ball is rolling on the ground.
 					if(Math.abs(vy) < 0.5) {
