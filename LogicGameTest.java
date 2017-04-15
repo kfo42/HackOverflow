@@ -1,4 +1,11 @@
+import acm.graphics.*;
+import acm.program.*;
+import acm.util.*;
 
-public class LogicGameTest {
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class LogicGameTest extends GraphicsProgram {
 
 }
