@@ -36,7 +36,7 @@ public class LogicGameTest extends GraphicsProgram {
 		
 		public void run() {	
 			Ball ball = new Ball(BALL_COLOR);
-			add(ball.getBall(),100,200);
+			add(ball.getBall(),200,200);
 			
 			waitForClick();
 			
