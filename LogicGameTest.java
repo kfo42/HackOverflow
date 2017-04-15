@@ -67,10 +67,11 @@ public class LogicGameTest extends GraphicsProgram {
 			/*	if(ball.fillBucket()){
 
 				}*/
+			// pause
+			pause(DELAY);
 		}
 
-		// pause
-		pause(DELAY);
+		
 	}
 
 
