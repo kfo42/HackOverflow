@@ -67,7 +67,7 @@ public class LogicGameTest extends GraphicsProgram {
 				// pause
 				//pause(DELAY);
 			}
-		}
+		//}
 
 		/**
 		 * Method: Make Ball
