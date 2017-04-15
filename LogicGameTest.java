@@ -72,7 +72,7 @@ public class LogicGameTest extends GraphicsProgram {
 		// pause
 		pause(DELAY);
 	}
-}
+
 
 /* public boolean fillBucket() {
 		if(getCollidingObject(ballImg.getX(), ballImg.getY())== bucket){
