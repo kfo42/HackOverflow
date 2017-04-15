@@ -76,22 +76,6 @@ public class LogicGameTest extends GraphicsProgram {
 			}
 		}
 
-	
-		/**
-		 * Method: Make Ball
-		 * -----------------------
-		 * Creates a ball, adds it to the screen, and returns it so
-		 * that the ball can be used for animation.
-		 */
-		public GOval makeBall() {
-			double size = BALL_RADIUS * 2;
-			GOval r = new GOval(size, size);
-			r.setFilled(true);
-			r.setColor(BALL_COLOR);
-			add(r, 0, 0);
-			return r;
-		}
-
 	}
 
 
