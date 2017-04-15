@@ -32,7 +32,7 @@ public class LogicGameTest extends GraphicsProgram {
 		public void run() {	
 			Ball ball = new Ball(BALL_COLOR);
 			GOval oval = new GOval (20, 20);
-			add(ball.addBall(), 0,0);
+			add(ball.addBall(),0,0);
 			ball.addBall();
 			waitForClick();
 			
