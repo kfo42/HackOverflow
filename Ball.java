@@ -17,7 +17,6 @@ public class Ball extends GraphicsProgram{
 		ballImg.setVisible(true);
 	}
 	public GOval addBall(){
-		add(ballImg, 20, 20);
 		return ballImg;
 	}
 
