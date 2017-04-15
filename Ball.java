@@ -9,14 +9,15 @@ import java.awt.event.*;
 public class Ball extends GraphicsProgram{
 	private GOval ballImg;
 	private Color ballColor;
+	
 	public Ball (Color color) {
 		ballColor=color;
-
+		ballImg = new GOval(20,20);
+		ballImg.setColor(ballColor);
 	}
 	public void addBall(){
 
-		ballImg = new GOval(20,20);
-		ballImg.setColor(ballColor);
+	
 		add(ballImg, 20, 20);
 	}
 
@@ -66,5 +67,7 @@ public class Ball extends GraphicsProgram{
 		if(vx > 0) return false;
 		return ballImg.getX() <= 0;
 	}
+	
+
 
 }
