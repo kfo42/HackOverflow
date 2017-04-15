@@ -7,6 +7,20 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class LogicGameTest extends GraphicsProgram {
+	/*
+	 * File: GravityBall.java
+	 * -----------------------------
+	 * Has a ball bounce around the screen and applies a downward
+	 * force on the ball (gravity).
+	 */
+
+	import java.awt.Color;
+
+	import acm.graphics.*;
+	import acm.program.*;
+
+	public class GravityBall extends GraphicsProgram {
+
 		/* How many ms to pause between "heartbeats" */
 		private static final int DELAY = 2;
 		/* How much to reduce velocity after a collision */
@@ -26,7 +40,8 @@ public class LogicGameTest extends GraphicsProgram {
 		/* The damping from the force of friction */
 		private static final double FRICTION = 0.999;
 
-		private Ball currentBall;
+		private Ball ball;
+		
 		public void run() {	
 			
 			waitForClick();
@@ -34,16 +49,10 @@ public class LogicGameTest extends GraphicsProgram {
 			double vy = INITIAL_VY;
 			while(true) {
 				// update visualization
-				currentBall.move(vx, vy);
+				ball.move(vx, vy);
 				vy += DELTA_VY;
 
-				// update pimport acm.graphics.*;
-				import acm.program.*;
-				import acm.util.*;
-
-				import java.applet.*;
-				import java.awt.*;
-				import java.awt.event.*;arameters
+				// update parameters
 				if(hitLeftWall(ball, vx) || hitRightWall(ball, vx)) {
 					vx = -(vx * DAMPING);
 				}
@@ -67,50 +76,7 @@ public class LogicGameTest extends GraphicsProgram {
 			}
 		}
 
-		/**
-		 * Method: Hit Bottom Wall
-		 * -----------------------
-		 * Returns whether or not the given ball should bounce off
-		 * of the bottom wall of the window.
-		 */
-		private boolean hitBottomWall(GOval ball, double vy) {
-			if(vy < 0) return false;
-			return ball.getY() > getHeight() - ball.getHeight();
-		}
-
-		/**
-		 * Method: Hit Top Wall
-		 * -----------------------
-		 * Returns whether or not the given ball should bounce off
-		 * of the top wall of the window.
-		 */
-		private boolean hitTopWall(GOval ball, double vy) {
-			if(vy > 0) return false;
-			return ball.getY() <= 0;
-		}
-
-		/**
-		 * Method: Hit Right Wall
-		 * -----------------------
-		 * Returns whether or not the given ball should bounce off
-		 * of the right wall of the window.
-		 */
-		private boolean hitRightWall(GOval ball, double vx) {
-			if(vx < 0) return false;
-			return ball.getX() >= getWidth() - ball.getWidth();
-		}
-
-		/**
-		 * Method: Hit Left Wall
-		 * -----------------------
-		 * Returns whether or not the given ball should bounce off
-		 * of the left wall of the window.
-		 */
-		private boolean hitLeftWall(GOval ball, double vx) {
-			if(vx > 0) return false;
-			return ball.getX() <= 0;
-		}
-
+	
 		/**
 		 * Method: Make Ball
 		 * -----------------------
@@ -128,4 +94,4 @@ public class LogicGameTest extends GraphicsProgram {
 
 	}
 
-
+}
