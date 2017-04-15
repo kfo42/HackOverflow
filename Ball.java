@@ -24,7 +24,7 @@ public class Ball extends GraphicsProgram{
 	 * Returns whether or not the given ball should bounce off
 	 * of the bottom wall of the window.
 	 */
-	private boolean hitBottomWall(GOval ballImg, double vy) {
+	private boolean hitBottomWall(double vy) {
 		if(vy < 0) return false;
 		return ballImg.getY() > getHeight() - ballImg.getHeight();
 	}
@@ -35,7 +35,7 @@ public class Ball extends GraphicsProgram{
 	 * Returns whether or not the given ball should bounce off
 	 * of the top wall of the window.
 	 */
-	private boolean hitTopWall(GOval ballImg, double vy) {
+	private boolean hitTopWall(double vy) {
 		if(vy > 0) return false;
 		return ballImg.getY() <= 0;
 	}
@@ -46,7 +46,7 @@ public class Ball extends GraphicsProgram{
 	 * Returns whether or not the given ball should bounce off
 	 * of the right wall of the window.
 	 */
-	private boolean hitRightWall(GOval ballImg, double vx) {
+	private boolean hitRightWall(double vx) {
 		if(vx < 0) return false;
 		return ballImg.getX() >= getWidth() - ballImg.getWidth();
 	}
@@ -57,7 +57,7 @@ public class Ball extends GraphicsProgram{
 	 * Returns whether or not the given ball should bounce off
 	 * of the left wall of the window.
 	 */
-	private boolean hitLeftWall(GOval ballImg, double vx) {
+	private boolean hitLeftWall(double vx) {
 		if(vx > 0) return false;
 		return ballImg.getX() <= 0;
 	}
