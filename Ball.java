@@ -10,12 +10,15 @@ public class Ball extends GraphicsProgram{
 	public GOval ballImg;
 	public Color ballColor;
 	public Ball (Color color) {
-	ballColor=color;
+		ballColor=color;
+
 	}
-public void addBall(Color ){
-	ballImg = new GOval(10,10);
-	add(ballImg, 0, 0);
-}
+	public void addBall(){
+
+		ballImg = new GOval(10,10);
+		ballImg.setColor(ballColor);
+		add(ballImg, 0, 0);
+	}
 
 	public void move(double vx, double vy){
 		ballImg.move(vx, vy);
