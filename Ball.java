@@ -16,13 +16,11 @@ public class Ball extends GraphicsProgram{
 		ballImg.setColor(ballColor);
 		ballImg.setVisible(true);
 	}
-	public GOval addBall(){
+	public GOval getBall(){
 		return ballImg;
 	}
 
-	public void move(double vx, double vy){
-		ballImg.move(vx, vy);
-	}
+	
 	/**
 	 * Method: Hit Bottom Wall
 	 * -----------------------
