@@ -9,9 +9,13 @@ import java.awt.event.*;
 public class Ball extends GraphicsProgram{
 	public GOval ballImg;
 	
-	public Ball {
+	public Ball (Color ballColor) {
 		
-		
+		ballImg = new GOval(10,10);
+		ballImg.setColor(ballColor);
 	
+	}
+	private void move(double vx, double vy){
+		ballImg.move(vx, vy);
 	}
 }
