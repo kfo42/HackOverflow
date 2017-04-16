@@ -36,7 +36,7 @@ public class LogicGameTest extends GraphicsProgram {
 	private GRect bucketFrame = new GRect( 60, 20);
 	private double blueHits = 1;
 	private double greenHits = 1;
-	
+
 	public void run() {	
 		Ball[] ball = new Ball[300];
 		add(bucket, getWidth()/2-bucket.getWidth()/2, getHeight()/2-bucket.getHeight()/2);
@@ -45,14 +45,14 @@ public class LogicGameTest extends GraphicsProgram {
 			vx[j] = rgen.nextDouble(1.0,3.0);
 			vy[j] = rgen.nextDouble(1.0, 3.0);
 			if (j<150){
-			ball[j] = new Ball(BALL_COLOR, rgen.nextDouble(0, getWidth()), rgen.nextDouble(0, getHeight()));
+				ball[j] = new Ball(BALL_COLOR, rgen.nextDouble(0, getWidth()), rgen.nextDouble(0, getHeight()));
 			}else{
 				ball[j] = new Ball(Color.GREEN, rgen.nextDouble(0, getWidth()), rgen.nextDouble(0, getHeight()));	
-		}
+			}
 			add(ball[j].getBall());	
 		}
 
-		
+
 		waitForClick();
 
 		while(true) {
@@ -95,14 +95,14 @@ public class LogicGameTest extends GraphicsProgram {
 						}
 					}
 				}
-			
+
 				if (blueHits>30 && greenHits>30){
 					removeAll();
 				}
 			}
 			// pause
 			pause(DELAY);
-			
+
 		}
 
 
