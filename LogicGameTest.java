@@ -51,9 +51,9 @@ public class LogicGameTest extends GraphicsProgram {
 		for(int i=0; i<ball.length; i++)
 			// update visualization
 			move(ball[i], vx[i], vy[i]);
-			vy += DELTA_VY;
+			vy[i] += DELTA_VY;
 			// update parameters
-			if(hitLeftWall(ball, vx) || hitRightWall(ball, vx)) {
+			if(hitLeftWall(ball[i], vx[i]) || hitRightWall(ball[i], vx[i])) {
 				vx = -(vx * DAMPING);
 			}
 			if(hitTopWall(ball, vy)) {
