@@ -47,6 +47,7 @@ public class LogicGameTest extends GraphicsProgram {
 		
 			// update visualization
 			move(ball, vx, vy);
+			move(ball2, vx, vy);
 			vy += DELTA_VY;
 			// update parameters
 			if(hitLeftWall(ball, vx) || hitRightWall(ball, vx)) {
