@@ -48,7 +48,7 @@ public class LogicGameTest extends GraphicsProgram {
 		
 		while(true) {
 			
-		for(int i=0; i<ball.length; i++)
+		for(int i=0; i<ball.length; i++){
 			// update visualization
 			move(ball[i], vx[i], vy[i]);
 			vy[i] += DELTA_VY;
