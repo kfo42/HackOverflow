@@ -65,8 +65,14 @@ public class LogicGameTest extends GraphicsProgram {
 
 
 				if(getCollidingObject(ball[i].getBall().getX(), ball[i].getBall().getY())==bucket){
+					if(ball[i].getBall().getColor()==Color.BLUE){
+						blueHits++;
+					}else{
+						greenHits++;
+					}
+					
 					remove(ball[i].getBall());
-					blueHits++;
+					
 					if ((bucket.getHeight()+.02)<getHeight()){
 						bucket.setSize(bucket.getWidth(), bucket.getHeight()+.02);
 						if ((getHeight()-(bucket.getHeight()+.02))/2>0){
