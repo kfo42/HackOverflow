@@ -61,7 +61,7 @@ public class LogicGameTest extends GraphicsProgram {
 
 				if(getCollidingObject(ball[i].getBall().getX(), ball[i].getBall().getY())==bucket){
 					remove(ball[i].getBall());
-					bucketHits++;
+					blueHits++;
 					if ((bucket.getHeight()+.02)<getHeight()){
 						bucket.setSize(bucket.getWidth(), bucket.getHeight()+.02);
 						if ((getHeight()-(bucket.getHeight()+.02))/2>0){
@@ -90,25 +90,21 @@ public class LogicGameTest extends GraphicsProgram {
 						}
 					}
 				}
-
+			
+				if (blueHits>30 && greenHits>30){
+					removeAll();
+				}
 			}
 			// pause
 			pause(DELAY);
-
+			
 		}
 
 
 	}
 
 
-	public boolean fillBucket(Ball ball) {
-		if(getCollidingObject(ball.getX(), ball.getY())== bucket){
-			bucketHits++;
-			return true;
-		}else{
-			return false;
-		}
-	}
+
 	private GObject getCollidingObject(double x, double y){
 		if (getElementAt (x,y) !=null){
 			GObject collider = getElementAt (x,y);
