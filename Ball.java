@@ -15,6 +15,8 @@ public class Ball extends GraphicsProgram{
 		ballImg = new GOval(10,10);
 		ballImg.setColor(ballColor);
 		ballImg.setVisible(true);
+		ballImg.setFilled(true);
+		ballImg.setFillColor(ballColor);
 		ballImg.setLocation(x, y);
 	}
 	public GOval getBall(){
