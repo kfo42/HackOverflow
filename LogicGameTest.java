@@ -106,13 +106,6 @@ public class LogicGameTest extends GraphicsProgram {
 
 				if (blueHits>400 && greenHits>400){
 					removeAll();
-					pause(100);
-					GImage magicKey = new GImage("key.jpg");
-				
-					add(magicKey, getWidth()/2,getHeight()/2);
-					pause(100);
-					GLabel winText = new GLabel("You have unlocked AND");
-					add(winText, getWidth()/2, getHeight()*3/4);
 				}
 			}
 			// pause
@@ -120,6 +113,14 @@ public class LogicGameTest extends GraphicsProgram {
 
 		}
 
+		pause(100);
+		GImage magicKey = new GImage("key.jpg");
+	
+		add(magicKey, getWidth()/2,getHeight()/2);
+		pause(100);
+		GLabel winText = new GLabel("You have unlocked AND");
+		add(winText, getWidth()/2, getHeight()*3/4);
+	}
 
 	}
 
