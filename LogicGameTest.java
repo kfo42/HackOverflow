@@ -102,7 +102,7 @@ public class LogicGameTest extends GraphicsProgram {
 					}
 				}
 
-				if (blueHits>10 && greenHits>10){
+				if (blueHits>50 && greenHits>50){
 					removeAll();
 				}
 			}
