@@ -34,7 +34,9 @@ public class LogicGameTest extends GraphicsProgram {
 
 	private GRect bucket = new GRect (50,10);
 	private GRect bucketFrame = new GRect( 60, 20);
-	private double bucketHits = 1;
+	private double blueHits = 1;
+	private double greenHits = 1;
+	
 	public void run() {	
 		Ball[] ball = new Ball[300];
 		add(bucket, getWidth()/2-bucket.getWidth()/2, getHeight()/2-bucket.getHeight()/2);
@@ -60,10 +62,10 @@ public class LogicGameTest extends GraphicsProgram {
 				if(getCollidingObject(ball[i].getBall().getX(), ball[i].getBall().getY())==bucket){
 					remove(ball[i].getBall());
 					bucketHits++;
-					if ((bucket.getHeight()+.05)<getHeight()){
-						bucket.setSize(bucket.getWidth(), bucket.getHeight()+.05);
-						if ((getHeight()-(bucket.getHeight()+.05))/2>0){
-							bucket.setLocation(getWidth()/2-bucket.getWidth()/2, (getHeight()/2-(bucket.getHeight()+.05)));
+					if ((bucket.getHeight()+.02)<getHeight()){
+						bucket.setSize(bucket.getWidth(), bucket.getHeight()+.02);
+						if ((getHeight()-(bucket.getHeight()+.02))/2>0){
+							bucket.setLocation(getWidth()/2-bucket.getWidth()/2, (getHeight()/2-(bucket.getHeight()+.02)));
 						}
 					}
 				}
