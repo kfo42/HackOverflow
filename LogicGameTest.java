@@ -60,10 +60,10 @@ public class LogicGameTest extends GraphicsProgram {
 				if(getCollidingObject(ball[i].getBall().getX(), ball[i].getBall().getY())==bucket){
 					remove(ball[i].getBall());
 					bucketHits++;
-					if ((bucket.getHeight()+.005*bucketHits)<getHeight()){
-						bucket.setSize(bucket.getWidth(), bucket.getHeight()+.005*bucketHits);
-						if ((getHeight()-(bucket.getHeight()+.005*bucketHits))/2>0){
-							bucket.setLocation(getWidth()/2-bucket.getWidth()/2, (getHeight()/2-(bucket.getHeight()+.005*bucketHits)));
+					if ((bucket.getHeight()+.05)<getHeight()){
+						bucket.setSize(bucket.getWidth(), bucket.getHeight()+.05);
+						if ((getHeight()-(bucket.getHeight()+.05))/2>0){
+							bucket.setLocation(getWidth()/2-bucket.getWidth()/2, (getHeight()/2-(bucket.getHeight()+.05)));
 						}
 					}
 				}
