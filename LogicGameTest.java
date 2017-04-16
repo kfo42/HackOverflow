@@ -33,7 +33,7 @@ public class LogicGameTest extends GraphicsProgram {
 	private double[] vy = new double[20];
 
 	private GRect bucket = new GRect (50,10);
-
+	private double bucketHits = 0;
 	public void run() {	
 		Ball[] ball = new Ball[20];
 		add(bucket, getWidth()/2, getHeight()/2);
@@ -71,9 +71,9 @@ public class LogicGameTest extends GraphicsProgram {
 						}
 					}
 				}
-				/*	if(ball.fillBucket()){
-
-				}*/
+				if(fillBucket(ball[i])){
+					bucket.setSize(bucket.getWidth(), bucket.getHeight()*);
+				}
 			}
 			// pause
 			pause(DELAY);
@@ -85,8 +85,10 @@ public class LogicGameTest extends GraphicsProgram {
 
 	public boolean fillBucket(Ball ball) {
 		if(getCollidingObject(ball.getX(), ball.getY())== bucket){
-
-
+			bucketHits++;
+			return true;
+		}else{
+			return false;
 		}
 	}
 	private GObject getCollidingObject(double x, double y){
