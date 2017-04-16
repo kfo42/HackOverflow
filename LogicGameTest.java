@@ -15,7 +15,7 @@ public class LogicGameTest extends GraphicsProgram {
 	/* Initial speed in the x direction */
 	private static final double INITIAL_VY = -1;
 	/* Initial speed in the y direction */
-	private static final double INITIAL_VX = 2;
+	private static final double INITIAL_VX = 1;
 	/* The amount of acceleration in the y direction */
 	private static final double DELTA_VY = 0.05;
 	/* The size of the ball (in pixels) */
