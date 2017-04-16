@@ -29,13 +29,13 @@ public class LogicGameTest extends GraphicsProgram {
 
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 
-	private double[] vx = new double[1000];
-	private double[] vy = new double[1000];
+	private double[] vx = new double[300];
+	private double[] vy = new double[300];
 
 	private GRect bucket = new GRect (50,10);
 	private double bucketHits = 0;
 	public void run() {	
-		Ball[] ball = new Ball[1000];
+		Ball[] ball = new Ball[300];
 		add(bucket, getWidth()/2, getHeight()/2);
 
 		for(int j=0; j<ball.length; j++ ){
@@ -50,8 +50,20 @@ public class LogicGameTest extends GraphicsProgram {
 		while(true) {
 
 			for(int i=0; i<ball.length; i++){
+				
+				
 				// update visualization
 				move(ball[i], vx[i], vy[i]);
+				
+				
+				if(fillBucket(ball[i])){
+					remove(bucket);
+					bucket.setSize(bucket.getWidth(), bucket.getHeight()*bucketHits);
+					add(bucket);
+					println(fillBucket(ball[i]));
+				}
+				
+				
 				vy[i] += DELTA_VY;
 				// update parameters
 				if(hitLeftWall(ball[i], vx[i]) || hitRightWall(ball[i], vx[i])) {
@@ -70,12 +82,6 @@ public class LogicGameTest extends GraphicsProgram {
 							vx[i] = 0.0;
 						}
 					}
-				}
-				if(fillBucket(ball[i])){
-					remove(bucket);
-					bucket.setSize(bucket.getWidth(), bucket.getHeight()*bucketHits);
-					add(bucket);
-					println(fillBucket(ball[i]));
 				}
 				
 			}
