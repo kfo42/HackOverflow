@@ -61,7 +61,7 @@ public class LogicGameTest extends GraphicsProgram {
 					bucketHits++;
 					bucket.setSize(bucket.getWidth(), bucket.getHeight()*bucketHits);
 					add(bucket,getWidth()/2, getHeight()/2);
-);
+
 					println(fillBucket(ball[i]));
 				}
 				
