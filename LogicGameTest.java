@@ -103,6 +103,54 @@ public class LogicGameTest extends GraphicsProgram {
 public void move(Ball ball, double vx, double vy){
 	ball.getBall().move(vx, vy);
 }
+
+/**
+ * Method: Hit Bottom Wall
+ * -----------------------
+ * Returns whether or not the given ball should bounce off
+ * of the bottom wall of the window.
+ */
+public boolean hitBottomWall(Ball ball, double vy) {
+	if(vy < 0) return false;
+	return ball.getBall().getY() > getHeight() - ball.getBall.getHeight();
+}
+
+/**
+ * Method: Hit Top Wall
+ * -----------------------
+ * Returns whether or not the given ball should bounce off
+ * of the top wall of the window.
+ */
+public boolean hitTopWall(Ball ball, double vy) {
+	if(vy > 0) return false;
+	return ball.getBall().getY() <= 0;
+}
+
+/**
+ * Method: Hit Right Wall
+ * -----------------------
+ * Returns whether or not the given ball should bounce off
+ * of the right wall of the window.
+ */
+public boolean hitRightWall(Ball ball, double vx) {
+	if(vx < 0) return false;
+	return ball.getBall().getX() >= getWidth() - ball.getBall().getWidth();
+}
+
+/**
+ * Method: Hit Left Wall
+ * -----------------------
+ * Returns whether or not the given ball should bounce off
+ * of the left wall of the window.
+ */
+public boolean hitLeftWall(Ball balldouble vx) {
+	if(vx > 0) return false;
+	return ballImg.getX() <= 0;
+}
+
+
+}
+
 }
 
 
