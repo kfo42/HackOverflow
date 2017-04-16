@@ -47,13 +47,13 @@ public class LogicGameTest extends GraphicsProgram {
 			vy += DELTA_VY;
 			println(vy);
 			// update parameters
-			if(ball.hitLeftWall(vx) || ball.hitRightWall(vx)) {
+			if(hitLeftWall(ball, vx) || hitRightWall(ball, vx)) {
 				vx = -(vx * DAMPING);
 			}
-			if(ball.hitTopWall(vy)) {
+			if(hitTopWall(ball, vy)) {
 				vy = -(vy * DAMPING);
 			}
-			if(ball.hitBottomWall(vy)) {
+			if(hitBottomWall(ball, vy)) {
 				vy = -(vy * DAMPING);
 				// if the ball is rolling on the ground.
 				if(Math.abs(vy) < 0.5) {
@@ -143,13 +143,13 @@ public boolean hitRightWall(Ball ball, double vx) {
  * Returns whether or not the given ball should bounce off
  * of the left wall of the window.
  */
-public boolean hitLeftWall(Ball balldouble vx) {
+public boolean hitLeftWall(Ball ball, double vx) {
 	if(vx > 0) return false;
-	return ballImg.getX() <= 0;
+	return ball.getBall().getX() <= 0;
 }
 
 
-}
+
 
 }
 
