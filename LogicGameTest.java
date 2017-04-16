@@ -114,9 +114,10 @@ public class LogicGameTest extends GraphicsProgram {
 		}
 
 		pause(100);
+		removeAll();
 		GImage magicKey = new GImage("key.jpg");
 	
-		add(magicKey, getWidth()/2,getHeight()/2);
+		add(magicKey, getWidth()/2-magicKey.getWidth()/2,getHeight()/2-magicKey.getHeight()/2);
 		pause(100);
 		GLabel winText = new GLabel("You have unlocked AND");
 		add(winText, getWidth()/2, getHeight()*3/4);
