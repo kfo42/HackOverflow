@@ -72,7 +72,9 @@ public class LogicGameTest extends GraphicsProgram {
 					}
 				}
 				if(fillBucket(ball[i])){
-					bucket.setSize(bucket.getWidth(), bucket.getHeight()*);
+					remove(bucket);
+					bucket.setSize(bucket.getWidth(), bucket.getHeight()*bucketHits);
+					add(bucket);
 				}
 			}
 			// pause
