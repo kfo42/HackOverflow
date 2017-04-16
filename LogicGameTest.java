@@ -33,7 +33,7 @@ public class LogicGameTest extends GraphicsProgram {
 	private double[] vy = new double[300];
 
 	private GRect bucket = new GRect (50,10);
-	private GRect bucketFrame = new GRect( 60, 20);
+	private GRect bucketFrame = new GRect( 60, 100);
 	private double blueHits = 1;
 	private double greenHits = 1;
 
