@@ -106,6 +106,8 @@ public class LogicGameTest extends GraphicsProgram {
 
 				if (blueHits>400 && greenHits>400){
 					removeAll();
+					GImage magicKey = new GImage("key.jpg");
+					add(magicKey, getWidth()/2,getHeight()/2);
 				}
 			}
 			// pause
