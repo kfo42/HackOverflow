@@ -30,7 +30,7 @@ public class LogicGameTest extends GraphicsProgram {
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 
 	private double vx = rgen.nextDouble(0.0, 3.0);
-	private double vy = INITIAL_VY;
+	private double vy = rgen.nextDouble(0.0, 3.0);
 
 	private GRect bucket = new GRect (50,10);
 
