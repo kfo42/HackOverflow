@@ -29,17 +29,15 @@ public class LogicGameTest extends GraphicsProgram {
 
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 
-	private double vx = rgen.nextDouble(1.0, 3.0);
-	private double vy = rgen.nextDouble(1.5, 3.0);
-	private double vx2 = rgen.nextDouble(1.0, 3.0);
-	private double vy2 = rgen.nextDouble(1.5, 3.0);
-
+	private double vx = rgen.nextDouble(0.0, 3.0);
+	private double vy = rgen.nextDouble(0.0, 3.0);
 
 	private GRect bucket = new GRect (50,10);
 
 	public void run() {	
-		Ball ball = new Ball(BALL_COLOR, 200, 200);
-		Ball ball2 = new Ball(BALL_COLOR, 100, 200);
+		Ball[] ball = new Ball[];
+		
+		
 		add(ball.getBall());
 		add(ball2.getBall());
 
@@ -47,10 +45,9 @@ public class LogicGameTest extends GraphicsProgram {
 		
 		while(true) {
 			
-		
+		for(int i; i<ball.length; i++)
 			// update visualization
-			move(ball, vx, vy);
-			move(ball2, vx2, vy2);
+			move(ball[i], vx[i], vy[i]);
 			vy += DELTA_VY;
 			// update parameters
 			if(hitLeftWall(ball, vx) || hitRightWall(ball, vx)) {
