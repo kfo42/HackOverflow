@@ -31,7 +31,8 @@ public class LogicGameTest extends GraphicsProgram {
 
 	private double[] vx = new double[300];
 	private double[] vy = new double[300];
-
+	private double[] vx2 = new double[300];
+	private double[] vy2 = new double[300];
 	private GRect bucket = new GRect (50,10);
 	private GRect bucketFrame = new GRect( 60, 20);
 	private double blueHits = 1;
@@ -39,6 +40,7 @@ public class LogicGameTest extends GraphicsProgram {
 	
 	public void run() {	
 		Ball[] ball = new Ball[300];
+		Ball[] ball2 = new Ball[300];
 		add(bucket, getWidth()/2-bucket.getWidth()/2, getHeight()/2-bucket.getHeight()/2);
 
 		for(int j=0; j<ball.length; j++ ){
@@ -46,6 +48,11 @@ public class LogicGameTest extends GraphicsProgram {
 			vy[j] = rgen.nextDouble(1.0, 3.0);
 			ball[j] = new Ball(BALL_COLOR, rgen.nextDouble(0, getWidth()), rgen.nextDouble(0, getHeight()));
 			add(ball[j].getBall());	
+			
+			vx2[j] = rgen.nextDouble(1.0,3.0);
+			vy2[j] = rgen.nextDouble(1.0, 3.0);
+			ball2[j] = new Ball(Color.GREEN, rgen.nextDouble(0, getWidth()), rgen.nextDouble(0, getHeight()));
+			add(ball2[j].getBall());	
 		}
 
 		waitForClick();
