@@ -36,6 +36,7 @@ public class LogicGameTest extends GraphicsProgram {
 
 	public void run() {	
 		Ball[] ball = new Ball[20];
+		add(bucket, getWidth()/2, getHeight()/2);
 		
 		for(int j=0; j<ball.length; j++ ){
 			vx[j] = rgen.nextDouble(1.0,3.0);
