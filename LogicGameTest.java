@@ -35,13 +35,15 @@ public class LogicGameTest extends GraphicsProgram {
 	private GRect bucket = new GRect (50,10);
 
 	public void run() {	
-		Ball ball = new Ball(BALL_COLOR);
-		
+		Ball ball = new Ball(BALL_COLOR, 200, 200);
+	
 		add(ball.getBall(),200,200);
 
 		waitForClick();
 		
 		while(true) {
+			
+		
 			// update visualization
 			move(ball, vx, vy);
 			vy += DELTA_VY;
