@@ -19,7 +19,7 @@ public class LogicGameTest extends GraphicsProgram {
 	/* The amount of acceleration in the y direction */
 	private static final double DELTA_VY = 0.05;
 	/* The size of the ball (in pixels) */
-	private static final int BALL_RADIUS = 15;
+	private static final int BALL_RADIUS = 10;
 	/* The color of the ball */
 	private static final Color BALL_COLOR = Color.BLUE;
 	/* The damping from the force of static friction */
