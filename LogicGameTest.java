@@ -56,7 +56,7 @@ public class LogicGameTest extends GraphicsProgram {
 				move(ball[i], vx[i], vy[i]);
 				
 				
-				if(fillBucket(ball[i])){
+				if(getCollidingObject(ball[i].getBall())==bucket){
 					remove(bucket);
 					bucket.setSize(bucket.getWidth(), bucket.getHeight()*bucketHits);
 					add(bucket);
