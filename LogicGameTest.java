@@ -50,22 +50,24 @@ public class LogicGameTest extends GraphicsProgram {
 		while(true) {
 
 			for(int i=0; i<ball.length; i++){
-				
-				
+
+
 				// update visualization
 				move(ball[i], vx[i], vy[i]);
-				
-				
+
+
 				if(getCollidingObject(ball[i].getBall().getX(), ball[i].getBall().getY())==bucket){
-					
+
 					bucketHits++;
 					if ((bucket.getHeight()*bucketHits)<getHeight()){
-					bucket.setSize(bucket.getWidth(), bucket.getHeight()*.7*bucketHits);
-					
+						bucket.setSize(bucket.getWidth(), bucket.getHeight()*.6*bucketHits);
+						if ((getHeight()-(bucket.getHeight()*bucketHits))/2>0){
+							bucket.setLocation(getWidth()/2-bucket.getWidth()/2, (getHeight()-(bucket.getHeight()*bucketHits))/2);
+						}
 					}
 				}
-				
-				
+
+
 				vy[i] += DELTA_VY;
 				// update parameters
 				if(hitLeftWall(ball[i], vx[i]) || hitRightWall(ball[i], vx[i])) {
@@ -85,11 +87,11 @@ public class LogicGameTest extends GraphicsProgram {
 						}
 					}
 				}
-				
+
 			}
 			// pause
 			pause(DELAY);
-			
+
 		}
 
 
@@ -121,7 +123,7 @@ public class LogicGameTest extends GraphicsProgram {
 			return null;
 		}
 	}
-	
+
 
 	public void move(Ball ball, double vx, double vy){
 		ball.getBall().move(vx, vy);
