@@ -13,7 +13,7 @@ public class LogicGameTest extends GraphicsProgram {
 	/* How much to reduce velocity after a collision */
 	private static final double DAMPING = 0.85;
 	/* Initial speed in the x direction */
-	private static final double INITIAL_VY = 1;
+	private static final double INITIAL_VY = -1;
 	/* Initial speed in the y direction */
 	private static final double INITIAL_VX = 2;
 	/* The amount of acceleration in the y direction */
