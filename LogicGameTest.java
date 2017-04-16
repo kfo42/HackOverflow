@@ -27,9 +27,9 @@ public class LogicGameTest extends GraphicsProgram {
 	/* The damping from the force of friction */
 	private static final double FRICTION = 0.999;
 
+	private RandomGenerator rgen = RandomGenerator.getInstance();
 
-
-	private double vx = INITIAL_VX;
+	private double vx = rgen.nextDouble(0.0, 3.0);
 	private double vy = INITIAL_VY;
 
 	private GRect bucket = new GRect (50,10);
