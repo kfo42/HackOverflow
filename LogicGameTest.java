@@ -48,7 +48,7 @@ public class LogicGameTest extends GraphicsProgram {
 				vx[j] = rgen.nextDouble(1.0,3.0);
 				ball[j] = new Ball(BALL_COLOR, rgen.nextDouble(0, getWidth()), rgen.nextDouble(0, getHeight()));
 			}else{
-				vx[j] = rgen.nextDouble(1.0,3.0);
+				vx[j] = -1*Math.abs(rgen.nextDouble(1.0,3.0));
 				ball[j] = new Ball(Color.GREEN, rgen.nextDouble(0, getWidth()), rgen.nextDouble(0, getHeight()));	
 			}
 			add(ball[j].getBall());	
