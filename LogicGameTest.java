@@ -38,10 +38,11 @@ public class LogicGameTest extends GraphicsProgram {
 		Ball[] ball = new Ball[20];
 		
 		for(int j=0; j<ball.length; j++ ){
+			vx[j] = rgen.nextDouble(1.0,3.0);
+			vy[j] = rgen.nextDouble(1.0, 3.0);
+			ball[j] = new Ball(BALL_COLOR, vx[j], vy[j]);
 			add(ball[j].getBall());	
 		}
-		add(ball[j].getBall());
-		
 
 		waitForClick();
 		
