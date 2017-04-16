@@ -63,7 +63,7 @@ public class LogicGameTest extends GraphicsProgram {
 					if ((bucket.getHeight()*.4*bucketHits)<getHeight()){
 						bucket.setSize(bucket.getWidth(), bucket.getHeight()*.4*bucketHits);
 						if ((getHeight()-(bucket.getHeight()*bucketHits))/2>0){
-							bucket.setLocation(getWidth()/2-bucket.getWidth()/2, (getHeight()/2-(bucket.getHeight()*.4*bucketHits));
+							bucket.setLocation(getWidth()/2-bucket.getWidth()/2, (getHeight()/2-(bucket.getHeight()*.4*bucketHits)));
 						}
 					}
 				}
