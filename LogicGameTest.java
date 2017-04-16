@@ -119,7 +119,9 @@ public class LogicGameTest extends GraphicsProgram {
 		magicKey.setSize(getWidth(), getHeight());
 		add(magicKey, getWidth()/2-magicKey.getWidth()/2,getHeight()/2-magicKey.getHeight()/2);
 		pause(100);
+		
 		GLabel winText = new GLabel("You have unlocked AND");
+		winText.setFont("Comic Sans MS-30");
 		add(winText, getWidth()/2, getHeight()*3/4);
 	
 
