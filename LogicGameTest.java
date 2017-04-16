@@ -57,7 +57,7 @@ public class LogicGameTest extends GraphicsProgram {
 
 		waitForClick();
 
-		while(true) {
+		while(greenHits<400&blueHits<400) {
 
 			for(int i=0; i<ball.length; i++){
 
