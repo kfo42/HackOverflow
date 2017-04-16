@@ -112,7 +112,7 @@ public void move(Ball ball, double vx, double vy){
  */
 public boolean hitBottomWall(Ball ball, double vy) {
 	if(vy < 0) return false;
-	return ball.getBall().getY() > getHeight() - ball.getBall.getHeight();
+	return ball.getBall().getY() > getHeight() - ball.getBall().getHeight();
 }
 
 /**
