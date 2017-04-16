@@ -120,7 +120,7 @@ public class LogicGameTest extends GraphicsProgram {
 		pause(100);
 		GLabel winText = new GLabel("You have unlocked AND");
 		add(winText, getWidth()/2, getHeight()*3/4);
-	}
+	
 
 	}
 
