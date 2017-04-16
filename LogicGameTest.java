@@ -40,7 +40,7 @@ public class LogicGameTest extends GraphicsProgram {
 		for(int j=0; j<ball.length; j++ ){
 			vx[j] = rgen.nextDouble(1.0,3.0);
 			vy[j] = rgen.nextDouble(1.0, 3.0);
-			ball[j] = new Ball(BALL_COLOR, vx[j], vy[j]);
+			ball[j] = new Ball(BALL_COLOR, rgen.nextDouble(0, getWidth()), rgen.nextDouble(0, getHeight()));
 			add(ball[j].getBall());	
 		}
 
@@ -54,19 +54,19 @@ public class LogicGameTest extends GraphicsProgram {
 			vy[i] += DELTA_VY;
 			// update parameters
 			if(hitLeftWall(ball[i], vx[i]) || hitRightWall(ball[i], vx[i])) {
-				vx = -(vx * DAMPING);
+				vx[i] = -(vx[i] * DAMPING);
 			}
-			if(hitTopWall(ball, vy)) {
-				vy = -(vy * DAMPING);
+			if(hitTopWall(ball[i], vy[i])) {
+				vy[i] = -(vy[i] * DAMPING);
 			}
-			if(hitBottomWall(ball, vy)) {
-				vy = -(vy * DAMPING);
+			if(hitBottomWall(ball[i], vy[i])) {
+				vy[i] = -(vy[i] * DAMPING);
 				// if the ball is rolling on the ground.
-				if(Math.abs(vy) < 0.5) {
-					vy = 0.0;
-					vx = vx * FRICTION;
-					if(Math.abs(vx) < STATIC_FRICTION) {
-						vx = 0.0;
+				if(Math.abs(vy[i]) < 0.5) {
+					vy[i] = 0.0;
+					vx[i] = vx[i] * FRICTION;
+					if(Math.abs(vx[i]) < STATIC_FRICTION) {
+						vx[i] = 0.0;
 					}
 				}
 			}
