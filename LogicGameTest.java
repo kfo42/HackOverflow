@@ -36,7 +36,7 @@ public class LogicGameTest extends GraphicsProgram {
 	private double bucketHits = 1;
 	public void run() {	
 		Ball[] ball = new Ball[300];
-		add(bucket, getWidth()/2, getHeight()/2);
+		add(bucket, getWidth()/2-bucket.getWidth()/2, getHeight()/2-bucket.getHeight()/2);
 
 		for(int j=0; j<ball.length; j++ ){
 			vx[j] = rgen.nextDouble(1.0,3.0);
@@ -61,7 +61,7 @@ public class LogicGameTest extends GraphicsProgram {
 					bucketHits++;
 					if ((bucket.getHeight()*bucketHits)<getHeight()){
 					bucket.setSize(bucket.getWidth(), bucket.getHeight()*bucketHits);
-					bucket.setLocation(getWidth()/2, (getHeight()-(bucket.getHeight()*bucketHits))/2);
+					bucket.setLocation(getWidth()/2-bucket.getWidth()/2, (getHeight()-(bucket.getHeight()*bucketHits))/2);
 					}
 				}
 				
