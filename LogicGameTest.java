@@ -9,7 +9,7 @@ import java.awt.event.*;
 public class LogicGameTest extends GraphicsProgram {
 
 	/* How many ms to pause between "heartbeats" */
-	private static final int DELAY = 2;
+	private static final int DELAY = 1;
 	/* How much to reduce velocity after a collision */
 	private static final double DAMPING = 0.85;
 	/* Initial speed in the x direction */
