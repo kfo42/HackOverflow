@@ -42,11 +42,13 @@ public class LogicGameTest extends GraphicsProgram {
 		add(bucket, getWidth()/2-bucket.getWidth()/2, getHeight()/2-bucket.getHeight()/2);
 
 		for(int j=0; j<ball.length; j++ ){
-			vx[j] = rgen.nextDouble(1.0,3.0);
+			
 			vy[j] = rgen.nextDouble(1.0, 3.0);
 			if (j<150){
+				vx[j] = rgen.nextDouble(1.0,3.0);
 				ball[j] = new Ball(BALL_COLOR, rgen.nextDouble(0, getWidth()), rgen.nextDouble(0, getHeight()));
 			}else{
+				vx[j] = rgen.nextDouble(1.0,3.0);
 				ball[j] = new Ball(Color.GREEN, rgen.nextDouble(0, getWidth()), rgen.nextDouble(0, getHeight()));	
 			}
 			add(ball[j].getBall());	
@@ -73,10 +75,10 @@ public class LogicGameTest extends GraphicsProgram {
 					
 					remove(ball[i].getBall());
 					
-					if ((bucket.getHeight()+.02)<getHeight()){
-						bucket.setSize(bucket.getWidth(), bucket.getHeight()+.02);
-						if ((getHeight()-(bucket.getHeight()+.02))/2>0){
-							bucket.setLocation(getWidth()/2-bucket.getWidth()/2, (getHeight()/2-(bucket.getHeight()+.02)));
+					if ((bucket.getHeight()+.2)<getHeight()){
+						bucket.setSize(bucket.getWidth(), bucket.getHeight()+.2);
+						if ((getHeight()-(bucket.getHeight()+.2))/2>0){
+							bucket.setLocation(getWidth()/2-bucket.getWidth()/2, (getHeight()/2-(bucket.getHeight()+.2)));
 						}
 					}
 				}
