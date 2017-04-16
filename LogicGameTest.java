@@ -33,7 +33,7 @@ public class LogicGameTest extends GraphicsProgram {
 	private double[] vy = new double[300];
 
 	private GRect bucket = new GRect (50,10);
-	private double bucketHits = 0;
+	private double bucketHits = 1;
 	public void run() {	
 		Ball[] ball = new Ball[300];
 		add(bucket, getWidth()/2, getHeight()/2);
