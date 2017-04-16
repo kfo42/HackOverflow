@@ -41,7 +41,8 @@ public class LogicGameTest extends GraphicsProgram {
 		Ball[] ball = new Ball[200];
 		
 		add(bucketFrame,getWidth()/2-bucketFrame.getWidth()/2, getHeight()/2-bucketFrame.getHeight()/2);
- 
+		bucket.setColor(Color.CYAN);
+		bucket.setFilled(true);
 		bucket.setFillColor(Color.CYAN);
 		add(bucket, getWidth()/2-bucket.getWidth()/2, getHeight()/2-bucket.getHeight()/2);
 
