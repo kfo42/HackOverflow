@@ -38,13 +38,13 @@ public class LogicGameTest extends GraphicsProgram {
 	private double greenHits = 1;
 
 	public void run() {	
-		Ball[] ball = new Ball[300];
+		Ball[] ball = new Ball[200];
 		add(bucket, getWidth()/2-bucket.getWidth()/2, getHeight()/2-bucket.getHeight()/2);
 
 		for(int j=0; j<ball.length; j++ ){
 			
 			vy[j] = rgen.nextDouble(1.0, 3.0);
-			if (j<150){
+			if (j<100){
 				vx[j] = rgen.nextDouble(1.0,3.0);
 				ball[j] = new Ball(BALL_COLOR, rgen.nextDouble(100, getWidth()/2), rgen.nextDouble(0, getHeight()/4));
 			}else{
