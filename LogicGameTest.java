@@ -29,13 +29,13 @@ public class LogicGameTest extends GraphicsProgram {
 
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 
-	private double[] vx = new double[20];
-	private double[] vy = new double[20];
+	private double[] vx = new double[1000];
+	private double[] vy = new double[1000];
 
 	private GRect bucket = new GRect (50,10);
 	private double bucketHits = 0;
 	public void run() {	
-		Ball[] ball = new Ball[20];
+		Ball[] ball = new Ball[1000];
 		add(bucket, getWidth()/2, getHeight()/2);
 
 		for(int j=0; j<ball.length; j++ ){
