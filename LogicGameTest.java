@@ -97,14 +97,14 @@ public class LogicGameTest extends GraphicsProgram {
 		if (getElementAt (x,y) !=null){
 			GObject collider = getElementAt (x,y);
 			return collider;
-		}else if (getElementAt (x+2*BALL_RADIUS,y) !=null){
+		}else if (getElementAt (x*BALL_RADIUS,y) !=null){
 			GObject collider = getElementAt (x+2*BALL_RADIUS,y);
 			return collider;
-		}else if (getElementAt (x,y+2*BALL_RADIUS) !=null){
+		}else if (getElementAt (x,y+BALL_RADIUS) !=null){
 			GObject collider = getElementAt (x,y+2*BALL_RADIUS);
 			return collider;
-		}else if (getElementAt (x+2*BALL_RADIUS,y+2*BALL_RADIUS) !=null){
-			GObject collider = getElementAt (x+2*BALL_RADIUS,y+2*BALL_RADIUS);
+		}else if (getElementAt (x+BALL_RADIUS,y+BALL_RADIUS) !=null){
+			GObject collider = getElementAt (x+BALL_RADIUS,y+BALL_RADIUS);
 			return collider;
 		}else{
 			return null;
