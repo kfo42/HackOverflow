@@ -29,8 +29,8 @@ public class LogicGameTest extends GraphicsProgram {
 
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 
-	private double[] vx;
-	private double[] vy;
+	private double[] vx = new double[20];
+	private double[] vy = new double[20];
 
 	private GRect bucket = new GRect (50,10);
 
