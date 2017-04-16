@@ -29,23 +29,25 @@ public class LogicGameTest extends GraphicsProgram {
 
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 
-	private double vx = rgen.nextDouble(0.0, 3.0);
-	private double vy = rgen.nextDouble(0.0, 3.0);
+	private double[] vx;
+	private double[] vy;
 
 	private GRect bucket = new GRect (50,10);
 
 	public void run() {	
-		Ball[] ball = new Ball[];
+		Ball[] ball = new Ball[20];
 		
+		for(int j=0; j<ball.length; j++ ){
+			add(ball[j].getBall());	
+		}
+		add(ball[j].getBall());
 		
-		add(ball.getBall());
-		add(ball2.getBall());
 
 		waitForClick();
 		
 		while(true) {
 			
-		for(int i; i<ball.length; i++)
+		for(int i=0; i<ball.length; i++)
 			// update visualization
 			move(ball[i], vx[i], vy[i]);
 			vy += DELTA_VY;
